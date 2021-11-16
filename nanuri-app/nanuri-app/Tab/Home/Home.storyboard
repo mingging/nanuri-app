@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cTd-Bn-jVb">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="PFp-P2-3Lx">
+            <objects>
+                <viewController storyboardIdentifier="homeView" id="9Yp-Ks-may" customClass="HomeViewController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WYN-eZ-ma1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jl7-ZY-szt">
+                                <rect key="frame" x="0.0" y="88" width="414" height="142"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="142" id="E04-7f-bFU"/>
+                                    <constraint firstAttribute="width" constant="414" id="jHb-Ul-Zk5"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OkY-oM-aqI">
+                                <rect key="frame" x="0.0" y="230" width="414" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="237" id="ALk-ve-Uuh" customClass="ProductCustomCell" customModule="nanuri_app" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="237"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ALk-ve-Uuh" id="xg6-HR-tdj">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="237"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WWZ-ZY-KJa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OkY-oM-aqI" firstAttribute="centerX" secondItem="WYN-eZ-ma1" secondAttribute="centerX" id="01m-e1-mvc"/>
+                            <constraint firstItem="Jl7-ZY-szt" firstAttribute="centerX" secondItem="WYN-eZ-ma1" secondAttribute="centerX" id="B6e-Fy-2MR"/>
+                            <constraint firstItem="Jl7-ZY-szt" firstAttribute="leading" secondItem="WWZ-ZY-KJa" secondAttribute="leading" id="HHl-fh-412"/>
+                            <constraint firstItem="OkY-oM-aqI" firstAttribute="leading" secondItem="WWZ-ZY-KJa" secondAttribute="leading" id="V37-Mr-m4V"/>
+                            <constraint firstAttribute="bottom" secondItem="OkY-oM-aqI" secondAttribute="bottom" id="VoU-H7-MW7"/>
+                            <constraint firstItem="Jl7-ZY-szt" firstAttribute="trailing" secondItem="WWZ-ZY-KJa" secondAttribute="trailing" id="aEb-tN-Qp4"/>
+                            <constraint firstItem="OkY-oM-aqI" firstAttribute="trailing" secondItem="WWZ-ZY-KJa" secondAttribute="trailing" id="nza-aL-Zll"/>
+                            <constraint firstItem="OkY-oM-aqI" firstAttribute="top" secondItem="Jl7-ZY-szt" secondAttribute="bottom" id="qno-at-Lxy"/>
+                            <constraint firstItem="Jl7-ZY-szt" firstAttribute="top" secondItem="WWZ-ZY-KJa" secondAttribute="top" id="wxg-TW-hea"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="kKK-dg-SUd"/>
+                    <connections>
+                        <outlet property="tableView" destination="OkY-oM-aqI" id="dlt-4b-QfZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dxs-b6-DuP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1221.7391304347827" y="726.5625"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="tLZ-kd-WdN">
+            <objects>
+                <navigationController storyboardIdentifier="UINavigationController-wN3-ez-dQs" automaticallyAdjustsScrollViewInsets="NO" id="cTd-Bn-jVb" customClass="HeaderController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="0RI-mB-5b2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7HI-7T-0Wr">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9Yp-Ks-may" kind="relationship" relationship="rootViewController" id="FlC-1M-6sT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NTs-6D-jak" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="311.59420289855075" y="726.5625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="banner1.png" width="1045" height="470"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeCell: UITableViewCell {
+class ProductCustomCell: UITableViewCell {
     
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productName: UILabel!
