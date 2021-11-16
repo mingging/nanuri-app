@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wN3-ez-dQs">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -8,23 +8,81 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="s0d-6b-0kx">
+        <!--Home View Controller-->
+        <scene sceneID="R8c-Nj-u1V">
             <objects>
-                <viewController storyboardIdentifier="home" id="Y6W-OH-hqX" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                <viewController storyboardIdentifier="homeView" id="w1X-RJ-ucC" customClass="HomeViewController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pbg-3m-WzC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner1.png" translatesAutoresizingMaskIntoConstraints="NO" id="hUD-JQ-N8I">
+                                <rect key="frame" x="0.0" y="88" width="414" height="142"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="eHy-hA-Lmp"/>
+                                    <constraint firstAttribute="height" constant="142" id="rbK-7H-Gkd"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Jik-XN-rzf">
+                                <rect key="frame" x="0.0" y="230" width="414" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="237" id="aKM-Pu-V4k" customClass="HomeTableViewCell" customModule="nanuri_app" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="237"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aKM-Pu-V4k" id="NJE-Up-SUP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="237"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jyl-Tk-aPy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Jik-XN-rzf" firstAttribute="leading" secondItem="jyl-Tk-aPy" secondAttribute="leading" id="7e6-od-uOb"/>
+                            <constraint firstItem="hUD-JQ-N8I" firstAttribute="top" secondItem="jyl-Tk-aPy" secondAttribute="top" id="HTJ-SZ-EXX"/>
+                            <constraint firstItem="hUD-JQ-N8I" firstAttribute="leading" secondItem="jyl-Tk-aPy" secondAttribute="leading" id="IwF-Mr-VCf"/>
+                            <constraint firstItem="Jik-XN-rzf" firstAttribute="centerX" secondItem="pbg-3m-WzC" secondAttribute="centerX" id="arQ-Kw-PiY"/>
+                            <constraint firstItem="hUD-JQ-N8I" firstAttribute="centerX" secondItem="pbg-3m-WzC" secondAttribute="centerX" id="d8W-aO-nSL"/>
+                            <constraint firstItem="hUD-JQ-N8I" firstAttribute="trailing" secondItem="jyl-Tk-aPy" secondAttribute="trailing" id="smW-sw-nvZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Jik-XN-rzf" secondAttribute="bottom" id="t1T-SB-UEx"/>
+                            <constraint firstItem="Jik-XN-rzf" firstAttribute="trailing" secondItem="jyl-Tk-aPy" secondAttribute="trailing" id="uuI-E6-f6r"/>
+                            <constraint firstItem="Jik-XN-rzf" firstAttribute="top" secondItem="hUD-JQ-N8I" secondAttribute="bottom" id="yPV-WL-aDL"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="gZC-vB-ghG"/>
+                    <connections>
+                        <outlet property="tableView" destination="Jik-XN-rzf" id="DDQ-Wp-sio"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Dm-ox-iGK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="94"/>
+            <point key="canvasLocation" x="1221.7391304347827" y="726.5625"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="a7k-GE-UlX">
+            <objects>
+                <navigationController storyboardIdentifier="UINavigationController-wN3-ez-dQs" automaticallyAdjustsScrollViewInsets="NO" id="wN3-ez-dQs" customClass="HeaderController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="DEp-tR-xDi"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xie-V5-ZeD">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="w1X-RJ-ucC" kind="relationship" relationship="rootViewController" id="Qhy-Ub-59S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aym-Pe-Mqk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="311.59420289855075" y="726.5625"/>
         </scene>
     </scenes>
     <resources>
+        <image name="banner1.png" width="1045" height="470"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
