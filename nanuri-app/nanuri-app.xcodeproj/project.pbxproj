@@ -22,9 +22,12 @@
 		39BE79CC2743408C00452A8E /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE79CB2743408C00452A8E /* Test.swift */; };
 		39BE79CE2743516A00452A8E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BE79CD2743516A00452A8E /* Home.storyboard */; };
 		39BE79D0274351BF00452A8E /* StoryboardIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE79CF274351BF00452A8E /* StoryboardIdentifier.swift */; };
+		630ADF47A35FB5C8AD524051 /* Pods_nanuri_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDB3627BCA5F7686EFF0EDE /* Pods_nanuri_app.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		074F6686FF187B2751F7FFF2 /* Pods-nanuri-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nanuri-app.release.xcconfig"; path = "Target Support Files/Pods-nanuri-app/Pods-nanuri-app.release.xcconfig"; sourceTree = "<group>"; };
+		1EBF4741949AAEF46845C1AE /* Pods-nanuri-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nanuri-app.debug.xcconfig"; path = "Target Support Files/Pods-nanuri-app/Pods-nanuri-app.debug.xcconfig"; sourceTree = "<group>"; };
 		39BE79A327433E3400452A8E /* nanuri-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nanuri-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39BE79A627433E3400452A8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		39BE79A827433E3400452A8E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		39BE79CB2743408C00452A8E /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		39BE79CD2743516A00452A8E /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		39BE79CF274351BF00452A8E /* StoryboardIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifier.swift; sourceTree = "<group>"; };
+		BDDB3627BCA5F7686EFF0EDE /* Pods_nanuri_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nanuri_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,17 +53,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				630ADF47A35FB5C8AD524051 /* Pods_nanuri_app.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29AB72D681126EB6595A2E5F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BDDB3627BCA5F7686EFF0EDE /* Pods_nanuri_app.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		39BE799A27433E3400452A8E = {
 			isa = PBXGroup;
 			children = (
 				39BE79A527433E3400452A8E /* nanuri-app */,
 				39BE79A427433E3400452A8E /* Products */,
+				94EA023BE25D428CE0FF4E6E /* Pods */,
+				29AB72D681126EB6595A2E5F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +149,16 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		94EA023BE25D428CE0FF4E6E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1EBF4741949AAEF46845C1AE /* Pods-nanuri-app.debug.xcconfig */,
+				074F6686FF187B2751F7FFF2 /* Pods-nanuri-app.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,9 +166,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 39BE79B727433E3600452A8E /* Build configuration list for PBXNativeTarget "nanuri-app" */;
 			buildPhases = (
+				B0A9E3E10A0B1DB217FBC965 /* [CP] Check Pods Manifest.lock */,
 				39BE799F27433E3400452A8E /* Sources */,
 				39BE79A027433E3400452A8E /* Frameworks */,
 				39BE79A127433E3400452A8E /* Resources */,
+				82D6DCFCB53C2FD897EFB6EF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -205,6 +232,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		82D6DCFCB53C2FD897EFB6EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-nanuri-app/Pods-nanuri-app-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-nanuri-app/Pods-nanuri-app-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-nanuri-app/Pods-nanuri-app-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0A9E3E10A0B1DB217FBC965 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-nanuri-app-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		39BE799F27433E3400452A8E /* Sources */ = {
@@ -360,6 +429,7 @@
 		};
 		39BE79B827433E3600452A8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EBF4741949AAEF46845C1AE /* Pods-nanuri-app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -387,6 +457,7 @@
 		};
 		39BE79B927433E3600452A8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 074F6686FF187B2751F7FFF2 /* Pods-nanuri-app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
