@@ -16,7 +16,7 @@ class HomeViewController: UIViewController{
         // table view settings
         tableView.delegate = self
         tableView.dataSource = self
-        let nibName = UINib(nibName: "HomeCell", bundle: nil)
+        let nibName = UINib(nibName: "ProductCustomCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "cell")
         tableView.rowHeight = 237
         tableView.separatorStyle = .none
@@ -47,19 +47,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProductCustomCell
 
         
         // progress bar custom
         cell.progress.progressTintColor = UIColor(hex: Theme.secondary.rawValue)
         
+        // view custom
+        cell.dDayView.layer.cornerRadius = 5
+        cell.dDayView.layer.backgroundColor = UIColor(hex: Theme.primary.rawValue)?.cgColor
         
         cell.productName.text = "마이쮸를 좋아한다면?"
         cell.dDay.text = "1"
         
-        // view custom
-        cell.dDayView.layer.cornerRadius = 5
-        cell.dDayView.layer.backgroundColor = UIColor(hex: Theme.primary.rawValue)?.cgColor
+       
         
         return cell
     }
