@@ -17,11 +17,16 @@
 		39BE79C427433EA500452A8E /* NanumSquareRoundOTFEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39BE79BF27433EA100452A8E /* NanumSquareRoundOTFEB.otf */; };
 		39BE79C527433EA700452A8E /* NanumSquareRoundOTFL.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39BE79C127433EA100452A8E /* NanumSquareRoundOTFL.otf */; };
 		39BE79C627433EA900452A8E /* NanumSquareRoundOTFR.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39BE79C227433EA100452A8E /* NanumSquareRoundOTFR.otf */; };
-		39BE79C92743408300452A8E /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE79C72743408300452A8E /* TestTableViewCell.swift */; };
-		39BE79CA2743408300452A8E /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39BE79C82743408300452A8E /* TestTableViewCell.xib */; };
 		39BE79CC2743408C00452A8E /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE79CB2743408C00452A8E /* Test.swift */; };
-		39BE79CE2743516A00452A8E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BE79CD2743516A00452A8E /* Home.storyboard */; };
 		39BE79D0274351BF00452A8E /* StoryboardIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE79CF274351BF00452A8E /* StoryboardIdentifier.swift */; };
+		39BE79D52743577500452A8E /* banner1.png in Resources */ = {isa = PBXBuildFile; fileRef = 39BE79D42743577500452A8E /* banner1.png */; };
+		39BE79D8274357A700452A8E /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE79D6274357A700452A8E /* HomeCell.swift */; };
+		39BE79D9274357A700452A8E /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39BE79D7274357A700452A8E /* HomeCell.xib */; };
+		39BE79DB27435D6600452A8E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE79DA27435D6600452A8E /* HomeViewController.swift */; };
+		39BE79DD274361A100452A8E /* image_sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 39BE79DC274361A100452A8E /* image_sample.png */; };
+		39BE7A00274385C000452A8E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE79FF274385C000452A8E /* Theme.swift */; };
+		39BE7A02274386D400452A8E /* HeaderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE7A01274386D400452A8E /* HeaderController.swift */; };
+		39F38EDF2743BB2B007A15B3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F38EDE2743BB2B007A15B3 /* Home.storyboard */; };
 		630ADF47A35FB5C8AD524051 /* Pods_nanuri_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDB3627BCA5F7686EFF0EDE /* Pods_nanuri_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,11 +45,16 @@
 		39BE79C027433EA100452A8E /* NanumSquareRoundOTFB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFB.otf; sourceTree = "<group>"; };
 		39BE79C127433EA100452A8E /* NanumSquareRoundOTFL.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFL.otf; sourceTree = "<group>"; };
 		39BE79C227433EA100452A8E /* NanumSquareRoundOTFR.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NanumSquareRoundOTFR.otf; sourceTree = "<group>"; };
-		39BE79C72743408300452A8E /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
-		39BE79C82743408300452A8E /* TestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		39BE79CB2743408C00452A8E /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
-		39BE79CD2743516A00452A8E /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		39BE79CF274351BF00452A8E /* StoryboardIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifier.swift; sourceTree = "<group>"; };
+		39BE79D42743577500452A8E /* banner1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner1.png; sourceTree = "<group>"; };
+		39BE79D6274357A700452A8E /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		39BE79D7274357A700452A8E /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
+		39BE79DA27435D6600452A8E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		39BE79DC274361A100452A8E /* image_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_sample.png; sourceTree = "<group>"; };
+		39BE79FF274385C000452A8E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		39BE7A01274386D400452A8E /* HeaderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderController.swift; sourceTree = "<group>"; };
+		39F38EDE2743BB2B007A15B3 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		BDDB3627BCA5F7686EFF0EDE /* Pods_nanuri_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nanuri_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,6 +99,7 @@
 		39BE79A527433E3400452A8E /* nanuri-app */ = {
 			isa = PBXGroup;
 			children = (
+				39BE79D32743575C00452A8E /* sample_images */,
 				39BE79BE27433E8000452A8E /* fonts */,
 				39BE79BD27433E7600452A8E /* Utils */,
 				39BE79BC27433E7100452A8E /* Controller */,
@@ -108,6 +119,7 @@
 			children = (
 				39BE79CB2743408C00452A8E /* Test.swift */,
 				39BE79CF274351BF00452A8E /* StoryboardIdentifier.swift */,
+				39BE79FF274385C000452A8E /* Theme.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -115,8 +127,8 @@
 		39BE79BB27433E6D00452A8E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				39BE79C72743408300452A8E /* TestTableViewCell.swift */,
-				39BE79C82743408300452A8E /* TestTableViewCell.xib */,
+				39BE79D6274357A700452A8E /* HomeCell.swift */,
+				39BE79D7274357A700452A8E /* HomeCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -125,6 +137,8 @@
 			isa = PBXGroup;
 			children = (
 				39BE79AA27433E3400452A8E /* ViewController.swift */,
+				39BE79DA27435D6600452A8E /* HomeViewController.swift */,
+				39BE7A01274386D400452A8E /* HeaderController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -132,8 +146,8 @@
 		39BE79BD27433E7600452A8E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				39F38EDE2743BB2B007A15B3 /* Home.storyboard */,
 				39BE79AC27433E3400452A8E /* Main.storyboard */,
-				39BE79CD2743516A00452A8E /* Home.storyboard */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -149,13 +163,21 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		39BE79D32743575C00452A8E /* sample_images */ = {
+			isa = PBXGroup;
+			children = (
+				39BE79D42743577500452A8E /* banner1.png */,
+				39BE79DC274361A100452A8E /* image_sample.png */,
+			);
+			path = sample_images;
+			sourceTree = "<group>";
+		};
 		94EA023BE25D428CE0FF4E6E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				1EBF4741949AAEF46845C1AE /* Pods-nanuri-app.debug.xcconfig */,
 				074F6686FF187B2751F7FFF2 /* Pods-nanuri-app.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -219,14 +241,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39BE79D9274357A700452A8E /* HomeCell.xib in Resources */,
+				39F38EDF2743BB2B007A15B3 /* Home.storyboard in Resources */,
 				39BE79C527433EA700452A8E /* NanumSquareRoundOTFL.otf in Resources */,
-				39BE79CA2743408300452A8E /* TestTableViewCell.xib in Resources */,
+				39BE79D52743577500452A8E /* banner1.png in Resources */,
 				39BE79C627433EA900452A8E /* NanumSquareRoundOTFR.otf in Resources */,
-				39BE79CE2743516A00452A8E /* Home.storyboard in Resources */,
 				39BE79B327433E3600452A8E /* LaunchScreen.storyboard in Resources */,
 				39BE79B027433E3600452A8E /* Assets.xcassets in Resources */,
 				39BE79C327433EA300452A8E /* NanumSquareRoundOTFB.otf in Resources */,
 				39BE79AE27433E3400452A8E /* Main.storyboard in Resources */,
+				39BE79DD274361A100452A8E /* image_sample.png in Resources */,
 				39BE79C427433EA500452A8E /* NanumSquareRoundOTFEB.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,11 +304,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39BE7A02274386D400452A8E /* HeaderController.swift in Sources */,
 				39BE79AB27433E3400452A8E /* ViewController.swift in Sources */,
+				39BE7A00274385C000452A8E /* Theme.swift in Sources */,
 				39BE79D0274351BF00452A8E /* StoryboardIdentifier.swift in Sources */,
-				39BE79C92743408300452A8E /* TestTableViewCell.swift in Sources */,
+				39BE79D8274357A700452A8E /* HomeCell.swift in Sources */,
 				39BE79CC2743408C00452A8E /* Test.swift in Sources */,
 				39BE79A727433E3400452A8E /* AppDelegate.swift in Sources */,
+				39BE79DB27435D6600452A8E /* HomeViewController.swift in Sources */,
 				39BE79A927433E3400452A8E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
