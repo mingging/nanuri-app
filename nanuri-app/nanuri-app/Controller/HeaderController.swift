@@ -12,7 +12,8 @@ class HeaderController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.backgroundColor = UIColor(hex: Theme.primary.rawValue)
+        navigationBar.backgroundColor = UIColor(hex: Theme.primary.color)
+        navigationBar.barTintColor = UIColor(hex: Theme.primary.color)
         //statusbarView.backgroundColor = UIColor(hex: Theme.primary.rawValue)
     }
     

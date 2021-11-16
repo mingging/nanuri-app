@@ -28,6 +28,8 @@
 		39F38EED2743C14D007A15B3 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F38EEC2743C14D007A15B3 /* List.storyboard */; };
 		39F38EEF2743C1FC007A15B3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F38EEE2743C1FC007A15B3 /* Home.storyboard */; };
 		39F38EF12743C3E9007A15B3 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F38EF02743C3E9007A15B3 /* MyPage.storyboard */; };
+		39F38EF32743CA52007A15B3 /* XibName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F38EF22743CA52007A15B3 /* XibName.swift */; };
+		39F38EF52743CFE4007A15B3 /* ProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F38EF42743CFE4007A15B3 /* ProductDetail.storyboard */; };
 		630ADF47A35FB5C8AD524051 /* Pods_nanuri_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDB3627BCA5F7686EFF0EDE /* Pods_nanuri_app.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		39F38EEC2743C14D007A15B3 /* List.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		39F38EEE2743C1FC007A15B3 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		39F38EF02743C3E9007A15B3 /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		39F38EF22743CA52007A15B3 /* XibName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibName.swift; sourceTree = "<group>"; };
+		39F38EF42743CFE4007A15B3 /* ProductDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductDetail.storyboard; sourceTree = "<group>"; };
 		BDDB3627BCA5F7686EFF0EDE /* Pods_nanuri_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nanuri_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,6 +131,7 @@
 		39BE79BB27433E6D00452A8E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				39F38EF42743CFE4007A15B3 /* ProductDetail.storyboard */,
 				39BE79B127433E3600452A8E /* LaunchScreen.storyboard */,
 				39BE79AC27433E3400452A8E /* Main.storyboard */,
 			);
@@ -146,6 +151,7 @@
 			children = (
 				39BE79FF274385C000452A8E /* Theme.swift */,
 				39F38EE72743BF96007A15B3 /* HexColor.swift */,
+				39F38EF22743CA52007A15B3 /* XibName.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -289,6 +295,7 @@
 				39BE79C527433EA700452A8E /* NanumSquareRoundOTFL.otf in Resources */,
 				39BE79D52743577500452A8E /* banner1.png in Resources */,
 				39BE79C627433EA900452A8E /* NanumSquareRoundOTFR.otf in Resources */,
+				39F38EF52743CFE4007A15B3 /* ProductDetail.storyboard in Resources */,
 				39BE79B327433E3600452A8E /* LaunchScreen.storyboard in Resources */,
 				39BE79B027433E3600452A8E /* Assets.xcassets in Resources */,
 				39BE79C327433EA300452A8E /* NanumSquareRoundOTFB.otf in Resources */,
@@ -354,6 +361,7 @@
 				39BE79D0274351BF00452A8E /* StoryboardIdentifier.swift in Sources */,
 				39BE79D8274357A700452A8E /* ProductCustomCell.swift in Sources */,
 				39BE79A727433E3400452A8E /* AppDelegate.swift in Sources */,
+				39F38EF32743CA52007A15B3 /* XibName.swift in Sources */,
 				39F38EE82743BF96007A15B3 /* HexColor.swift in Sources */,
 				39BE79DB27435D6600452A8E /* HomeViewController.swift in Sources */,
 				39BE79A927433E3400452A8E /* SceneDelegate.swift in Sources */,

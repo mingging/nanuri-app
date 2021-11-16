@@ -16,4 +16,8 @@ enum Theme: String {
     case red = "#FA6464ff"
     case black = "#000000ff"
     case white = "#ffffffff"
+    
+    var color: String {
+            return rawValue
+    }
 }
