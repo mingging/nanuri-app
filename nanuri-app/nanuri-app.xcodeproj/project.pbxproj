@@ -20,6 +20,8 @@
 		39BE79C92743408300452A8E /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE79C72743408300452A8E /* TestTableViewCell.swift */; };
 		39BE79CA2743408300452A8E /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39BE79C82743408300452A8E /* TestTableViewCell.xib */; };
 		39BE79CC2743408C00452A8E /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE79CB2743408C00452A8E /* Test.swift */; };
+		39BE79CE2743516A00452A8E /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39BE79CD2743516A00452A8E /* Home.storyboard */; };
+		39BE79D0274351BF00452A8E /* StoryboardIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE79CF274351BF00452A8E /* StoryboardIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		39BE79C72743408300452A8E /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 		39BE79C82743408300452A8E /* TestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		39BE79CB2743408C00452A8E /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		39BE79CD2743516A00452A8E /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		39BE79CF274351BF00452A8E /* StoryboardIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,10 +75,10 @@
 			isa = PBXGroup;
 			children = (
 				39BE79BE27433E8000452A8E /* fonts */,
-				39BE79BD27433E7600452A8E /* utility */,
-				39BE79BC27433E7100452A8E /* controller */,
-				39BE79BB27433E6D00452A8E /* view */,
-				39BE79BA27433E6800452A8E /* model */,
+				39BE79BD27433E7600452A8E /* Utils */,
+				39BE79BC27433E7100452A8E /* Controller */,
+				39BE79BB27433E6D00452A8E /* View */,
+				39BE79BA27433E6800452A8E /* Model */,
 				39BE79A627433E3400452A8E /* AppDelegate.swift */,
 				39BE79A827433E3400452A8E /* SceneDelegate.swift */,
 				39BE79AF27433E3600452A8E /* Assets.xcassets */,
@@ -84,37 +88,39 @@
 			path = "nanuri-app";
 			sourceTree = "<group>";
 		};
-		39BE79BA27433E6800452A8E /* model */ = {
+		39BE79BA27433E6800452A8E /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				39BE79CB2743408C00452A8E /* Test.swift */,
+				39BE79CF274351BF00452A8E /* StoryboardIdentifier.swift */,
 			);
-			path = model;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		39BE79BB27433E6D00452A8E /* view */ = {
+		39BE79BB27433E6D00452A8E /* View */ = {
 			isa = PBXGroup;
 			children = (
 				39BE79C72743408300452A8E /* TestTableViewCell.swift */,
 				39BE79C82743408300452A8E /* TestTableViewCell.xib */,
 			);
-			path = view;
+			path = View;
 			sourceTree = "<group>";
 		};
-		39BE79BC27433E7100452A8E /* controller */ = {
+		39BE79BC27433E7100452A8E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				39BE79AA27433E3400452A8E /* ViewController.swift */,
 			);
-			path = controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		39BE79BD27433E7600452A8E /* utility */ = {
+		39BE79BD27433E7600452A8E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				39BE79AC27433E3400452A8E /* Main.storyboard */,
+				39BE79CD2743516A00452A8E /* Home.storyboard */,
 			);
-			path = utility;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		39BE79BE27433E8000452A8E /* fonts */ = {
@@ -189,6 +195,7 @@
 				39BE79C527433EA700452A8E /* NanumSquareRoundOTFL.otf in Resources */,
 				39BE79CA2743408300452A8E /* TestTableViewCell.xib in Resources */,
 				39BE79C627433EA900452A8E /* NanumSquareRoundOTFR.otf in Resources */,
+				39BE79CE2743516A00452A8E /* Home.storyboard in Resources */,
 				39BE79B327433E3600452A8E /* LaunchScreen.storyboard in Resources */,
 				39BE79B027433E3600452A8E /* Assets.xcassets in Resources */,
 				39BE79C327433EA300452A8E /* NanumSquareRoundOTFB.otf in Resources */,
@@ -205,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39BE79AB27433E3400452A8E /* ViewController.swift in Sources */,
+				39BE79D0274351BF00452A8E /* StoryboardIdentifier.swift in Sources */,
 				39BE79C92743408300452A8E /* TestTableViewCell.swift in Sources */,
 				39BE79CC2743408C00452A8E /* Test.swift in Sources */,
 				39BE79A727433E3400452A8E /* AppDelegate.swift in Sources */,
