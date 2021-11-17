@@ -7,10 +7,6 @@
 
 import Foundation
 
-enum XibName: String {
-    case ProductCustomCell = "ProductCustomCell"
-    
-    var name: String {
-        return rawValue
-    }
+enum XibName {
+    static let productCustomCell = "ProductCustomCell"
 }

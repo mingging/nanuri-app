@@ -14,12 +14,15 @@
         <array key="NanumSquareRoundOTFEB.otf">
             <string>NanumSquareRoundOTFEB</string>
         </array>
+        <array key="NanumSquareRoundOTFR.otf">
+            <string>NanumSquareRoundOTFR</string>
+        </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Product Detail View Controller-->
         <scene sceneID="LQz-1S-CHr">
             <objects>
-                <viewController id="5f3-Gf-HM8" sceneMemberID="viewController">
+                <viewController id="5f3-Gf-HM8" customClass="ProductDetailViewController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q0f-YL-GeV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,208 +33,312 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_sample.png" translatesAutoresizingMaskIntoConstraints="NO" id="foQ-U4-V2x">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="214"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="414" id="ojA-EZ-Lca"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="214" id="n7G-Cb-j2E"/>
                                             <constraint firstAttribute="height" constant="214" id="pVv-Iu-81V"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxG-Bd-s6h">
-                                        <rect key="frame" x="318" y="128" width="81" height="71"/>
+                                        <rect key="frame" x="339" y="139" width="57" height="57"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="57" id="0Jv-me-OCX"/>
+                                            <constraint firstAttribute="height" constant="57" id="jjx-O5-wbv"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="product_link_button"/>
+                                        <connections>
+                                            <action selector="linkToProduct:" destination="5f3-Gf-HM8" eventType="touchUpInside" id="kPK-M5-cij"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="foQ-U4-V2x" firstAttribute="leading" secondItem="YEc-y5-ITs" secondAttribute="leading" id="4il-m5-ugX"/>
-                                    <constraint firstAttribute="bottom" secondItem="uxG-Bd-s6h" secondAttribute="bottom" constant="15" id="6cb-Dg-mqp"/>
-                                    <constraint firstAttribute="trailing" secondItem="uxG-Bd-s6h" secondAttribute="trailing" constant="15" id="9hx-pY-Atf"/>
+                                    <constraint firstAttribute="bottom" secondItem="uxG-Bd-s6h" secondAttribute="bottom" constant="18" id="6cb-Dg-mqp"/>
+                                    <constraint firstItem="foQ-U4-V2x" firstAttribute="centerX" secondItem="YEc-y5-ITs" secondAttribute="centerX" id="8Z3-Y3-S4J"/>
+                                    <constraint firstAttribute="trailing" secondItem="uxG-Bd-s6h" secondAttribute="trailing" constant="18" id="9hx-pY-Atf"/>
                                     <constraint firstItem="foQ-U4-V2x" firstAttribute="top" secondItem="YEc-y5-ITs" secondAttribute="top" id="U7q-MO-ugB"/>
-                                    <constraint firstAttribute="trailing" secondItem="foQ-U4-V2x" secondAttribute="trailing" id="X7a-q1-6Ak"/>
+                                    <constraint firstItem="foQ-U4-V2x" firstAttribute="leading" secondItem="YEc-y5-ITs" secondAttribute="leading" id="oA4-pM-fMh"/>
                                     <constraint firstAttribute="bottom" secondItem="foQ-U4-V2x" secondAttribute="bottom" id="w8M-wS-ZY1"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="YDr-j6-dmK">
-                                <rect key="frame" x="20" y="274" width="374" height="99"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="o9c-KS-itQ">
+                                <rect key="frame" x="20" y="274" width="374" height="97.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="o9c-KS-itQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="373.5" height="99"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# 생활용품" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgy-8y-P75">
+                                        <rect key="frame" x="0.0" y="0.0" width="54.5" height="12"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFEB" family="NanumSquareRoundOTF" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3PX-CC-Ye0">
+                                        <rect key="frame" x="0.0" y="19" width="374" height="22.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# 생활용품" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tgy-8y-P75">
-                                                <rect key="frame" x="0.0" y="0.0" width="54.5" height="13.5"/>
-                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFEB" family="NanumSquareRoundOTF" pointSize="12"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="마이쭈가 좋아하는 마이쮸" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRZ-Ko-KRU">
+                                                <rect key="frame" x="0.0" y="0.0" width="230" height="22.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="230" id="yts-T7-WoY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFEB" family="NanumSquareRoundOTF" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="204" translatesAutoresizingMaskIntoConstraints="NO" id="3PX-CC-Ye0">
-                                                <rect key="frame" x="0.0" y="20.5" width="373.5" height="22.5"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="로스팅 원두" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRZ-Ko-KRU">
-                                                        <rect key="frame" x="0.0" y="0.0" width="96" height="22.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="180" id="tS6-xh-cfF"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFEB" family="NanumSquareRoundOTF" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3,500원" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwP-Zh-yYI">
-                                                        <rect key="frame" x="300" y="0.0" width="73.5" height="22.5"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="Cfs-SC-XB5"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFEB" family="NanumSquareRoundOTF" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3,500원" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwP-Zh-yYI">
+                                                <rect key="frame" x="230" y="0.0" width="144" height="22.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="EwP-Zh-yYI" secondAttribute="trailing" id="kAB-Sy-c9d"/>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="Cfs-SC-XB5"/>
                                                 </constraints>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="184" translatesAutoresizingMaskIntoConstraints="NO" id="TeW-Gw-zd2">
-                                                <rect key="frame" x="0.0" y="50" width="373" height="17"/>
+                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFEB" family="NanumSquareRoundOTF" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="374" id="Ixh-CJ-JaK"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="170" translatesAutoresizingMaskIntoConstraints="NO" id="TeW-Gw-zd2">
+                                        <rect key="frame" x="0.0" y="48.5" width="374" height="17"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="Cy8-1k-edE">
+                                                <rect key="frame" x="0.0" y="0.0" width="137.5" height="17"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Cy8-1k-edE">
-                                                        <rect key="frame" x="0.0" y="0.0" width="143.5" height="17"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021.11.16" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Q0-3i-dVE">
-                                                                <rect key="frame" x="0.0" y="0.0" width="65" height="17"/>
-                                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="12"/>
-                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keT-c7-q5G">
-                                                                <rect key="frame" x="68" y="0.0" width="7.5" height="17"/>
-                                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="12"/>
-                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021.11.19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rV7-9P-nNp">
-                                                                <rect key="frame" x="78.5" y="0.0" width="65" height="17"/>
-                                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="12"/>
-                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="200" id="O94-7L-5wa"/>
-                                                        </constraints>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="qh9-jA-JWO">
-                                                        <rect key="frame" x="327.5" y="0.0" width="45.5" height="17"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLf-nB-Kao">
-                                                                <rect key="frame" x="0.0" y="0.0" width="9.5" height="17"/>
-                                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
-                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyA-BL-5M2">
-                                                                <rect key="frame" x="11.5" y="0.0" width="6.5" height="17"/>
-                                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
-                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyq-U7-DWD">
-                                                                <rect key="frame" x="20" y="0.0" width="9.5" height="17"/>
-                                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
-                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbp-2w-vh3">
-                                                                <rect key="frame" x="31.5" y="0.0" width="14" height="17"/>
-                                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
-                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="rSr-rM-G1z"/>
-                                                        </constraints>
-                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="2021.11.16" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Q0-3i-dVE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="65" height="17"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="12"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keT-c7-q5G">
+                                                        <rect key="frame" x="65" y="0.0" width="7.5" height="17"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="12"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="2021.11.19" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rV7-9P-nNp">
+                                                        <rect key="frame" x="72.5" y="0.0" width="65" height="17"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="12"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ShT-90-rKR">
-                                                <rect key="frame" x="0.0" y="74" width="146" height="25"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="qh9-jA-JWO">
+                                                <rect key="frame" x="328.5" y="0.0" width="45.5" height="17"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="diD-Ev-EAh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="69" height="25"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLf-nB-Kao">
+                                                        <rect key="frame" x="0.0" y="0.0" width="9.5" height="17"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyA-BL-5M2">
+                                                        <rect key="frame" x="11.5" y="0.0" width="6.5" height="17"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyq-U7-DWD">
+                                                        <rect key="frame" x="20" y="0.0" width="9.5" height="17"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nbp-2w-vh3">
+                                                        <rect key="frame" x="31.5" y="0.0" width="14" height="17"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ShT-90-rKR">
+                                        <rect key="frame" x="0.0" y="72.5" width="146" height="25"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="diD-Ev-EAh">
+                                                <rect key="frame" x="0.0" y="0.0" width="69" height="25"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="mNq-jm-ONh">
+                                                        <rect key="frame" x="19.5" y="5.5" width="30" height="14"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="mNq-jm-ONh">
-                                                                <rect key="frame" x="19.5" y="5.5" width="30.5" height="14.5"/>
-                                                                <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZU5-36-tsz">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="18" height="14.5"/>
-                                                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFEB" family="NanumSquareRoundOTF" pointSize="13"/>
-                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCW-At-hTY">
-                                                                        <rect key="frame" x="22" y="0.0" width="8.5" height="14.5"/>
-                                                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFEB" family="NanumSquareRoundOTF" pointSize="13"/>
-                                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                </subviews>
-                                                            </stackView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstItem="mNq-jm-ONh" firstAttribute="centerY" secondItem="diD-Ev-EAh" secondAttribute="centerY" id="Fgc-AF-awg"/>
-                                                            <constraint firstItem="mNq-jm-ONh" firstAttribute="centerX" secondItem="diD-Ev-EAh" secondAttribute="centerX" id="L8S-b2-hMH"/>
-                                                            <constraint firstAttribute="height" constant="25" id="TvD-82-BtM"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Blu-0t-3Nt">
-                                                        <rect key="frame" x="77" y="0.0" width="69" height="25"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="배송" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhS-6p-O1y">
-                                                                <rect key="frame" x="22.5" y="5.5" width="24" height="14.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="D -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZU5-36-tsz">
+                                                                <rect key="frame" x="0.0" y="0.0" width="18" height="14"/>
+                                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFEB" family="NanumSquareRoundOTF" pointSize="13"/>
+                                                                <color key="textColor" red="0.90588241815567017" green="0.78823542594909668" blue="0.70196086168289185" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCW-At-hTY">
+                                                                <rect key="frame" x="22" y="0.0" width="8" height="14"/>
                                                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFEB" family="NanumSquareRoundOTF" pointSize="13"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstItem="JhS-6p-O1y" firstAttribute="centerY" secondItem="Blu-0t-3Nt" secondAttribute="centerY" id="3h8-DD-daG"/>
-                                                            <constraint firstAttribute="height" constant="25" id="E8M-Du-FXV"/>
-                                                            <constraint firstItem="JhS-6p-O1y" firstAttribute="centerX" secondItem="Blu-0t-3Nt" secondAttribute="centerX" id="lla-fN-Yfq"/>
-                                                        </constraints>
-                                                    </view>
+                                                    </stackView>
                                                 </subviews>
-                                            </stackView>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="mNq-jm-ONh" firstAttribute="centerY" secondItem="diD-Ev-EAh" secondAttribute="centerY" id="Fgc-AF-awg"/>
+                                                    <constraint firstItem="mNq-jm-ONh" firstAttribute="top" secondItem="diD-Ev-EAh" secondAttribute="top" constant="5.5" id="KPI-Rn-jNu"/>
+                                                    <constraint firstItem="mNq-jm-ONh" firstAttribute="centerX" secondItem="diD-Ev-EAh" secondAttribute="centerX" id="L8S-b2-hMH"/>
+                                                    <constraint firstAttribute="height" constant="25" id="TvD-82-BtM"/>
+                                                    <constraint firstItem="mNq-jm-ONh" firstAttribute="leading" secondItem="diD-Ev-EAh" secondAttribute="leading" constant="19.5" id="rGk-DY-nU8"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Blu-0t-3Nt">
+                                                <rect key="frame" x="77" y="0.0" width="69" height="25"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="배송" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JhS-6p-O1y">
+                                                        <rect key="frame" x="22.5" y="5.5" width="24" height="14"/>
+                                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFEB" family="NanumSquareRoundOTF" pointSize="13"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="JhS-6p-O1y" firstAttribute="centerY" secondItem="Blu-0t-3Nt" secondAttribute="centerY" id="3h8-DD-daG"/>
+                                                    <constraint firstAttribute="height" constant="25" id="E8M-Du-FXV"/>
+                                                    <constraint firstItem="JhS-6p-O1y" firstAttribute="centerX" secondItem="Blu-0t-3Nt" secondAttribute="centerX" id="lla-fN-Yfq"/>
+                                                    <constraint firstItem="JhS-6p-O1y" firstAttribute="top" secondItem="Blu-0t-3Nt" secondAttribute="top" constant="5.5" id="vfW-wM-d8e"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="3dO-cu-B33"/>
+                                            <constraint firstAttribute="width" constant="146" id="69h-Jy-fhn"/>
+                                            <constraint firstItem="Blu-0t-3Nt" firstAttribute="leading" secondItem="ShT-90-rKR" secondAttribute="leading" constant="77" id="OYw-lF-Yav"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="TeW-Gw-zd2" firstAttribute="leading" secondItem="o9c-KS-itQ" secondAttribute="leading" id="9GN-7u-P23"/>
+                                    <constraint firstAttribute="height" constant="97.5" id="PJ4-1t-2yV"/>
+                                    <constraint firstAttribute="trailing" secondItem="TeW-Gw-zd2" secondAttribute="trailing" id="ydR-Wa-Hjv"/>
+                                </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="진행 방법" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flT-Af-axK">
-                                <rect key="frame" x="20" y="389" width="39" height="11.5"/>
-                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="10"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="진행 방법" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flT-Af-axK">
+                                <rect key="frame" x="20" y="387.5" width="51" height="13"/>
+                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRz-qw-AsC">
-                                <rect key="frame" x="331" y="379" width="41" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDX-kW-7Te">
+                                <rect key="frame" x="20" y="408.5" width="374" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Mjg-F3-b4D"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="uv5-7q-ARo">
+                                <rect key="frame" x="380" y="383" width="14" height="22"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chat_icon" translatesAutoresizingMaskIntoConstraints="NO" id="uIL-6z-q1I">
+                                        <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="17A-mr-gwH"/>
+                                            <constraint firstAttribute="height" constant="14" id="1Gc-aM-KbL"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evh-re-y4V">
+                                        <rect key="frame" x="0.0" y="16" width="14" height="6"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="8"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="atV-3G-LSe"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZRz-qw-AsC">
+                                <rect key="frame" x="352" y="383" width="17" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="17" id="HGA-hg-bg4"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="heart_fill" imagePadding="0.0"/>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="hAM-Fd-Hn3">
+                                <rect key="frame" x="311" y="416.5" width="83" height="11.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="작성자 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1CW-sg-NOP">
+                                        <rect key="frame" x="0.0" y="0.0" width="36.5" height="11.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="11.5" id="VmB-vV-Zxr"/>
+                                            <constraint firstAttribute="width" constant="36.5" id="b4e-go-vEv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="10"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로자취러" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVM-VY-DGg">
+                                        <rect key="frame" x="37.5" y="0.0" width="45.5" height="11.5"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkp-bR-Awz">
+                                <rect key="frame" x="20" y="443" width="374" height="419"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SVN-02-M4p"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YDr-j6-dmK" firstAttribute="centerX" secondItem="q0f-YL-GeV" secondAttribute="centerX" id="3lP-3S-Zxy"/>
-                            <constraint firstItem="SVN-02-M4p" firstAttribute="trailing" secondItem="YDr-j6-dmK" secondAttribute="trailing" constant="20" id="IhN-FW-yYN"/>
-                            <constraint firstItem="flT-Af-axK" firstAttribute="top" secondItem="YDr-j6-dmK" secondAttribute="bottom" constant="16" id="Rv8-ew-rwV"/>
+                            <constraint firstItem="o9c-KS-itQ" firstAttribute="leading" secondItem="SVN-02-M4p" secondAttribute="leading" constant="20" id="2Uz-2Y-C7O"/>
+                            <constraint firstItem="SVN-02-M4p" firstAttribute="trailing" secondItem="hAM-Fd-Hn3" secondAttribute="trailing" constant="20" id="4cN-hw-f7R"/>
+                            <constraint firstItem="bkp-bR-Awz" firstAttribute="leading" secondItem="EDX-kW-7Te" secondAttribute="leading" id="65w-hp-X0Z"/>
+                            <constraint firstItem="SVN-02-M4p" firstAttribute="trailing" secondItem="EDX-kW-7Te" secondAttribute="trailing" constant="20" id="6xs-Gb-nWu"/>
+                            <constraint firstItem="bkp-bR-Awz" firstAttribute="leading" secondItem="flT-Af-axK" secondAttribute="leading" id="9lb-Z7-vD5"/>
+                            <constraint firstItem="ZRz-qw-AsC" firstAttribute="top" secondItem="uIL-6z-q1I" secondAttribute="top" id="9z1-ta-QB7"/>
+                            <constraint firstItem="SVN-02-M4p" firstAttribute="trailing" secondItem="uv5-7q-ARo" secondAttribute="trailing" constant="20" id="Aa9-l4-xXM"/>
+                            <constraint firstItem="EDX-kW-7Te" firstAttribute="leading" secondItem="SVN-02-M4p" secondAttribute="leading" constant="20" id="Gfz-NJ-Dn6"/>
+                            <constraint firstItem="hAM-Fd-Hn3" firstAttribute="top" secondItem="EDX-kW-7Te" secondAttribute="bottom" constant="7" id="OrQ-AS-SPs"/>
+                            <constraint firstItem="hAM-Fd-Hn3" firstAttribute="top" secondItem="EDX-kW-7Te" secondAttribute="bottom" constant="7" id="Q39-8v-Fxl"/>
+                            <constraint firstItem="SVN-02-M4p" firstAttribute="trailing" secondItem="bkp-bR-Awz" secondAttribute="trailing" constant="20" id="S7N-cd-Ch0"/>
+                            <constraint firstItem="EDX-kW-7Te" firstAttribute="top" secondItem="uv5-7q-ARo" secondAttribute="bottom" constant="3.5" id="SSX-kl-osf"/>
+                            <constraint firstItem="o9c-KS-itQ" firstAttribute="top" secondItem="YEc-y5-ITs" secondAttribute="bottom" constant="16" id="UGA-8v-18a"/>
+                            <constraint firstItem="YEc-y5-ITs" firstAttribute="leading" secondItem="SVN-02-M4p" secondAttribute="leading" id="UhG-fJ-Ttc"/>
+                            <constraint firstItem="EDX-kW-7Te" firstAttribute="top" secondItem="ZRz-qw-AsC" secondAttribute="bottom" constant="8.5" id="WzE-Rm-HJK"/>
+                            <constraint firstItem="EDX-kW-7Te" firstAttribute="top" secondItem="flT-Af-axK" secondAttribute="bottom" constant="8" id="Xai-xT-gAm"/>
+                            <constraint firstItem="bkp-bR-Awz" firstAttribute="top" secondItem="hAM-Fd-Hn3" secondAttribute="bottom" constant="15" id="Yxx-iv-HuT"/>
+                            <constraint firstItem="uv5-7q-ARo" firstAttribute="top" secondItem="o9c-KS-itQ" secondAttribute="bottom" constant="11.5" id="es7-UE-9Bq"/>
+                            <constraint firstItem="uv5-7q-ARo" firstAttribute="leading" secondItem="ZRz-qw-AsC" secondAttribute="trailing" constant="11" id="fNj-a9-xaV"/>
+                            <constraint firstItem="bkp-bR-Awz" firstAttribute="trailing" secondItem="EDX-kW-7Te" secondAttribute="trailing" id="gEM-P2-pvA"/>
                             <constraint firstItem="YEc-y5-ITs" firstAttribute="top" secondItem="SVN-02-M4p" secondAttribute="top" id="gX5-VZ-Fi2"/>
-                            <constraint firstItem="YEc-y5-ITs" firstAttribute="leading" secondItem="SVN-02-M4p" secondAttribute="leading" id="ggi-QV-slf"/>
-                            <constraint firstItem="SVN-02-M4p" firstAttribute="trailing" secondItem="YEc-y5-ITs" secondAttribute="trailing" id="lyi-NE-psr"/>
-                            <constraint firstItem="YDr-j6-dmK" firstAttribute="top" secondItem="YEc-y5-ITs" secondAttribute="bottom" constant="16" id="yaa-Qw-c1g"/>
-                            <constraint firstItem="YDr-j6-dmK" firstAttribute="leading" secondItem="SVN-02-M4p" secondAttribute="leading" constant="20" id="zvE-Xv-xPJ"/>
+                            <constraint firstItem="ZRz-qw-AsC" firstAttribute="top" secondItem="q0f-YL-GeV" secondAttribute="top" constant="383" id="nig-ue-wRW"/>
+                            <constraint firstItem="YEc-y5-ITs" firstAttribute="centerX" secondItem="o9c-KS-itQ" secondAttribute="centerX" id="obg-Um-CUn"/>
+                            <constraint firstItem="bkp-bR-Awz" firstAttribute="leading" secondItem="SVN-02-M4p" secondAttribute="leading" constant="20" id="pTp-Vr-noZ"/>
+                            <constraint firstItem="bkp-bR-Awz" firstAttribute="bottom" secondItem="SVN-02-M4p" secondAttribute="bottom" id="pTu-yW-uu9"/>
+                            <constraint firstItem="uv5-7q-ARo" firstAttribute="centerY" secondItem="flT-Af-axK" secondAttribute="centerY" id="rOu-Ca-IgN"/>
+                            <constraint firstItem="SVN-02-M4p" firstAttribute="trailing" secondItem="o9c-KS-itQ" secondAttribute="trailing" constant="20" id="sBF-wo-REo"/>
+                            <constraint firstItem="uv5-7q-ARo" firstAttribute="leading" secondItem="ZRz-qw-AsC" secondAttribute="trailing" constant="11" id="wQV-DX-ayt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="a5U-dF-s4T"/>
+                    <connections>
+                        <outlet property="categoryLabel" destination="tgy-8y-P75" id="fec-9V-pnQ"/>
+                        <outlet property="commentCountLabel" destination="evh-re-y4V" id="Jns-5z-4qX"/>
+                        <outlet property="currentPeopleLabel" destination="JLf-nB-Kao" id="znS-kz-72H"/>
+                        <outlet property="dDayLabel" destination="kCW-At-hTY" id="s3C-yV-JrJ"/>
+                        <outlet property="dDayView" destination="diD-Ev-EAh" id="elS-mN-7Ky"/>
+                        <outlet property="deliveryLabel" destination="JhS-6p-O1y" id="Xrj-GS-vhM"/>
+                        <outlet property="deliveryView" destination="Blu-0t-3Nt" id="Irn-P5-VnK"/>
+                        <outlet property="endDayLabel" destination="rV7-9P-nNp" id="PwO-M6-MvP"/>
+                        <outlet property="nicNameLabel" destination="LVM-VY-DGg" id="MQl-Ff-djE"/>
+                        <outlet property="priceLabel" destination="EwP-Zh-yYI" id="DTg-fL-goz"/>
+                        <outlet property="processText" destination="bkp-bR-Awz" id="x4v-xR-uVw"/>
+                        <outlet property="productNameLabel" destination="mRZ-Ko-KRU" id="UIl-fK-n8y"/>
+                        <outlet property="startDayLabel" destination="2Q0-3i-dVE" id="wxD-ey-vL4"/>
+                        <outlet property="totalPeopleLabel" destination="qyq-U7-DWD" id="fRV-WC-rlp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEl-tb-H8w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -239,9 +346,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chat_icon" width="14" height="14"/>
         <image name="heart_fill" width="17" height="17"/>
         <image name="image_sample.png" width="327" height="122"/>
         <image name="product_link_button" width="57" height="57"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

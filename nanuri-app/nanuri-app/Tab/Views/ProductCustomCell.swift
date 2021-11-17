@@ -9,18 +9,20 @@ import UIKit
 
 class ProductCustomCell: UITableViewCell {
     
-    @IBOutlet weak var productImage: UIImageView!
-    @IBOutlet weak var productName: UILabel!
-    @IBOutlet weak var currentPeople: UILabel!
-    @IBOutlet weak var totalPeople: UILabel!
+    // MARK: - Product Outlet
     
-    @IBOutlet weak var startDate: UILabel!
-    @IBOutlet weak var endDate: UILabel!
+    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var currentPeopleLabel: UILabel!
+    @IBOutlet weak var totalPeopleLabel: UILabel!
+    
+    @IBOutlet weak var startDateLabel: UILabel!
+    @IBOutlet weak var endDateLabel: UILabel!
     
     @IBOutlet weak var progress: UIProgressView!
-    @IBOutlet weak var processPercentage: UILabel!
+    @IBOutlet weak var processPercentageLabel: UILabel!
     
-    @IBOutlet weak var dDay: UILabel!
+    @IBOutlet weak var dDayLabel: UILabel!
     
     @IBOutlet weak var dDayView: UIView!
     
