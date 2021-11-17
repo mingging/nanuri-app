@@ -27,8 +27,6 @@ class HomeViewController: HeaderViewController {
         // custom cell
         let nibName = UINib(nibName: XibName.productCustomCell, bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "cell")
-        
-//        navigationItem.titleView?.tintColor = .white
                 
     }
     
