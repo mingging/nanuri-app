@@ -283,7 +283,25 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkp-bR-Awz">
                                 <rect key="frame" x="20" y="443" width="374" height="419"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <mutableString key="text">로스팅 원두 배송합니다!
+코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
+
+가격은 배송비 포함해서 + 1000원이구요 
+주문주실 때 주소 적어주세요!
+
+로스팅 원두 배송합니다!
+코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
+
+가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!
+로스팅 원두 배송합니다!
+코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
+
+가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!
+
+로스팅 원두 배송합니다!
+코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
+
+가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!</mutableString>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
