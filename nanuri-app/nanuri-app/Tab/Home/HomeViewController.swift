@@ -7,7 +7,12 @@
 
 import UIKit
 
+
+//MARK: - Home
+
 class HomeViewController: UIViewController{
+    
+    let rowHeight:CGFloat = 237
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -16,10 +21,12 @@ class HomeViewController: UIViewController{
         // table view settings
         tableView.delegate = self
         tableView.dataSource = self
-        let nibName = UINib(nibName: "ProductCustomCell", bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: "cell")
-        tableView.rowHeight = 237
+        tableView.rowHeight = rowHeight
         tableView.separatorStyle = .none
+        
+        // custom cell
+        let nibName = UINib(nibName: XibName.productCustomCell, bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: "cell")
                 
     }
     
@@ -36,6 +43,8 @@ class HomeViewController: UIViewController{
 
 }
 
+//MARK: - UITableViewDelegate, DataSource
+
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -46,19 +55,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return 10
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProductCustomCell
-
         
         // progress bar custom
-        cell.progress.progressTintColor = UIColor(hex: Theme.secondary.rawValue)
+        cell.progress.progressTintColor = UIColor(hex: Theme.secondary)
         
         // view custom
-        cell.dDayView.layer.cornerRadius = 5
-        cell.dDayView.layer.backgroundColor = UIColor(hex: Theme.primary.rawValue)?.cgColor
+        cell.dDayView.layer.cornerRadius = Style.radius
+        cell.dDayLabel.textColor = UIColor(hex: Theme.secondary)
+        cell.dDayView.layer.backgroundColor = UIColor(hex: Theme.primary)?.cgColor
+        cell.productNameLabel.textColor = UIColor(hex: Theme.primary)
         
-        cell.productName.text = "마이쮸를 좋아한다면?"
-        cell.dDay.text = "1"
+        cell.productNameLabel.text = "마이쮸를 좋아한다면?"
+        cell.dDayLabel.text = "1"
         
        
         

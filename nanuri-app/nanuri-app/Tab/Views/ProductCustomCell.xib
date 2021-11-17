@@ -162,7 +162,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abs-4i-FAD">
                                                 <rect key="frame" x="0.0" y="0.0" width="18" height="14.5"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFEB" family="NanumSquareRoundOTF" pointSize="13"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" red="0.90588235294117647" green="0.78823529411764703" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nn6-qJ-iam">
@@ -215,16 +215,16 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="currentPeople" destination="pkt-oP-L2Y" id="V1p-Pt-Qg6"/>
-                <outlet property="dDay" destination="nn6-qJ-iam" id="1k2-Zn-rUV"/>
+                <outlet property="currentPeopleLabel" destination="pkt-oP-L2Y" id="G15-Z9-lBg"/>
+                <outlet property="dDayLabel" destination="nn6-qJ-iam" id="EZj-Gh-iKO"/>
                 <outlet property="dDayView" destination="fHc-Rw-KFq" id="HGS-wA-hLo"/>
-                <outlet property="endDate" destination="2Hm-Yx-gQ6" id="UqR-VL-fQE"/>
-                <outlet property="processPercentage" destination="sMQ-gb-e2H" id="lrB-Wc-Uu0"/>
+                <outlet property="endDateLabel" destination="2Hm-Yx-gQ6" id="c3r-4g-HSb"/>
+                <outlet property="processPercentageLabel" destination="sMQ-gb-e2H" id="ARf-oV-i0B"/>
                 <outlet property="productImage" destination="ClU-vD-zUc" id="2Bh-Um-yln"/>
-                <outlet property="productName" destination="8Ec-ld-7Ky" id="OqE-QO-jgN"/>
+                <outlet property="productNameLabel" destination="8Ec-ld-7Ky" id="McB-SC-bpc"/>
                 <outlet property="progress" destination="4E3-81-BG1" id="aak-mE-UN8"/>
-                <outlet property="startDate" destination="fHt-Ws-Bkk" id="cKE-Bv-xbu"/>
-                <outlet property="totalPeople" destination="ML6-0u-cDY" id="PL5-Ut-Rb2"/>
+                <outlet property="startDateLabel" destination="fHt-Ws-Bkk" id="jD8-s3-DlJ"/>
+                <outlet property="totalPeopleLabel" destination="ML6-0u-cDY" id="4CI-Oi-7XK"/>
             </connections>
             <point key="canvasLocation" x="81.159420289855078" y="108.14732142857143"/>
         </tableViewCell>
