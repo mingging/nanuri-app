@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="1086" y="566"/>
         </scene>
-        <!--View Controller-->
+        <!--List View Controller-->
         <scene sceneID="nS7-p8-Gy2">
             <objects>
-                <viewController id="uWo-Yr-cRm" sceneMemberID="viewController">
+                <viewController id="uWo-Yr-cRm" customClass="ListViewController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s6a-Ux-tHk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

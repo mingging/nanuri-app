@@ -10,7 +10,7 @@ import UIKit
 
 //MARK: - Home
 
-class HomeViewController: UIViewController{
+class HomeViewController: HeaderViewController {
     
     let rowHeight:CGFloat = 237
 
@@ -27,6 +27,8 @@ class HomeViewController: UIViewController{
         // custom cell
         let nibName = UINib(nibName: XibName.productCustomCell, bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: "cell")
+        
+//        navigationItem.titleView?.tintColor = .white
                 
     }
     
@@ -76,5 +78,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    
+}
+
+extension HomeViewController {
+    
+    //MARK: - BarButtonItem Action
+    
+    // bar buttonitme custom
     
 }
