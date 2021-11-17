@@ -10,7 +10,7 @@ import UIKit
 
 //MARK: - Home
 
-class HomeViewController: UIViewController{
+class HomeViewController: HeaderViewController {
     
     let rowHeight:CGFloat = 237
 
@@ -76,5 +76,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    
+}
+
+extension HomeViewController {
+    
+    //MARK: - BarButtonItem Action
+    
+    // bar buttonitme custom
     
 }

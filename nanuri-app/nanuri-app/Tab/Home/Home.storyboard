@@ -31,7 +31,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBC-VY-lsc">
-                                <rect key="frame" x="323" y="775" width="76" height="66"/>
+                                <rect key="frame" x="323" y="726" width="76" height="66"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="floating_button"/>
                                 <connections>
@@ -62,7 +62,11 @@
                             <constraint firstItem="Jl7-ZY-szt" firstAttribute="top" secondItem="WWZ-ZY-KJa" secondAttribute="top" id="wxg-TW-hea"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="w0a-bG-Efi"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="kKK-dg-SUd"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="OkY-oM-aqI" id="dlt-4b-QfZ"/>
                     </connections>
@@ -74,7 +78,7 @@
         <!--Item-->
         <scene sceneID="tLZ-kd-WdN">
             <objects>
-                <navigationController storyboardIdentifier="UINavigationController-wN3-ez-dQs" automaticallyAdjustsScrollViewInsets="NO" id="cTd-Bn-jVb" customClass="HeaderController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="UINavigationController-wN3-ez-dQs" automaticallyAdjustsScrollViewInsets="NO" id="cTd-Bn-jVb" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="0RI-mB-5b2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7HI-7T-0Wr">

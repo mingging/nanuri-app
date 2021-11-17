@@ -1,20 +1,18 @@
 //
-//  HeaderController.swift
+//  ListViewController.swift
 //  nanuri-app
 //
-//  Created by minimani on 2021/11/16.
+//  Created by minimani on 2021/11/17.
 //
 
 import UIKit
 
-class HeaderController: UINavigationController {
-    
+class ListViewController: HeaderViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationBar.backgroundColor = UIColor(hex: Theme.primary)
-        navigationBar.barTintColor = UIColor(hex: Theme.primary)
-        //statusbarView.backgroundColor = UIColor(hex: Theme.primary.rawValue)
+        // Do any additional setup after loading the view.
     }
     
 
@@ -29,4 +27,3 @@ class HeaderController: UINavigationController {
     */
 
 }
-
