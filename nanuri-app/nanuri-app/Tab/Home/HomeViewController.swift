@@ -92,6 +92,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.cellView.layer.shadowRadius = Style.radius
         cell.cellView.layer.cornerRadius = Style.radius
         cell.cellView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        
+        cell.selectionStyle = .none
 
         cell.productNameLabel.text = "캐모마일 45티백 박스"
         cell.dDayLabel.text = "1"
