@@ -54,9 +54,9 @@ class HeaderViewController: UIViewController {
     }
     
     @objc func clickToNotice(sender: UIBarButtonItem) {
-        let noticeView = UIStoryboard(name: StoryboardID.notice.capitalized, bundle: nil)
+        let noticeView = UIStoryboard(name: Stoyboard.notice.name, bundle: nil)
         guard let NoticeVC =
-                noticeView.instantiateViewController(withIdentifier: StoryboardID.notice)
+                noticeView.instantiateViewController(withIdentifier: Stoyboard.notice.id)
                 as? NoticeViewController
         else { return }
         
