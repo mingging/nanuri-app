@@ -34,6 +34,8 @@ class ProductDetailViewController: UIViewController {
     
     @IBOutlet weak var commentCountLabel: UILabel!
     
+    @IBOutlet weak var jointPurchaseButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -83,6 +85,12 @@ class ProductDetailViewController: UIViewController {
         productNameLabel.textColor = UIColor(hex: Theme.primary)
         dDayLabel.textColor = UIColor(hex: Theme.secondary)
         deliveryLabel.textColor = UIColor(hex: Theme.primary)
+        
+        // button custom
+        jointPurchaseButton.backgroundColor = UIColor(hex: Theme.primary)
+        jointPurchaseButton.layer.cornerRadius = 0.0
+        
+
     }
 
 }
