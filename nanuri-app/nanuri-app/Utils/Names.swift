@@ -19,4 +19,18 @@ enum ImageName {
 
 enum StoryboardID {
     static let notice = "notice"
+    static let productDetail = "productDetail"
+}
+
+enum Stoyboard: String {
+    case notice = "Notice"
+    case productDetail = "ProductDetail"
+    
+    var name: String {
+        return rawValue
+    }
+    
+    var id: String {
+        return "\(self)"
+    }
 }

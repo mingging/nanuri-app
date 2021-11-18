@@ -19,7 +19,7 @@ class NoticeViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 81
+        tableView.rowHeight = Style.noticeListHeight
 
         // custom cell
         let nibName = UINib(nibName: XibName.noticeCustomCell, bundle: nil)

@@ -19,4 +19,7 @@ enum Theme {
 
 enum Style {
     static let radius = 5.0
+    static let productListHeight = 237.0
+    static let noticeListHeight = 81.0
+    static let shadowOpacity = 0.25
 }
