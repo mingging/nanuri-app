@@ -11,8 +11,6 @@ import UIKit
 //MARK: - Home
 
 class HomeViewController: HeaderViewController {
-    
-    let rowHeight:CGFloat = 237
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -21,7 +19,7 @@ class HomeViewController: HeaderViewController {
         // table view settings
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = rowHeight
+        tableView.rowHeight = Style.productListHeight
         tableView.separatorStyle = .none
         
         // custom cell
@@ -68,6 +66,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.dDayView.layer.backgroundColor = UIColor(hex: Theme.primary)?.cgColor
         cell.productNameLabel.textColor = UIColor(hex: Theme.primary)
         
+        // cell shadow, radius
+        cell.cellView.layer.masksToBounds = false
+        cell.cellView.layer.shadowColor = UIColor.black.cgColor
+        cell.cellView.layer.shadowOpacity = Float(Style.shadowOpacity)
+        cell.cellView.layer.shadowRadius = Style.radius
+        cell.cellView.layer.cornerRadius = Style.radius
+        cell.cellView.layer.shadowOffset = CGSize(width: 3, height: 3)
+
         cell.productNameLabel.text = "마이쮸를 좋아한다면?"
         cell.dDayLabel.text = "1"
         
