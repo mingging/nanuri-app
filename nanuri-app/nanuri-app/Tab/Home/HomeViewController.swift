@@ -11,8 +11,6 @@ import UIKit
 //MARK: - Home
 
 class HomeViewController: HeaderViewController {
-    
-    let rowHeight:CGFloat = 237
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -21,7 +19,7 @@ class HomeViewController: HeaderViewController {
         // table view settings
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = rowHeight
+        tableView.rowHeight = Style.productListHeight
         tableView.separatorStyle = .none
         
         // custom cell
@@ -58,7 +56,26 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProductCustomCell
-        
+        cellStyle(cell)
+
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let productDetailView = UIStoryboard(name: Stoyboard.productDetail.name, bundle: nil)
+        guard let productDetailVC =
+                productDetailView.instantiateViewController(withIdentifier: Stoyboard.productDetail.id)
+                as? ProductDetailViewController
+        else { return }
+
+        navigationController?.pushViewController(productDetailVC, animated: true)
+    }
+    
+    
+    
+    //MARK: - Cell Style
+    
+    func cellStyle(_ cell: ProductCustomCell) {
         // progress bar custom
         cell.progress.progressTintColor = UIColor(hex: Theme.secondary)
         
@@ -68,21 +85,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.dDayView.layer.backgroundColor = UIColor(hex: Theme.primary)?.cgColor
         cell.productNameLabel.textColor = UIColor(hex: Theme.primary)
         
-        cell.productNameLabel.text = "마이쮸를 좋아한다면?"
-        cell.dDayLabel.text = "1"
-        
-       
-        
-        return cell
-    }
-    
-    
-}
+        // cell shadow, radius
+        cell.cellView.layer.masksToBounds = false
+        cell.cellView.layer.shadowColor = UIColor.black.cgColor
+        cell.cellView.layer.shadowOpacity = Float(Style.shadowOpacity)
+        cell.cellView.layer.shadowRadius = Style.radius
+        cell.cellView.layer.cornerRadius = Style.radius
+        cell.cellView.layer.shadowOffset = CGSize(width: 3, height: 3)
 
-extension HomeViewController {
-    
-    //MARK: - BarButtonItem Action
-    
-    // bar buttonitme custom
-    
+        cell.productNameLabel.text = "캐모마일 45티백 박스"
+        cell.dDayLabel.text = "1"
+    }
 }
