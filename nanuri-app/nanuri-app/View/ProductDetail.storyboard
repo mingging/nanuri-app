@@ -615,6 +615,22 @@
                                                     <constraint firstAttribute="width" constant="374" id="XQX-me-CvC"/>
                                                 </constraints>
                                                 <mutableString key="text">로스팅 원두 배송합니다!
+                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="10"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로자취러" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eSh-eM-KzQ">
+                                                <rect key="frame" x="37.5" y="0.0" width="45.5" height="11.5"/>
+                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="10"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oa8-tv-8ht">
+                                        <rect key="frame" x="20" y="419" width="374" height="457"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <string key="text">로스팅 원두 배송합니다!
 코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
 
 가격은 배송비 포함해서 + 1000원이구요 
@@ -624,6 +640,7 @@
 코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
 ㅁㅁㅁㅁㅁㅁㅁㅁㅁ ㅁㅁㅁㅁㅁㅁㅁㅁㅁ ㅁㅁㅁㅁㅁㅁㅁㅁㅁ ㅁㅁㅁㅁㅁㅁㅁㅁㅁ ㅁㅁㅁㅁㅁㅁㅁㅁㅁ ㅁㅁㅁㅁㅁㅁㅁㅁㅁ ㅁㅁㅁㅁㅁㅁㅁㅁㅁ ㅁaaaaaa 주문 가능합니다!
 
+<<<<<<< HEAD
 가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!  ㅁㅁㅁㅁㅁㅁㅁㅁㅁ ㅁㅁㅁㅁㅁㅁㅁㅁㅁ ㅁㅁㅁㅁㅁㅁㅁㅁㅁ ㅁㅁㅁㅁㅁㅁㅁㅁㅁ ㅁㅁㅁㅁㅁㅁㅁㅁㅁ ㅁㅁㅁㅁㅁㅁㅁㅁㅁ ㅁㅁㅁㅁㅁㅁㅁㅁㅁ ㅁaaaaaa</mutableString>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
@@ -690,6 +707,20 @@
                                         <viewLayoutGuide key="contentLayoutGuide" id="wPN-fC-BzD"/>
                                         <viewLayoutGuide key="frameLayoutGuide" id="4oQ-3J-4CI"/>
                                     </scrollView>
+가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!
+로스팅 원두 배송합니다!
+코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
+
+가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!
+
+로스팅 원두 배송합니다!
+코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
+
+가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>

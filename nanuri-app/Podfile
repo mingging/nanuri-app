@@ -6,6 +6,6 @@ target 'nanuri-app' do
   use_frameworks!
 
   # Pods for nanuri-app
-  pod 'Alamofire', '~> 5.4'
+    pod 'Alamofire', '~> 5.4'
 
 end
