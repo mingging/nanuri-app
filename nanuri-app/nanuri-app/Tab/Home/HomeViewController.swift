@@ -84,6 +84,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.dDayLabel.textColor = UIColor(hex: Theme.secondary)
         cell.dDayView.layer.backgroundColor = UIColor(hex: Theme.primary)?.cgColor
         cell.productNameLabel.textColor = UIColor(hex: Theme.primary)
+        cell.selectionStyle = .none
         
         // cell shadow, radius
         cell.cellView.layer.masksToBounds = false

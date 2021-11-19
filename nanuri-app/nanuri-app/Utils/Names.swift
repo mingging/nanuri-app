@@ -10,6 +10,7 @@ import Foundation
 enum XibName {
     static let productCustomCell = "ProductCustomCell"
     static let noticeCustomCell = "NoticeCustomCell"
+    static let commentCustomCell = "CommentCustomCell"
 }
 
 enum ImageName {
