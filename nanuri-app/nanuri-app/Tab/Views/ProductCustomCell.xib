@@ -181,6 +181,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="4Ee-9g-23l" secondAttribute="trailing" constant="12" id="1b0-G6-Xs8"/>
                             <constraint firstItem="kCP-Bw-Dd8" firstAttribute="leading" secondItem="7O4-zc-PBy" secondAttribute="leading" constant="12" id="5wC-5R-AgM"/>
@@ -215,6 +216,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="cellView" destination="7O4-zc-PBy" id="eE5-Rl-bmV"/>
                 <outlet property="currentPeopleLabel" destination="pkt-oP-L2Y" id="G15-Z9-lBg"/>
                 <outlet property="dDayLabel" destination="nn6-qJ-iam" id="EZj-Gh-iKO"/>
                 <outlet property="dDayView" destination="fHc-Rw-KFq" id="HGS-wA-hLo"/>

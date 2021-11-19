@@ -11,6 +11,8 @@ class ProductCustomCell: UITableViewCell {
     
     // MARK: - Product Outlet
     
+    @IBOutlet weak var cellView: UIView!
+    
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var currentPeopleLabel: UILabel!
