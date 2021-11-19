@@ -10,16 +10,45 @@ import UIKit
 class LoginViewController: UIViewController {
 
     
-    @IBOutlet weak var kakaoLogin: UIButton!
-    @IBOutlet weak var appleLogin: UIButton!
+//    @IBOutlet weak var kakaoLogin: UIButton!
+//    @IBOutlet weak var appleLogin: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+    }
+    func login(){
         
     }
     
-
+    @IBAction func actLogin(_ sender: Any) {
+        /*
+        //login()
+        guard let rvc = self.storyboard?.instantiateViewController(withIdentifier: "registerStoryboard") else {
+               return
+           }
+           
+           //화면 전환 애니메이션을 설정합니다. coverVertical 외에도 다양한 옵션이 있습니다.
+           rvc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+           
+           //인자값으로 다음 뷰 컨트롤러를 넣고 present 메소드를 호출합니다.
+           self.present(rvc, animated: true)
+        */
+        
+    }
+    
+    @IBAction func actLogin2(_ sender: Any) {
+        /*
+        guard let rvc = self.storyboard?.instantiateViewController(withIdentifier: "registerStoryboard") else {
+               return
+           }
+           
+           //화면 전환 애니메이션을 설정합니다. coverVertical 외에도 다양한 옵션이 있습니다.
+           rvc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+           
+           //인자값으로 다음 뷰 컨트롤러를 넣고 present 메소드를 호출합니다.
+           self.present(rvc, animated: true)
+        */
+    }
     /*
     // MARK: - Navigation
 
