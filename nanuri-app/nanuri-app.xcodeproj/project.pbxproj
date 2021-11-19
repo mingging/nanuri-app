@@ -38,6 +38,7 @@
 		39F38EF12743C3E9007A15B3 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F38EF02743C3E9007A15B3 /* MyPage.storyboard */; };
 		39F38EF52743CFE4007A15B3 /* ProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F38EF42743CFE4007A15B3 /* ProductDetail.storyboard */; };
 		630ADF47A35FB5C8AD524051 /* Pods_nanuri_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BDDB3627BCA5F7686EFF0EDE /* Pods_nanuri_app.framework */; };
+		87907FC62747BD7F003CF255 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87907FC52747BD7F003CF255 /* MyPage.storyboard */; };
 		87A86E982745512500B0E16A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A86E972745512500B0E16A /* Login.storyboard */; };
 		87A86E9A2745608700B0E16A /* logo_sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 87A86E992745608700B0E16A /* logo_sample.png */; };
 		87F0ED132746139500506BCF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F0ED122746139500506BCF /* RegisterViewController.swift */; };
@@ -79,6 +80,7 @@
 		39F38EEE2743C1FC007A15B3 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		39F38EF02743C3E9007A15B3 /* MyPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		39F38EF42743CFE4007A15B3 /* ProductDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductDetail.storyboard; sourceTree = "<group>"; };
+		87907FC52747BD7F003CF255 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		87A86E972745512500B0E16A /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		87A86E992745608700B0E16A /* logo_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_sample.png; sourceTree = "<group>"; };
 		87F0ED122746139500506BCF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				39BE79B127433E3600452A8E /* LaunchScreen.storyboard */,
 				39BE79AC27433E3400452A8E /* Main.storyboard */,
 				87A86E972745512500B0E16A /* Login.storyboard */,
+				87907FC52747BD7F003CF255 /* MyPage.storyboard */,
 				394A65E12745F672000CD9A8 /* ScrollViewTest.storyboard */,
 			);
 			path = View;
@@ -357,6 +360,7 @@
 			files = (
 				87A86E982745512500B0E16A /* Login.storyboard in Resources */,
 				39BE79D9274357A700452A8E /* ProductCustomCell.xib in Resources */,
+				87907FC62747BD7F003CF255 /* MyPage.storyboard in Resources */,
 				87A86E9A2745608700B0E16A /* logo_sample.png in Resources */,
 				39F38EEF2743C1FC007A15B3 /* Home.storyboard in Resources */,
 				394A65E22745F672000CD9A8 /* ScrollViewTest.storyboard in Resources */,

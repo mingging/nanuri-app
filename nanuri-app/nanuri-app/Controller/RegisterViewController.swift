@@ -21,13 +21,24 @@ class RegisterViewController: UIViewController {
         let myColor = UIColor(hex: Theme.primary)
         
         nickNameTextField.layer.borderColor = myColor?.cgColor
-        townTextField.layer.borderColor = myColor?.cgColor
+//        townTextField.layer.borderColor = myColor?.cgColor
 
-        nickNameTextField.layer.borderWidth = 1.0
-        townTextField.layer.borderWidth = 1.0
+        nickNameTextField.layer.borderWidth = 3.0
+//        townTextField.layer.borderWidth = 2.0
     }
     
-
+    
+    
+    @IBAction func actChecked(_ sender: UIButton) {
+        sender.isSelected.toggle()
+    }
+    
+    
+    @IBAction func actChecked2(_ sender: UIButton) {
+        sender.isSelected.toggle()
+    }
+    
+    
     /*
     // MARK: - Navigation
 
