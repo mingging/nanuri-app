@@ -371,7 +371,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78m-5z-V0H">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="802"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Db6-uZ-5EA">
                                         <rect key="frame" x="20" y="18" width="374" height="214"/>
@@ -631,8 +631,8 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oa8-tv-8ht">
-                                        <rect key="frame" x="20" y="417" width="374" height="459"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oa8-tv-8ht">
+                                        <rect key="frame" x="20" y="417" width="374" height="385"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">로스팅 원두 배송합니다!
 코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
@@ -660,7 +660,6 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="64C-sc-2wJ" firstAttribute="leading" secondItem="60c-Hi-q4a" secondAttribute="trailing" constant="11" id="0Ic-E9-kPk"/>
-                                    <constraint firstItem="4oQ-3J-4CI" firstAttribute="bottom" secondItem="oa8-tv-8ht" secondAttribute="bottom" constant="20" id="0fT-mj-fLh"/>
                                     <constraint firstItem="Db6-uZ-5EA" firstAttribute="centerX" secondItem="HAU-Us-agp" secondAttribute="centerX" id="3lW-kg-1ab"/>
                                     <constraint firstItem="60c-Hi-q4a" firstAttribute="top" secondItem="78m-5z-V0H" secondAttribute="top" constant="359" id="7Fv-vh-d4u"/>
                                     <constraint firstItem="Db6-uZ-5EA" firstAttribute="centerX" secondItem="KGp-kY-uxy" secondAttribute="centerX" id="7Jy-LJ-idZ"/>
@@ -673,6 +672,7 @@
                                     <constraint firstItem="oa8-tv-8ht" firstAttribute="top" secondItem="2jC-HM-M0H" secondAttribute="bottom" constant="15" id="Vus-Ze-XWX"/>
                                     <constraint firstItem="oa8-tv-8ht" firstAttribute="leading" secondItem="78m-5z-V0H" secondAttribute="leading" constant="20" id="acT-Xd-OZw"/>
                                     <constraint firstItem="KGp-kY-uxy" firstAttribute="top" secondItem="Db6-uZ-5EA" secondAttribute="bottom" constant="16" id="b6e-7d-Tr6"/>
+                                    <constraint firstItem="oa8-tv-8ht" firstAttribute="bottom" secondItem="4oQ-3J-4CI" secondAttribute="bottom" id="dTB-Ea-cpL"/>
                                     <constraint firstItem="64C-sc-2wJ" firstAttribute="trailing" secondItem="HAU-Us-agp" secondAttribute="trailing" id="fBe-hE-Se9"/>
                                     <constraint firstAttribute="trailing" secondItem="oa8-tv-8ht" secondAttribute="trailing" constant="20" id="gel-0u-emJ"/>
                                     <constraint firstItem="64C-sc-2wJ" firstAttribute="leading" secondItem="60c-Hi-q4a" secondAttribute="trailing" constant="11" id="h5s-IN-Zx6"/>
@@ -691,15 +691,32 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="wPN-fC-BzD"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="4oQ-3J-4CI"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sv5-5B-f5P">
+                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                                <color key="backgroundColor" red="0.35686274509999999" green="0.47450980390000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Ei8-h6-MFJ"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="공동 구매 참여 하기">
+                                    <fontDescription key="titleFontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="18"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="z6U-b4-nsh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="4oQ-3J-4CI" firstAttribute="bottom" secondItem="sv5-5B-f5P" secondAttribute="bottom" constant="34" id="3qa-6z-Lsh"/>
+                            <constraint firstItem="4oQ-3J-4CI" firstAttribute="trailing" secondItem="sv5-5B-f5P" secondAttribute="trailing" id="Dea-Ux-Tvc"/>
+                            <constraint firstItem="z6U-b4-nsh" firstAttribute="trailing" secondItem="sv5-5B-f5P" secondAttribute="trailing" id="Jh7-ZE-aGf"/>
+                            <constraint firstItem="z6U-b4-nsh" firstAttribute="bottom" secondItem="sv5-5B-f5P" secondAttribute="bottom" id="WVl-hv-frT"/>
                             <constraint firstItem="z6U-b4-nsh" firstAttribute="trailing" secondItem="78m-5z-V0H" secondAttribute="trailing" id="YO5-8c-cpX"/>
-                            <constraint firstAttribute="bottom" secondItem="78m-5z-V0H" secondAttribute="bottom" id="awl-IM-LAD"/>
                             <constraint firstItem="78m-5z-V0H" firstAttribute="leading" secondItem="z6U-b4-nsh" secondAttribute="leading" id="bcM-TO-jiK"/>
+                            <constraint firstItem="sv5-5B-f5P" firstAttribute="leading" secondItem="z6U-b4-nsh" secondAttribute="leading" id="c5C-Uy-FUE"/>
                             <constraint firstItem="78m-5z-V0H" firstAttribute="top" secondItem="l0E-pr-DM0" secondAttribute="top" id="cZE-DT-ViI"/>
                             <constraint firstItem="78m-5z-V0H" firstAttribute="centerX" secondItem="l0E-pr-DM0" secondAttribute="centerX" id="lFz-xD-83f"/>
+                            <constraint firstItem="sv5-5B-f5P" firstAttribute="top" secondItem="78m-5z-V0H" secondAttribute="bottom" id="vpG-ei-Vla"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jYx-TS-CXu"/>
