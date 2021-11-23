@@ -24,8 +24,10 @@ class CommentViewController: UIViewController {
         tableView.rowHeight = Style.commentListHeight
         
         // custom cell
-        let nibName = UINib(nibName: XibName.commentCustomCell, bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: "commentCell")
+        let commentNibName = UINib(nibName: XibName.commentCustomCell, bundle: nil)
+        let replyNibName = UINib(nibName: XibName.replyCustomCell, bundle: nil)
+        tableView.register(commentNibName, forCellReuseIdentifier: "commentCell")
+        tableView.register(replyNibName, forCellReuseIdentifier: "replyCell")
 
     }
     
@@ -65,11 +67,17 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentCustomCell
+        let cell: UITableViewCell!
+    
+        if indexPath.row == 2 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "replyCell", for: indexPath) as! ReplyCustomCell
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: "commentCell", for: indexPath) as! CommentCustomCell
+        }
         
         cell.selectionStyle = .none
-        
-        return cell
+
+       return cell
     }
     
     

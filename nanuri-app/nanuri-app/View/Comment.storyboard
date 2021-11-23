@@ -16,29 +16,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TPX-45-FXJ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0nr-ab-TXo">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TPX-45-FXJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="736" id="0oC-1d-kMq"/>
+                                        </constraints>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" id="KaS-NJ-NdP">
+                                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KaS-NJ-NdP" id="6fk-y1-5aQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ja-ck-xR3">
+                                        <rect key="frame" x="0.0" y="744" width="414" height="111"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5FD-AR-Pio">
+                                                <rect key="frame" x="14" y="16" width="386" height="34"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gd-eA-1h1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="34"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="34" id="ka6-LX-cOd"/>
+                                                            <constraint firstAttribute="width" constant="300" id="ojO-uD-ZX7"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zqa-OZ-8r9">
+                                                        <rect key="frame" x="308" y="0.0" width="78" height="34"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="34" id="UEr-uv-4yg"/>
+                                                            <constraint firstAttribute="width" constant="78" id="gU3-Is-Zpg"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="보내기"/>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.35686274509999999" green="0.47450980390000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="5FD-AR-Pio" firstAttribute="centerX" secondItem="0Ja-ck-xR3" secondAttribute="centerX" id="GpK-tZ-XPI"/>
+                                            <constraint firstItem="5FD-AR-Pio" firstAttribute="leading" secondItem="0Ja-ck-xR3" secondAttribute="leading" constant="14" id="PN2-Eb-SQS"/>
+                                            <constraint firstAttribute="width" constant="414" id="SCi-gO-OGn"/>
+                                            <constraint firstAttribute="height" constant="111" id="XB5-cs-6nU"/>
+                                            <constraint firstAttribute="trailing" secondItem="5FD-AR-Pio" secondAttribute="trailing" constant="14" id="Z01-eL-gA4"/>
+                                            <constraint firstItem="5FD-AR-Pio" firstAttribute="centerY" secondItem="0Ja-ck-xR3" secondAttribute="centerY" constant="-22.5" id="bfk-dm-Pa4"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" id="KaS-NJ-NdP" customClass="CommentCustomCell" customModule="nanuri_app" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KaS-NJ-NdP" id="6fk-y1-5aQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstItem="0Ja-ck-xR3" firstAttribute="leading" secondItem="0nr-ab-TXo" secondAttribute="leading" id="6OH-6A-hR9"/>
+                                    <constraint firstAttribute="trailing" secondItem="TPX-45-FXJ" secondAttribute="trailing" id="7pG-cR-uxC"/>
+                                    <constraint firstItem="TPX-45-FXJ" firstAttribute="top" secondItem="0nr-ab-TXo" secondAttribute="top" id="A2S-6k-54i"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Ja-ck-xR3" secondAttribute="bottom" constant="-37" id="Bkc-bk-ubJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="0Ja-ck-xR3" secondAttribute="trailing" id="CSq-Qa-cpG"/>
+                                    <constraint firstItem="0Ja-ck-xR3" firstAttribute="top" secondItem="TPX-45-FXJ" secondAttribute="bottom" constant="8" symbolic="YES" id="X2p-ml-ZIm"/>
+                                    <constraint firstItem="TPX-45-FXJ" firstAttribute="leading" secondItem="0nr-ab-TXo" secondAttribute="leading" id="ckZ-uO-SL7"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Ja-ck-xR3" secondAttribute="bottom" constant="-37" id="qeA-iX-5Zr"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TuQ-1I-Lws"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TPX-45-FXJ" firstAttribute="leading" secondItem="TuQ-1I-Lws" secondAttribute="leading" id="Hsa-DG-ObD"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="TPX-45-FXJ" secondAttribute="bottom" constant="-34" id="Van-vp-LpV"/>
-                            <constraint firstItem="TPX-45-FXJ" firstAttribute="top" secondItem="TuQ-1I-Lws" secondAttribute="top" id="doH-Xt-MFU"/>
-                            <constraint firstItem="TPX-45-FXJ" firstAttribute="trailing" secondItem="TuQ-1I-Lws" secondAttribute="trailing" id="vxu-7N-GhZ"/>
-                            <constraint firstItem="TPX-45-FXJ" firstAttribute="centerX" secondItem="GFJ-Z8-XPR" secondAttribute="centerX" id="xMn-Ae-RUB"/>
+                            <constraint firstItem="0nr-ab-TXo" firstAttribute="top" secondItem="TuQ-1I-Lws" secondAttribute="top" id="0x3-T2-AAl"/>
+                            <constraint firstItem="0nr-ab-TXo" firstAttribute="leading" secondItem="TuQ-1I-Lws" secondAttribute="leading" id="RLm-bh-SGs"/>
+                            <constraint firstItem="TuQ-1I-Lws" firstAttribute="trailing" secondItem="0nr-ab-TXo" secondAttribute="trailing" id="TBV-1e-gh9"/>
+                            <constraint firstItem="TuQ-1I-Lws" firstAttribute="bottom" secondItem="0nr-ab-TXo" secondAttribute="bottom" id="nhK-Rc-QNk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0Ig-xA-FQJ"/>
@@ -48,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dT1-hz-FkO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3804" y="727"/>
+            <point key="canvasLocation" x="3802.898550724638" y="726.5625"/>
         </scene>
     </scenes>
     <resources>

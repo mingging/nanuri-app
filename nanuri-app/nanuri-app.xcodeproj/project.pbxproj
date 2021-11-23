@@ -11,6 +11,8 @@
 		3948619C2747CA120016D34C /* CommentCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3948619A2747CA120016D34C /* CommentCustomCell.xib */; };
 		3948619E2747CDFB0016D34C /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3948619D2747CDFB0016D34C /* CommentViewController.swift */; };
 		394861A02747D18D0016D34C /* Comment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3948619F2747D18D0016D34C /* Comment.storyboard */; };
+		394861A32747D28F0016D34C /* ReplyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394861A12747D28F0016D34C /* ReplyCustomCell.swift */; };
+		394861A42747D28F0016D34C /* ReplyCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 394861A22747D28F0016D34C /* ReplyCustomCell.xib */; };
 		394A65CC2745042E000CD9A8 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A65CB2745042E000CD9A8 /* HeaderViewController.swift */; };
 		394A65D027450AC3000CD9A8 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394A65CF27450AC3000CD9A8 /* ListViewController.swift */; };
 		394A65D227451934000CD9A8 /* Notice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394A65D127451934000CD9A8 /* Notice.storyboard */; };
@@ -55,6 +57,8 @@
 		3948619A2747CA120016D34C /* CommentCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCustomCell.xib; sourceTree = "<group>"; };
 		3948619D2747CDFB0016D34C /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		3948619F2747D18D0016D34C /* Comment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Comment.storyboard; sourceTree = "<group>"; };
+		394861A12747D28F0016D34C /* ReplyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyCustomCell.swift; sourceTree = "<group>"; };
+		394861A22747D28F0016D34C /* ReplyCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReplyCustomCell.xib; sourceTree = "<group>"; };
 		394A65CB2745042E000CD9A8 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		394A65CF27450AC3000CD9A8 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		394A65D127451934000CD9A8 /* Notice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Notice.storyboard; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 				394A65D527451A5E000CD9A8 /* NoticeCustomCell.xib */,
 				394861992747CA120016D34C /* CommentCustomCell.swift */,
 				3948619A2747CA120016D34C /* CommentCustomCell.xib */,
+				394861A12747D28F0016D34C /* ReplyCustomCell.swift */,
+				394861A22747D28F0016D34C /* ReplyCustomCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -382,6 +388,7 @@
 				39F38EF52743CFE4007A15B3 /* ProductDetail.storyboard in Resources */,
 				39BE79B327433E3600452A8E /* LaunchScreen.storyboard in Resources */,
 				39BE79B027433E3600452A8E /* Assets.xcassets in Resources */,
+				394861A42747D28F0016D34C /* ReplyCustomCell.xib in Resources */,
 				39BE79C327433EA300452A8E /* NanumSquareRoundOTFB.otf in Resources */,
 				39BE79AE27433E3400452A8E /* Main.storyboard in Resources */,
 				39F38EF12743C3E9007A15B3 /* MyPage.storyboard in Resources */,
@@ -441,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3948619B2747CA120016D34C /* CommentCustomCell.swift in Sources */,
+				394861A32747D28F0016D34C /* ReplyCustomCell.swift in Sources */,
 				39BE7A00274385C000452A8E /* Theme.swift in Sources */,
 				39CE79F32744A9CD00F8F659 /* ProductDetailViewController.swift in Sources */,
 				394A65DB274522A9000CD9A8 /* Names.swift in Sources */,
