@@ -27,6 +27,7 @@ enum StoryboardID {
 enum Stoyboard: String {
     case notice = "Notice"
     case productDetail = "ProductDetail"
+    case pay = "Pay"
     
     var name: String {
         return rawValue

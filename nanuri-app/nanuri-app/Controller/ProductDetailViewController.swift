@@ -85,4 +85,13 @@ class ProductDetailViewController: UIViewController {
         deliveryLabel.textColor = UIColor(hex: Theme.primary)
     }
 
+    @IBAction func payAction(_ sender: UIButton) {
+        let payView = UIStoryboard(name: Stoyboard.pay.name, bundle: nil)
+        guard let payVC =
+                payView.instantiateViewController(withIdentifier: Stoyboard.pay.id)
+                as? PayViewController
+        else { return }
+        
+        self.navigationController?.pushViewController(payVC, animated: true)
+    }
 }

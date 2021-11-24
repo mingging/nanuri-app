@@ -631,8 +631,8 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oa8-tv-8ht">
-                                        <rect key="frame" x="20" y="417" width="374" height="385"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oa8-tv-8ht">
+                                        <rect key="frame" x="20" y="417" width="374" height="479"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">로스팅 원두 배송합니다!
 코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
@@ -702,6 +702,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="공동 구매 참여 하기">
                                     <fontDescription key="titleFontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="18"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="payAction:" destination="C65-zG-y3D" eventType="touchUpInside" id="9m2-1R-etA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="z6U-b4-nsh"/>
