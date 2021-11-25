@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2b4-PV-eff">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="NanumSquareRoundOTFB.otf">
+            <string>NanumSquareRoundOTFB</string>
+        </array>
+        <array key="NanumSquareRoundOTFR.otf">
+            <string>NanumSquareRoundOTFR</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Pay View Controller-->
+        <scene sceneID="gsT-Sh-cXW">
+            <objects>
+                <viewController storyboardIdentifier="pay" id="2b4-PV-eff" customClass="PayViewController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X1k-u8-VUw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Iqi-0D-5vs">
+                                <rect key="frame" x="20" y="94" width="368" height="95"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="WX3-Td-U8h">
+                                        <rect key="frame" x="0.0" y="0.0" width="368" height="17"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상품 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p22-zo-J0e">
+                                                <rect key="frame" x="0.0" y="0.0" width="59" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="59" id="8t5-lh-1NP"/>
+                                                    <constraint firstAttribute="height" constant="17" id="gSU-Ub-vBY"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                <color key="textColor" systemColor="systemGray2Color"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqS-gb-I1J">
+                                                <rect key="frame" x="114" y="0.0" width="254" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="207" id="Mm6-3l-xYh"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="rul-Gg-d3T">
+                                        <rect key="frame" x="0.0" y="39" width="368" height="17"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="배송 방법" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jby-RA-FZL">
+                                                <rect key="frame" x="0.0" y="0.0" width="59" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="59" id="Exb-mz-GBP"/>
+                                                    <constraint firstAttribute="height" constant="17" id="T4w-1G-aTX"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                <color key="textColor" systemColor="systemGray2Color"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVO-a1-29t">
+                                                <rect key="frame" x="114" y="0.0" width="254" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="207" id="285-d8-qdl"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="UYf-K9-eeQ">
+                                        <rect key="frame" x="0.0" y="78" width="368" height="17"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가격" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKr-MN-aB9">
+                                                <rect key="frame" x="0.0" y="0.0" width="59" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="59" id="5cY-jY-m3c"/>
+                                                    <constraint firstAttribute="height" constant="17" id="bdR-Lh-edc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                <color key="textColor" systemColor="systemGray2Color"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lzs-Be-kBL">
+                                                <rect key="frame" x="114" y="0.0" width="254" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="207" id="GxB-ic-t06"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFK-jl-5qs">
+                                <rect key="frame" x="20" y="265" width="368" height="1"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="BNs-fu-AJ4"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 결제 수단" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY6-1o-2ag">
+                                <rect key="frame" x="20" y="336" width="368" height="17"/>
+                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="dlf-wn-j2G">
+                                <rect key="frame" x="20" y="373" width="368" height="139"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7li-6L-QIo">
+                                        <rect key="frame" x="0.0" y="0.0" width="139" height="139"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="139" id="B8t-XE-fe8"/>
+                                            <constraint firstAttribute="width" constant="139" id="yoF-cL-b7D"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="card_icon" imagePlacement="top" title="카드로 결제" imagePadding="25">
+                                            <fontDescription key="titleFontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="clickToCard:" destination="2b4-PV-eff" eventType="touchUpInside" id="J2v-h2-wsY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrQ-E2-364">
+                                        <rect key="frame" x="229" y="0.0" width="139" height="139"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="139" id="ket-9e-d6U"/>
+                                            <constraint firstAttribute="width" constant="139" id="mK4-dm-pJ3"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="money_icon" imagePlacement="top" title="계좌로 결제" imagePadding="18">
+                                            <fontDescription key="titleFontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="clickToBank:" destination="2b4-PV-eff" eventType="touchUpInside" id="ZkD-nU-aDc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5P4-4B-XVW">
+                                <rect key="frame" x="0.0" y="802" width="408" height="60"/>
+                                <color key="backgroundColor" red="0.35686274509999999" green="0.47450980390000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="0BD-ec-27Q"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="결제하기">
+                                    <fontDescription key="titleFontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="18"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="qMT-e1-wEu" kind="show" id="2BY-vi-aj5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8A9-0a-oba"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iY6-1o-2ag" firstAttribute="top" secondItem="GFK-jl-5qs" secondAttribute="bottom" constant="70" id="A6B-L4-zdK"/>
+                            <constraint firstItem="dlf-wn-j2G" firstAttribute="centerX" secondItem="X1k-u8-VUw" secondAttribute="centerX" id="ARK-D5-QGT"/>
+                            <constraint firstItem="iY6-1o-2ag" firstAttribute="leading" secondItem="8A9-0a-oba" secondAttribute="leading" constant="20" id="Fi4-Cg-AuQ"/>
+                            <constraint firstItem="GFK-jl-5qs" firstAttribute="top" secondItem="Iqi-0D-5vs" secondAttribute="bottom" constant="76" id="Gsp-0E-UED"/>
+                            <constraint firstItem="dlf-wn-j2G" firstAttribute="top" secondItem="iY6-1o-2ag" secondAttribute="bottom" constant="20" id="JW1-zL-rCP"/>
+                            <constraint firstItem="dlf-wn-j2G" firstAttribute="leading" secondItem="8A9-0a-oba" secondAttribute="leading" constant="20" id="L4G-d3-mYr"/>
+                            <constraint firstItem="8A9-0a-oba" firstAttribute="trailing" secondItem="dlf-wn-j2G" secondAttribute="trailing" constant="20" id="QbB-fV-XOx"/>
+                            <constraint firstItem="Iqi-0D-5vs" firstAttribute="top" secondItem="8A9-0a-oba" secondAttribute="top" constant="50" id="RWf-Jk-wKp"/>
+                            <constraint firstItem="Iqi-0D-5vs" firstAttribute="leading" secondItem="8A9-0a-oba" secondAttribute="leading" constant="20" id="UKz-0z-ZoB"/>
+                            <constraint firstItem="iY6-1o-2ag" firstAttribute="centerX" secondItem="X1k-u8-VUw" secondAttribute="centerX" id="VUH-Tq-kWI"/>
+                            <constraint firstItem="8A9-0a-oba" firstAttribute="trailing" secondItem="iY6-1o-2ag" secondAttribute="trailing" constant="20" id="XiM-re-pYK"/>
+                            <constraint firstItem="GFK-jl-5qs" firstAttribute="leading" secondItem="8A9-0a-oba" secondAttribute="leading" constant="20" id="YBB-bP-Dj6"/>
+                            <constraint firstItem="5P4-4B-XVW" firstAttribute="leading" secondItem="8A9-0a-oba" secondAttribute="leading" id="YjV-43-L5u"/>
+                            <constraint firstItem="Iqi-0D-5vs" firstAttribute="centerX" secondItem="X1k-u8-VUw" secondAttribute="centerX" id="cyn-k8-Oue"/>
+                            <constraint firstItem="8A9-0a-oba" firstAttribute="trailing" secondItem="GFK-jl-5qs" secondAttribute="trailing" constant="20" id="eJp-Xw-hft"/>
+                            <constraint firstItem="8A9-0a-oba" firstAttribute="trailing" secondItem="5P4-4B-XVW" secondAttribute="trailing" id="hM4-GA-fIR"/>
+                            <constraint firstItem="8A9-0a-oba" firstAttribute="trailing" secondItem="Iqi-0D-5vs" secondAttribute="trailing" constant="20" id="mm7-6O-3s1"/>
+                            <constraint firstItem="8A9-0a-oba" firstAttribute="bottom" secondItem="5P4-4B-XVW" secondAttribute="bottom" id="qP8-18-crD"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="4fW-6q-fMz"/>
+                    <connections>
+                        <outlet property="payToBank" destination="lrQ-E2-364" id="yeq-xf-wGm"/>
+                        <outlet property="payToCard" destination="7li-6L-QIo" id="men-PK-csO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4lG-bg-uZu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2821.739130434783" y="1453.7946428571429"/>
+        </scene>
+        <!--Pay Complete View Controller-->
+        <scene sceneID="kv0-Uu-FO8">
+            <objects>
+                <viewController id="qMT-e1-wEu" customClass="PayCompleteViewController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wbg-Dr-edB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결제가 완료되었습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDY-rz-OUJ">
+                                <rect key="frame" x="20" y="241.5" width="374" height="22.5"/>
+                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fu-wm-7fs">
+                                <rect key="frame" x="20" y="314" width="374" height="1"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="5dw-rr-U5Q"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="5mp-cd-Ivm">
+                                <rect key="frame" x="20" y="345" width="374" height="56"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="rzM-6n-cwI">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="17"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상품 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHb-Y7-GLg">
+                                                <rect key="frame" x="0.0" y="0.0" width="59" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="59" id="7Te-MR-Bfl"/>
+                                                    <constraint firstAttribute="height" constant="17" id="j5t-c1-NOu"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                <color key="textColor" systemColor="systemGray2Color"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gW3-Tb-qK3">
+                                                <rect key="frame" x="114" y="0.0" width="260" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="207" id="4J4-rr-2Ah"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="jlL-JF-4y5">
+                                        <rect key="frame" x="0.0" y="39" width="374" height="17"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가격" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szf-Vh-Wri">
+                                                <rect key="frame" x="0.0" y="0.0" width="59" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="59" id="ew2-rf-gZg"/>
+                                                    <constraint firstAttribute="height" constant="17" id="fRw-RZ-jww"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                <color key="textColor" systemColor="systemGray2Color"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCX-az-KaG">
+                                                <rect key="frame" x="114" y="0.0" width="260" height="17"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="207" id="74P-6E-vsg"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="InS-Ue-Lg3">
+                                <rect key="frame" x="20" y="431" width="374" height="1"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="n6t-Gn-nR0"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dg-4e-M9i">
+                                <rect key="frame" x="0.0" y="748" width="414" height="60"/>
+                                <color key="backgroundColor" red="0.35686274509999999" green="0.47450980390000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HHB-hQ-oIJ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="돌아가기">
+                                    <fontDescription key="titleFontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="18"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WzH-2k-p12"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WzH-2k-p12" firstAttribute="trailing" secondItem="1dg-4e-M9i" secondAttribute="trailing" id="6Rx-jq-tfA"/>
+                            <constraint firstItem="5mp-cd-Ivm" firstAttribute="top" secondItem="2fu-wm-7fs" secondAttribute="bottom" constant="30" id="8ni-zM-c5a"/>
+                            <constraint firstItem="WzH-2k-p12" firstAttribute="trailing" secondItem="JDY-rz-OUJ" secondAttribute="trailing" constant="20" id="FUR-VK-GbR"/>
+                            <constraint firstItem="InS-Ue-Lg3" firstAttribute="trailing" secondItem="2fu-wm-7fs" secondAttribute="trailing" id="I6Q-Bh-eOK"/>
+                            <constraint firstItem="InS-Ue-Lg3" firstAttribute="leading" secondItem="2fu-wm-7fs" secondAttribute="leading" id="Icl-fL-qz5"/>
+                            <constraint firstItem="2fu-wm-7fs" firstAttribute="top" secondItem="JDY-rz-OUJ" secondAttribute="bottom" constant="50" id="IhD-6i-OiB"/>
+                            <constraint firstItem="JDY-rz-OUJ" firstAttribute="leading" secondItem="WzH-2k-p12" secondAttribute="leading" constant="20" id="KcZ-u1-2Yr"/>
+                            <constraint firstItem="WzH-2k-p12" firstAttribute="trailing" secondItem="5mp-cd-Ivm" secondAttribute="trailing" constant="20" id="Qbh-e6-pws"/>
+                            <constraint firstItem="1dg-4e-M9i" firstAttribute="leading" secondItem="WzH-2k-p12" secondAttribute="leading" id="Qhe-r2-mpN"/>
+                            <constraint firstItem="1dg-4e-M9i" firstAttribute="bottom" secondItem="WzH-2k-p12" secondAttribute="bottom" id="T05-93-xnp"/>
+                            <constraint firstItem="InS-Ue-Lg3" firstAttribute="top" secondItem="5mp-cd-Ivm" secondAttribute="bottom" constant="30" id="Xc9-dz-hne"/>
+                            <constraint firstItem="InS-Ue-Lg3" firstAttribute="trailing" secondItem="5mp-cd-Ivm" secondAttribute="trailing" id="cV0-VR-0P0"/>
+                            <constraint firstItem="WzH-2k-p12" firstAttribute="bottom" secondItem="InS-Ue-Lg3" secondAttribute="bottom" constant="376" id="fxa-hN-qx8"/>
+                            <constraint firstItem="5mp-cd-Ivm" firstAttribute="leading" secondItem="WzH-2k-p12" secondAttribute="leading" constant="20" id="t8a-M6-69p"/>
+                            <constraint firstItem="InS-Ue-Lg3" firstAttribute="leading" secondItem="5mp-cd-Ivm" secondAttribute="leading" id="tdy-Xn-G2n"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="1Zr-4B-o5V"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4fU-kb-QgC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4001" y="1454"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="card_icon" width="40" height="28"/>
+        <image name="money_icon" width="38" height="38"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
