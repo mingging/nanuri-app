@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C65-zG-y3D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C65-zG-y3D">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -283,7 +283,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkp-bR-Awz">
                                 <rect key="frame" x="20" y="443" width="374" height="419"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <mutableString key="text">로스팅 원두 배송합니다!
+                                <string key="text">로스팅 원두 배송합니다!
 코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
 
 가격은 배송비 포함해서 + 1000원이구요 
@@ -301,7 +301,7 @@
 로스팅 원두 배송합니다!
 코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
 
-가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!</mutableString>
+가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -629,7 +629,7 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oa8-tv-8ht">
                                         <rect key="frame" x="20" y="419" width="374" height="457"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <mutableString key="text">로스팅 원두 배송합니다!
+                                        <string key="text">로스팅 원두 배송합니다!
 코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
 
 가격은 배송비 포함해서 + 1000원이구요 
@@ -647,7 +647,7 @@
 로스팅 원두 배송합니다!
 코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
 
-가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!</mutableString>
+가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!</string>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
