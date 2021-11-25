@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39160172274E42F800B005E6 /* Pay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39160171274E42F800B005E6 /* Pay.storyboard */; };
+		39160174274E43C800B005E6 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39160173274E43C800B005E6 /* PayViewController.swift */; };
+		39160176274E4F8A00B005E6 /* PayCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39160175274E4F8A00B005E6 /* PayCompleteViewController.swift */; };
 		3948619B2747CA120016D34C /* CommentCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 394861992747CA120016D34C /* CommentCustomCell.swift */; };
 		3948619C2747CA120016D34C /* CommentCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3948619A2747CA120016D34C /* CommentCustomCell.xib */; };
 		3948619E2747CDFB0016D34C /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3948619D2747CDFB0016D34C /* CommentViewController.swift */; };
@@ -53,6 +56,9 @@
 /* Begin PBXFileReference section */
 		074F6686FF187B2751F7FFF2 /* Pods-nanuri-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nanuri-app.release.xcconfig"; path = "Target Support Files/Pods-nanuri-app/Pods-nanuri-app.release.xcconfig"; sourceTree = "<group>"; };
 		1EBF4741949AAEF46845C1AE /* Pods-nanuri-app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nanuri-app.debug.xcconfig"; path = "Target Support Files/Pods-nanuri-app/Pods-nanuri-app.debug.xcconfig"; sourceTree = "<group>"; };
+		39160171274E42F800B005E6 /* Pay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pay.storyboard; sourceTree = "<group>"; };
+		39160173274E43C800B005E6 /* PayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
+		39160175274E4F8A00B005E6 /* PayCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCompleteViewController.swift; sourceTree = "<group>"; };
 		394861992747CA120016D34C /* CommentCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCustomCell.swift; sourceTree = "<group>"; };
 		3948619A2747CA120016D34C /* CommentCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCustomCell.xib; sourceTree = "<group>"; };
 		3948619D2747CDFB0016D34C /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +191,7 @@
 				39BE79AC27433E3400452A8E /* Main.storyboard */,
 				87A86E972745512500B0E16A /* Login.storyboard */,
 				394A65E12745F672000CD9A8 /* ScrollViewTest.storyboard */,
+				39160171274E42F800B005E6 /* Pay.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,6 +204,8 @@
 				87F0ED5B2746271E00506BCF /* LoginViewController.swift */,
 				394A65D827451B90000CD9A8 /* NoticeViewController.swift */,
 				3948619D2747CDFB0016D34C /* CommentViewController.swift */,
+				39160173274E43C800B005E6 /* PayViewController.swift */,
+				39160175274E4F8A00B005E6 /* PayCompleteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -382,6 +391,7 @@
 				394A65E22745F672000CD9A8 /* ScrollViewTest.storyboard in Resources */,
 				394A65D727451A5E000CD9A8 /* NoticeCustomCell.xib in Resources */,
 				394A65D227451934000CD9A8 /* Notice.storyboard in Resources */,
+				39160172274E42F800B005E6 /* Pay.storyboard in Resources */,
 				39BE79C527433EA700452A8E /* NanumSquareRoundOTFL.otf in Resources */,
 				39BE79D52743577500452A8E /* banner1.png in Resources */,
 				39BE79C627433EA900452A8E /* NanumSquareRoundOTFR.otf in Resources */,
@@ -459,6 +469,8 @@
 				394A65DF2745F364000CD9A8 /* TestModel.swift in Sources */,
 				39BE79A727433E3400452A8E /* AppDelegate.swift in Sources */,
 				394A65D627451A5E000CD9A8 /* NoticeCustomCell.swift in Sources */,
+				39160176274E4F8A00B005E6 /* PayCompleteViewController.swift in Sources */,
+				39160174274E43C800B005E6 /* PayViewController.swift in Sources */,
 				394A65D927451B90000CD9A8 /* NoticeViewController.swift in Sources */,
 				39F38EE82743BF96007A15B3 /* HexColor.swift in Sources */,
 				394A65CC2745042E000CD9A8 /* HeaderViewController.swift in Sources */,
