@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
 //    @IBOutlet weak var appleLogin: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+            
     }
     func login(){
         

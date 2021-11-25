@@ -1,47 +1,42 @@
 //
-//  RegisterViewController.swift
+//  MyPageDetailViewController.swift
 //  nanuri-app
 //
-//  Created by ShKim on 2021/11/18.
+//  Created by a0000 on 2021/11/23.
 //
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class MyPageDetailViewController: UIViewController {
+    let myColor = UIColor(hex: Theme.primary)
     
-    
-    
-    @IBOutlet weak var nickNameTextField: UITextField!
-    @IBOutlet weak var townTextField: UITextField!
+    @IBOutlet weak var nickTextField: UITextField!
+    @IBOutlet weak var bankTextField: UITextField!
+    @IBOutlet weak var bankAccountNum: UITextField!
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var imageView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        let myColor = UIColor(hex: Theme.primary)
-        /*
-        nickNameTextField.layer.borderColor = myColor?.cgColor
-//        townTextField.layer.borderColor = myColor?.cgColor
+//        let view = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         
-        nickNameTextField.layer.borderWidth = 3.0*/
-//        townTextField.layer.borderWidth = 2.0
+        imageView.layer.borderColor = myColor?.cgColor
+        imageView.layer.borderWidth = 1.5
+//        imageView.addSubview(imageView)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+
+        button.titleLabel?.minimumScaleFactor = 10.0
+        self.tabBarController?.tabBar.isHidden = true
         
-        nickNameTextField.setUnderLine()
-       
+        nickTextField.hideUnderLine()
+        bankTextField.hideUnderLine()
+        bankAccountNum.hideUnderLine()
+        
     }
     
     
-    
-    @IBAction func actChecked(_ sender: UIButton) {
-        sender.isSelected.toggle()
-    }
-    
-    
-    @IBAction func actChecked2(_ sender: UIButton) {
-        sender.isSelected.toggle()
-    }
-    
-    
+
     /*
     // MARK: - Navigation
 
@@ -54,7 +49,7 @@ class RegisterViewController: UIViewController {
 
 }
 extension UITextField {
-    func setUnderLine() {
+    func hideUnderLine() {
         let border = CALayer()
 //        let width = CGFloat(0.5)
         let myColor = UIColor(hex: Theme.primary)

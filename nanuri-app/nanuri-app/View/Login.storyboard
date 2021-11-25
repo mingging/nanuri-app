@@ -87,44 +87,6 @@
             </objects>
             <point key="canvasLocation" x="640.57971014492762" y="-563.16964285714278"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="g2w-GI-7NL">
-            <objects>
-                <viewController id="coo-iB-2dt" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="DOk-ri-ZJt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="logo_sample.png" translatesAutoresizingMaskIntoConstraints="NO" id="4gz-3J-06p">
-                                <rect key="frame" x="147" y="273" width="120" height="108"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMp-ZY-ybp">
-                                <rect key="frame" x="60" y="500" width="294" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="카카오로 로그인"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xsg-Rd-rWf">
-                                <rect key="frame" x="60" y="551" width="294" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="애플로 로그인"/>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="qXp-8V-tSY"/>
-                        <color key="backgroundColor" red="0.95248681310000005" green="0.92622500659999996" blue="0.88626897339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="qXp-8V-tSY" firstAttribute="trailing" secondItem="Xsg-Rd-rWf" secondAttribute="trailing" constant="60" id="5Jw-Im-DHQ"/>
-                            <constraint firstItem="zMp-ZY-ybp" firstAttribute="top" secondItem="4gz-3J-06p" secondAttribute="bottom" constant="300" id="HH7-Pu-PxR"/>
-                            <constraint firstItem="Xsg-Rd-rWf" firstAttribute="leading" secondItem="qXp-8V-tSY" secondAttribute="leading" constant="60" id="McH-Ze-FRM"/>
-                            <constraint firstItem="Xsg-Rd-rWf" firstAttribute="centerX" secondItem="zMp-ZY-ybp" secondAttribute="centerX" id="QNB-4v-0xJ"/>
-                            <constraint firstItem="zMp-ZY-ybp" firstAttribute="leading" secondItem="qXp-8V-tSY" secondAttribute="leading" constant="60" id="QQM-S6-z2g"/>
-                            <constraint firstItem="qXp-8V-tSY" firstAttribute="trailing" secondItem="zMp-ZY-ybp" secondAttribute="trailing" constant="60" id="fae-tQ-c1t"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oxD-uj-lvk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="31.884057971014496" y="803.57142857142856"/>
-        </scene>
         <!--Register View Controller-->
         <scene sceneID="Qeh-lj-Oud">
             <objects>
