@@ -28,6 +28,7 @@ enum Stoyboard: String {
     case notice = "Notice"
     case productDetail = "ProductDetail"
     case pay = "Pay"
+    case addProduct = "AddProduct"
     
     var name: String {
         return rawValue

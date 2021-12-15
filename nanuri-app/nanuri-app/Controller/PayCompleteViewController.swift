@@ -33,4 +33,7 @@ class PayCompleteViewController: UIViewController {
     }
     */
 
+    @IBAction func goBackHome(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
+    }
 }
