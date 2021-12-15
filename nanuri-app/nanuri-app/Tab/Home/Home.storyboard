@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -37,6 +38,9 @@
                                 <rect key="frame" x="323" y="726" width="76" height="66"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="floating_button"/>
+                                <connections>
+                                    <action selector="addProduct:" destination="9Yp-Ks-may" eventType="touchUpInside" id="XV9-Rs-qhN"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jl7-ZY-szt">
                                 <rect key="frame" x="0.0" y="88" width="414" height="142"/>
@@ -75,11 +79,13 @@
             </objects>
             <point key="canvasLocation" x="1221.7391304347827" y="726.5625"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="tLZ-kd-WdN">
             <objects>
                 <navigationController storyboardIdentifier="UINavigationController-wN3-ez-dQs" automaticallyAdjustsScrollViewInsets="NO" id="cTd-Bn-jVb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0RI-mB-5b2"/>
+                    <tabBarItem key="tabBarItem" title="" id="0RI-mB-5b2">
+                        <imageReference key="image" image="house" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7HI-7T-0Wr">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -108,6 +114,7 @@
     <resources>
         <image name="banner1.png" width="1045" height="470"/>
         <image name="floating_button" width="52" height="52"/>
+        <image name="house" catalog="system" width="128" height="106"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

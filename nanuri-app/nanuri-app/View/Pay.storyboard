@@ -150,11 +150,8 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5P4-4B-XVW">
-                                <rect key="frame" x="0.0" y="802" width="408" height="60"/>
+                                <rect key="frame" x="0.0" y="802" width="408" height="94"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.47450980390000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="0BD-ec-27Q"/>
-                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="결제하기">
                                     <fontDescription key="titleFontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="18"/>
@@ -170,12 +167,14 @@
                         <constraints>
                             <constraint firstItem="iY6-1o-2ag" firstAttribute="top" secondItem="GFK-jl-5qs" secondAttribute="bottom" constant="70" id="A6B-L4-zdK"/>
                             <constraint firstItem="dlf-wn-j2G" firstAttribute="centerX" secondItem="X1k-u8-VUw" secondAttribute="centerX" id="ARK-D5-QGT"/>
+                            <constraint firstAttribute="trailing" secondItem="5P4-4B-XVW" secondAttribute="trailing" id="CE2-Zq-s87"/>
                             <constraint firstItem="iY6-1o-2ag" firstAttribute="leading" secondItem="8A9-0a-oba" secondAttribute="leading" constant="20" id="Fi4-Cg-AuQ"/>
                             <constraint firstItem="GFK-jl-5qs" firstAttribute="top" secondItem="Iqi-0D-5vs" secondAttribute="bottom" constant="76" id="Gsp-0E-UED"/>
                             <constraint firstItem="dlf-wn-j2G" firstAttribute="top" secondItem="iY6-1o-2ag" secondAttribute="bottom" constant="20" id="JW1-zL-rCP"/>
                             <constraint firstItem="dlf-wn-j2G" firstAttribute="leading" secondItem="8A9-0a-oba" secondAttribute="leading" constant="20" id="L4G-d3-mYr"/>
                             <constraint firstItem="8A9-0a-oba" firstAttribute="trailing" secondItem="dlf-wn-j2G" secondAttribute="trailing" constant="20" id="QbB-fV-XOx"/>
                             <constraint firstItem="Iqi-0D-5vs" firstAttribute="top" secondItem="8A9-0a-oba" secondAttribute="top" constant="50" id="RWf-Jk-wKp"/>
+                            <constraint firstItem="5P4-4B-XVW" firstAttribute="top" secondItem="8A9-0a-oba" secondAttribute="bottom" constant="-60" id="RxR-P0-0AM"/>
                             <constraint firstItem="Iqi-0D-5vs" firstAttribute="leading" secondItem="8A9-0a-oba" secondAttribute="leading" constant="20" id="UKz-0z-ZoB"/>
                             <constraint firstItem="iY6-1o-2ag" firstAttribute="centerX" secondItem="X1k-u8-VUw" secondAttribute="centerX" id="VUH-Tq-kWI"/>
                             <constraint firstItem="8A9-0a-oba" firstAttribute="trailing" secondItem="iY6-1o-2ag" secondAttribute="trailing" constant="20" id="XiM-re-pYK"/>
@@ -183,9 +182,8 @@
                             <constraint firstItem="5P4-4B-XVW" firstAttribute="leading" secondItem="8A9-0a-oba" secondAttribute="leading" id="YjV-43-L5u"/>
                             <constraint firstItem="Iqi-0D-5vs" firstAttribute="centerX" secondItem="X1k-u8-VUw" secondAttribute="centerX" id="cyn-k8-Oue"/>
                             <constraint firstItem="8A9-0a-oba" firstAttribute="trailing" secondItem="GFK-jl-5qs" secondAttribute="trailing" constant="20" id="eJp-Xw-hft"/>
-                            <constraint firstItem="8A9-0a-oba" firstAttribute="trailing" secondItem="5P4-4B-XVW" secondAttribute="trailing" id="hM4-GA-fIR"/>
                             <constraint firstItem="8A9-0a-oba" firstAttribute="trailing" secondItem="Iqi-0D-5vs" secondAttribute="trailing" constant="20" id="mm7-6O-3s1"/>
-                            <constraint firstItem="8A9-0a-oba" firstAttribute="bottom" secondItem="5P4-4B-XVW" secondAttribute="bottom" id="qP8-18-crD"/>
+                            <constraint firstAttribute="bottom" secondItem="5P4-4B-XVW" secondAttribute="bottom" id="qP8-18-crD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4fW-6q-fMz"/>
@@ -280,16 +278,16 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dg-4e-M9i">
-                                <rect key="frame" x="0.0" y="748" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="748" width="414" height="94"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.47450980390000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="HHB-hQ-oIJ"/>
-                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="돌아가기">
                                     <fontDescription key="titleFontDescription" name="NanumSquareRoundOTFB" family="NanumSquareRoundOTF" pointSize="18"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="goBackHome:" destination="qMT-e1-wEu" eventType="touchUpInside" id="KVu-c9-tie"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WzH-2k-p12"/>
@@ -301,13 +299,14 @@
                             <constraint firstItem="InS-Ue-Lg3" firstAttribute="trailing" secondItem="2fu-wm-7fs" secondAttribute="trailing" id="I6Q-Bh-eOK"/>
                             <constraint firstItem="InS-Ue-Lg3" firstAttribute="leading" secondItem="2fu-wm-7fs" secondAttribute="leading" id="Icl-fL-qz5"/>
                             <constraint firstItem="2fu-wm-7fs" firstAttribute="top" secondItem="JDY-rz-OUJ" secondAttribute="bottom" constant="50" id="IhD-6i-OiB"/>
+                            <constraint firstItem="1dg-4e-M9i" firstAttribute="top" secondItem="WzH-2k-p12" secondAttribute="bottom" constant="-60" id="K7g-pD-6bZ"/>
                             <constraint firstItem="JDY-rz-OUJ" firstAttribute="leading" secondItem="WzH-2k-p12" secondAttribute="leading" constant="20" id="KcZ-u1-2Yr"/>
                             <constraint firstItem="WzH-2k-p12" firstAttribute="trailing" secondItem="5mp-cd-Ivm" secondAttribute="trailing" constant="20" id="Qbh-e6-pws"/>
                             <constraint firstItem="1dg-4e-M9i" firstAttribute="leading" secondItem="WzH-2k-p12" secondAttribute="leading" id="Qhe-r2-mpN"/>
-                            <constraint firstItem="1dg-4e-M9i" firstAttribute="bottom" secondItem="WzH-2k-p12" secondAttribute="bottom" id="T05-93-xnp"/>
                             <constraint firstItem="InS-Ue-Lg3" firstAttribute="top" secondItem="5mp-cd-Ivm" secondAttribute="bottom" constant="30" id="Xc9-dz-hne"/>
                             <constraint firstItem="InS-Ue-Lg3" firstAttribute="trailing" secondItem="5mp-cd-Ivm" secondAttribute="trailing" id="cV0-VR-0P0"/>
                             <constraint firstItem="WzH-2k-p12" firstAttribute="bottom" secondItem="InS-Ue-Lg3" secondAttribute="bottom" constant="376" id="fxa-hN-qx8"/>
+                            <constraint firstItem="1dg-4e-M9i" firstAttribute="bottom" secondItem="wbg-Dr-edB" secondAttribute="bottom" id="mmd-6h-1CT"/>
                             <constraint firstItem="5mp-cd-Ivm" firstAttribute="leading" secondItem="WzH-2k-p12" secondAttribute="leading" constant="20" id="t8a-M6-69p"/>
                             <constraint firstItem="InS-Ue-Lg3" firstAttribute="leading" secondItem="5mp-cd-Ivm" secondAttribute="leading" id="tdy-Xn-G2n"/>
                         </constraints>

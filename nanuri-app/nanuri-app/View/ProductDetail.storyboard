@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C65-zG-y3D">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="C65-zG-y3D">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -632,7 +632,7 @@
                                         </subviews>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oa8-tv-8ht">
-                                        <rect key="frame" x="20" y="417" width="374" height="479"/>
+                                        <rect key="frame" x="20" y="417" width="374" height="513"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">로스팅 원두 배송합니다!
 코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
@@ -692,11 +692,8 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="4oQ-3J-4CI"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sv5-5B-f5P">
-                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="802" width="414" height="94"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.47450980390000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Ei8-h6-MFJ"/>
-                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="공동 구매 참여 하기">
@@ -713,12 +710,13 @@
                             <constraint firstItem="4oQ-3J-4CI" firstAttribute="bottom" secondItem="sv5-5B-f5P" secondAttribute="bottom" constant="34" id="3qa-6z-Lsh"/>
                             <constraint firstItem="4oQ-3J-4CI" firstAttribute="trailing" secondItem="sv5-5B-f5P" secondAttribute="trailing" id="Dea-Ux-Tvc"/>
                             <constraint firstItem="z6U-b4-nsh" firstAttribute="trailing" secondItem="sv5-5B-f5P" secondAttribute="trailing" id="Jh7-ZE-aGf"/>
-                            <constraint firstItem="z6U-b4-nsh" firstAttribute="bottom" secondItem="sv5-5B-f5P" secondAttribute="bottom" id="WVl-hv-frT"/>
+                            <constraint firstAttribute="bottom" secondItem="sv5-5B-f5P" secondAttribute="bottom" id="WVl-hv-frT"/>
                             <constraint firstItem="z6U-b4-nsh" firstAttribute="trailing" secondItem="78m-5z-V0H" secondAttribute="trailing" id="YO5-8c-cpX"/>
                             <constraint firstItem="78m-5z-V0H" firstAttribute="leading" secondItem="z6U-b4-nsh" secondAttribute="leading" id="bcM-TO-jiK"/>
                             <constraint firstItem="sv5-5B-f5P" firstAttribute="leading" secondItem="z6U-b4-nsh" secondAttribute="leading" id="c5C-Uy-FUE"/>
                             <constraint firstItem="78m-5z-V0H" firstAttribute="top" secondItem="l0E-pr-DM0" secondAttribute="top" id="cZE-DT-ViI"/>
                             <constraint firstItem="78m-5z-V0H" firstAttribute="centerX" secondItem="l0E-pr-DM0" secondAttribute="centerX" id="lFz-xD-83f"/>
+                            <constraint firstItem="sv5-5B-f5P" firstAttribute="top" secondItem="z6U-b4-nsh" secondAttribute="bottom" constant="-60" id="u09-25-IXP"/>
                             <constraint firstItem="sv5-5B-f5P" firstAttribute="top" secondItem="78m-5z-V0H" secondAttribute="bottom" id="vpG-ei-Vla"/>
                         </constraints>
                     </view>

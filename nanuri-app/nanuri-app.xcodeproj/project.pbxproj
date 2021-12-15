@@ -41,6 +41,8 @@
 		39BE79DD274361A100452A8E /* image_sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 39BE79DC274361A100452A8E /* image_sample.png */; };
 		39BE7A00274385C000452A8E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE79FF274385C000452A8E /* Theme.swift */; };
 		39CE79F32744A9CD00F8F659 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE79F22744A9CC00F8F659 /* ProductDetailViewController.swift */; };
+		39EE3A11275A17B300D7560A /* AddProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39EE3A10275A17B200D7560A /* AddProduct.storyboard */; };
+		39EE3A13275A240F00D7560A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EE3A12275A240F00D7560A /* AddProductViewController.swift */; };
 		39F38EE82743BF96007A15B3 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F38EE72743BF96007A15B3 /* HexColor.swift */; };
 		39F38EED2743C14D007A15B3 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F38EEC2743C14D007A15B3 /* List.storyboard */; };
 		39F38EEF2743C1FC007A15B3 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F38EEE2743C1FC007A15B3 /* Home.storyboard */; };
@@ -97,6 +99,8 @@
 		39BE79DC274361A100452A8E /* image_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_sample.png; sourceTree = "<group>"; };
 		39BE79FF274385C000452A8E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		39CE79F22744A9CC00F8F659 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		39EE3A10275A17B200D7560A /* AddProduct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddProduct.storyboard; sourceTree = "<group>"; };
+		39EE3A12275A240F00D7560A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		39F38EE72743BF96007A15B3 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
 		39F38EEC2743C14D007A15B3 /* List.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = List.storyboard; sourceTree = "<group>"; };
 		39F38EEE2743C1FC007A15B3 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 				87A86E972745512500B0E16A /* Login.storyboard */,
 				394A65E12745F672000CD9A8 /* ScrollViewTest.storyboard */,
 				39160171274E42F800B005E6 /* Pay.storyboard */,
+				39EE3A10275A17B200D7560A /* AddProduct.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 				3948619D2747CDFB0016D34C /* CommentViewController.swift */,
 				39160173274E43C800B005E6 /* PayViewController.swift */,
 				39160175274E4F8A00B005E6 /* PayCompleteViewController.swift */,
+				39EE3A12275A240F00D7560A /* AddProductViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -400,6 +406,7 @@
 				3948619C2747CA120016D34C /* CommentCustomCell.xib in Resources */,
 				394861A02747D18D0016D34C /* Comment.storyboard in Resources */,
 				87A86E982745512500B0E16A /* Login.storyboard in Resources */,
+				39EE3A11275A17B300D7560A /* AddProduct.storyboard in Resources */,
 				39BE79D9274357A700452A8E /* ProductCustomCell.xib in Resources */,
 				87A86E9A2745608700B0E16A /* logo_sample.png in Resources */,
 				39F38EEF2743C1FC007A15B3 /* Home.storyboard in Resources */,
@@ -491,6 +498,7 @@
 				394A65D627451A5E000CD9A8 /* NoticeCustomCell.swift in Sources */,
 				39160176274E4F8A00B005E6 /* PayCompleteViewController.swift in Sources */,
 				39160174274E43C800B005E6 /* PayViewController.swift in Sources */,
+				39EE3A13275A240F00D7560A /* AddProductViewController.swift in Sources */,
 				394A65D927451B90000CD9A8 /* NoticeViewController.swift in Sources */,
 				39F38EE82743BF96007A15B3 /* HexColor.swift in Sources */,
 				394A65CC2745042E000CD9A8 /* HeaderViewController.swift in Sources */,
@@ -646,6 +654,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P5A4NBG7AB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "nanuri-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -674,6 +683,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P5A4NBG7AB;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "nanuri-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

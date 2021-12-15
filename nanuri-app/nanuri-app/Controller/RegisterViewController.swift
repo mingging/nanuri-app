@@ -19,6 +19,7 @@ class RegisterViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         let myColor = UIColor(hex: Theme.primary)
+        
         /*
         nickNameTextField.layer.borderColor = myColor?.cgColor
 //        townTextField.layer.borderColor = myColor?.cgColor
