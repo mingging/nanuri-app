@@ -2,59 +2,301 @@
 //  ProductDetailViewController.swift
 //  nanuri-app
 //
-//  Created by minimani on 2021/11/17.
+//  Created by minimani on 2021/12/15.
 //
 
 import UIKit
+import SnapKit
 
 class ProductDetailViewController: UIViewController {
     
-    
     //MARK: - Property
-    
-    @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var productNameLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    
-    
-    @IBOutlet weak var startDayLabel: UILabel!
-    @IBOutlet weak var endDayLabel: UILabel!
-    
-    @IBOutlet weak var totalPeopleLabel: UILabel!
-    @IBOutlet weak var currentPeopleLabel: UILabel!
+    let textView = UITextView()
+    let scrollView = UIScrollView()
 
-    @IBOutlet weak var dDayLabel: UILabel!
-    @IBOutlet weak var deliveryLabel: UILabel!
-    @IBOutlet weak var dDayView: UIView!
-    @IBOutlet weak var deliveryView: UIView!
-    
-    @IBOutlet weak var nicNameLabel: UILabel!
-    
-    @IBOutlet weak var processText: UITextView!
-    
-    @IBOutlet weak var commentCountLabel: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewSetUp()
+        // Do any additional setup after loading the view.
+    }
+    
+    
+    //MARK: - View Set Up
+    func viewSetUp() {
+        
+        scrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        scrollView.isScrollEnabled = true
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height + 100)
+        self.view.addSubview(scrollView)
+        
+        scrollView.snp.makeConstraints { make in
+            make.leading.trailing.top.equalTo(self.view.safeAreaLayoutGuide)
+            make.bottom.equalToSuperview()
+        }
+    
+        // header
+        let headerImage = UIImageView()
+        scrollView.addSubview(headerImage)
+        
+        headerImage.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(self.view)
+            make.height.equalTo(250)
+        }
+        headerImage.image = UIImage(named: "image_sample")
+        headerImage.contentMode = .scaleAspectFill
+        
+        // product link button
+        let productLinkButton = UIButton()
+        scrollView.addSubview(productLinkButton)
+        
+        productLinkButton.snp.makeConstraints { make in
+            make.trailing.equalTo(self.view).inset(20)
+            make.bottom.equalTo(headerImage.snp.bottom).inset(20)
+        }
+        productLinkButton.setImage(UIImage(named: "product_link_button"), for: .normal)
+        
+        // contents
+        let contentView = UIView()
+        scrollView.addSubview(contentView)
+        
+        contentView.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(self.view).inset(30)
+            make.top.equalTo(headerImage.snp.bottom).inset(-16)
+        }
+        
+        // category
+        let categoryLabel = UILabel()
+        contentView.addSubview(categoryLabel)
+        
+        categoryLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalToSuperview()
+        }
+        categoryLabel.text = "# 생활 용품"
+        categoryLabel.font = UIFont(name: "NanumSquareRoundOTFEB", size: 13)
+        categoryLabel.textColor = UIColor(hex: Theme.secondary)
+        
+        // productName
+        let productNameLabel = UILabel()
+        contentView.addSubview(productNameLabel)
+        
+        productNameLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.top.equalTo(categoryLabel.snp.bottom).inset(-6)
+            make.width.lessThanOrEqualTo(211)
+        }
+        productNameLabel.text = "마이쭈가 좋아하는 마이쮸"
+        productNameLabel.font = UIFont(name: "NanumSquareRoundOTFEB", size: 20)
+        productNameLabel.textColor = UIColor(hex: Theme.primary)
+                                    
+        // productPrice
+        let productPriceLabel = UILabel()
+        contentView.addSubview(productPriceLabel)
+        
+        productPriceLabel.snp.makeConstraints { make in
+            make.trailing.equalToSuperview()
+            make.top.equalTo(categoryLabel.snp.bottom).inset(-6)
+            make.leading.equalTo(productNameLabel.snp.trailing)
+        }
+        productPriceLabel.text = "12,500원"
+        productPriceLabel.font = UIFont(name: "NanumSquareRoundOTFEB", size: 20)
+        productPriceLabel.textAlignment = .right
+        
+        // period
+        let periodLabel = UILabel()
+        contentView.addSubview(periodLabel)
+        
+        periodLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.top.equalTo(productNameLabel.snp.bottom).inset(-6)
+        }
+        periodLabel.text = "2021.11.09 ~ 2021.11.15"
+        periodLabel.font = UIFont(name: "NanumSquareRoundOTFB", size: 12)
+        periodLabel.textColor = UIColor(hex: Theme.lightGray)
+        
+        // recruitment
+        let recruitmentLabel = UILabel()
+        contentView.addSubview(recruitmentLabel)
+        
+        recruitmentLabel.snp.makeConstraints { make in
+            make.trailing.equalToSuperview()
+            make.top.equalTo(productPriceLabel.snp.bottom).inset(-6)
+            make.leading.equalTo(periodLabel.snp.trailing)
+        }
+        recruitmentLabel.text = "2 / 5명"
+        recruitmentLabel.font = UIFont(name: "NanumSquareRoundOTFB", size: 15)
+        recruitmentLabel.textColor = UIColor(hex: Theme.lightGray)
+        
+        // dday
+        let dDayView = UIView()
+        contentView.addSubview(dDayView)
+        
+        dDayView.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.height.equalTo(25)
+            make.width.equalTo(52)
+            make.top.equalTo(periodLabel.snp.bottom).inset(-6)
+        }
+        dDayView.backgroundColor = UIColor(hex: Theme.primary)
+        dDayView.layer.cornerRadius = 5
+        
+        let dDayLabel = UILabel()
+        dDayView.addSubview(dDayLabel)
+        
+        dDayLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        dDayLabel.text = "D - 6"
+        dDayLabel.font = UIFont(name: "NanumSquareRoundOTFEB", size: 13)
+        dDayLabel.textColor = UIColor(hex: Theme.secondary)
+        
+        // delivery
+        let deliveryView = UIView()
+        contentView.addSubview(deliveryView)
+        
+        deliveryView.snp.makeConstraints { make in
+            make.leading.equalTo(dDayView.snp.trailing).inset(-6)
+            make.height.equalTo(25)
+            make.width.equalTo(52)
+            make.top.equalTo(periodLabel.snp.bottom).inset(-6)
+        }
+        deliveryView.backgroundColor = UIColor(hex: Theme.secondary)
+        deliveryView.layer.cornerRadius = 5
+        
+        let deliveryLabel = UILabel()
+        deliveryView.addSubview(deliveryLabel)
+        
+        deliveryLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        deliveryLabel.text = "배송"
+        deliveryLabel.font = UIFont(name: "NanumSquareRoundOTFEB", size: 13)
+        deliveryLabel.textColor = UIColor(hex: Theme.primary)
+        
+       // detailContents
+        let processLabel = UILabel()
+        contentView.addSubview(processLabel)
+        
+        processLabel.snp.makeConstraints { make in
+            make.top.equalTo(deliveryView.snp.bottom).inset(-16)
+            make.leading.equalToSuperview()
+        }
+        processLabel.text = "진행 방법"
+        processLabel.font = UIFont(name: "NanumSquareRoundOTFB", size: 12)
+        
+        // comment & favorite
+        let commentButton = UIButton()
+        let favoriteButton = UIButton()
+        
+        contentView.addSubview(commentButton)
+        contentView.addSubview(favoriteButton)
+        
+        commentButton.snp.makeConstraints { make in
+            make.top.equalTo(deliveryView.snp.bottom).inset(-9)
+            make.trailing.equalToSuperview()
+            make.leading.equalTo(favoriteButton.snp.trailing).inset(12)
+            
+        }
+        commentButton.setImage(UIImage(named: "chat_icon"), for: .normal)
+        
+        favoriteButton.snp.makeConstraints { make in
+            make.top.equalTo(deliveryView.snp.bottom).inset(-9)
+            make.trailing.equalTo(commentButton.snp.leading).inset(-12)
+        }
+        favoriteButton.setImage(UIImage(named: "heart_fill"), for: .normal)
+        
+        // hr
+        let separateView = UIView()
+        contentView.addSubview(separateView)
+        
+        separateView.snp.makeConstraints { make in
+            make.top.equalTo(processLabel.snp.bottom).inset(-8)
+            make.trailing.left.equalToSuperview()
+            make.height.equalTo(1)
+        }
+        separateView.backgroundColor = .systemGray5
+        
+        // owner
+        let ownerLabel = UILabel()
+        let levelImage = UIImageView()
+        let nicNameLabel = UILabel()
+        
+        contentView.addSubview(ownerLabel)
+        contentView.addSubview(levelImage)
+        contentView.addSubview(nicNameLabel)
+        
+        nicNameLabel.snp.makeConstraints { make in
+            make.trailing.equalToSuperview()
+            make.top.equalTo(separateView.snp.bottom).inset(-7)
+        }
+        nicNameLabel.text = "프로자취러"
+        nicNameLabel.font = UIFont(name: "NanumSquareRoundOTFB", size: 12)
+        
+        levelImage.snp.makeConstraints { make in
+            make.trailing.equalTo(nicNameLabel.snp.leading).inset(-2)
+            make.top.equalTo(separateView.snp.bottom).inset(-7)
+        }
+        levelImage.image = UIImage(named: "levelBadge")
+        
+        ownerLabel.snp.makeConstraints { make in
+            make.trailing.equalTo(levelImage.snp.leading).inset(-2)
+            make.top.equalTo(separateView.snp.bottom).inset(-7)
+        }
+        ownerLabel.text = "작성자 : "
+        ownerLabel.font = UIFont(name: "NanumSquareRoundOTFB", size: 12)
+        ownerLabel.textColor = UIColor(hex: Theme.lightGray)
+        
+        // textView
+      
+        contentView.addSubview(textView)
 
-        // view custom style
-        viewCustom()
+        textView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(ownerLabel.snp.bottom).inset(-15)
+            make.height.equalTo(330)
+        }
+        textView.delegate = self
+        textView.isEditable = false
+        textView.isScrollEnabled = false
+        textView.font = UIFont(name: "NanumSquareRoundOTFR", size: 12)
+        textView.text = """
+        로스팅 원두 배송합니다!
+        코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
 
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        tabBarController?.tabBar.isHidden = true // 뷰 컨트롤러가 나타날 때 숨기기
+        가격은 배송비 포함해서 + 1000원이구요
+        주문주실 때 주소 적어주세요!
+
+        로스팅 원두 배송합니다!
+        코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
+
+        가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!
+        로스팅 원두 배송합니다!
+        코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
+
+        가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!
+
+        로스팅 원두 배송합니다!
+        코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
+
+        가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!
+        """
+        textViewDidChange(textView)
+        
+        // footer
+        let footerButton = UIButton()
+        self.view.addSubview(footerButton)
+        footerButton.snp.makeConstraints { make in
+            make.trailing.leading.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(65)
+        }
+        footerButton.setTitle("공동 구매 참여 하기", for: .normal)
+        footerButton.backgroundColor = UIColor(hex: Theme.primary)
+        footerButton.titleLabel?.font = UIFont(name: "NanumSquareRoundOTFB", size: 18)
+//        footerButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
+        
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        tabBarController?.tabBar.isHidden = false // 뷰 컨트롤러가 사라질 때 나타내기
-    }
-    
-    //MARK: - Action
-    
-    @IBAction func linkToProduct(_ sender: UIButton) {
-    }
-    
     /*
     // MARK: - Navigation
 
@@ -64,34 +306,19 @@ class ProductDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    
-    //MARK: - View Custom Style
-    
-    func viewCustom() {
-        // dday, delivery view custom
-        // radius
-        dDayView.layer.cornerRadius = Style.radius
-        deliveryView.layer.cornerRadius = Style.radius
-        
-        // background color
-        dDayView.backgroundColor = UIColor(hex: Theme.primary)
-        deliveryView.backgroundColor = UIColor(hex: Theme.secondary)
-        
-        // text color
-        categoryLabel.textColor = UIColor(hex: Theme.secondary)
-        productNameLabel.textColor = UIColor(hex: Theme.primary)
-        dDayLabel.textColor = UIColor(hex: Theme.secondary)
-        deliveryLabel.textColor = UIColor(hex: Theme.primary)
-    }
 
-    @IBAction func payAction(_ sender: UIButton) {
-        let payView = UIStoryboard(name: Stoyboard.pay.name, bundle: nil)
-        guard let payVC =
-                payView.instantiateViewController(withIdentifier: Stoyboard.pay.id)
-                as? PayViewController
-        else { return }
+}
+
+
+//MARK: - TextViewDelegate
+extension ProductDetailViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimateSize = textView.sizeThatFits(size)
+        print(estimateSize.height)
         
-        self.navigationController?.pushViewController(payVC, animated: true)
+        textView.snp.updateConstraints { make in
+            make.height.equalTo(estimateSize.height)
+        }
     }
 }

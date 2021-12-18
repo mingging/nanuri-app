@@ -28,7 +28,13 @@ class HomeViewController: HeaderViewController {
                 
     }
     
-
+    @IBAction func addProduct(_ sender: Any) {
+        let addView = UIStoryboard(name: Stoyboard.addProduct.name, bundle: nil)
+        guard let addVC = addView.instantiateViewController(withIdentifier: Stoyboard.addProduct.id) as? AddProductViewController else { return }
+        
+        navigationController?.pushViewController(addVC, animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

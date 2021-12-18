@@ -35,6 +35,7 @@ class MyPageProductsListViewController: UIViewController {
     */
 
 }
+
 extension MyPageProductsListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {

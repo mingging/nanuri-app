@@ -33,6 +33,7 @@ enum Stoyboard: String {
     case productDetail = "ProductDetail"
     case mypageDetail = "MypageDetail"
     case pay = "Pay"
+    case addProduct = "AddProduct"
     
     var name: String {
         return rawValue
