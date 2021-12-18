@@ -12,6 +12,7 @@ enum XibName {
     static let noticeCustomCell = "NoticeCustomCell"
     static let commentCustomCell = "CommentCustomCell"
     static let replyCustomCell = "ReplyCustomCell"
+    static let mypageCustomCell = "MyPageCustomCell"
 }
 
 enum ImageName {
@@ -21,12 +22,16 @@ enum ImageName {
 
 enum StoryboardID {
     static let notice = "notice"
+    static let search = "search"
     static let productDetail = "productDetail"
+    static let mypageDetail = "mypageDetail"
 }
 
 enum Stoyboard: String {
     case notice = "Notice"
+    case search = "Search"
     case productDetail = "ProductDetail"
+    case mypageDetail = "MypageDetail"
     case pay = "Pay"
     case addProduct = "AddProduct"
     

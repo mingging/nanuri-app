@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="wqT-OE-Dg5">
+            <objects>
+                <navigationController id="HP6-HX-hGY" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="grh-nF-jAl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="uYp-EM-8kp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pqa-1a-YU7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-857" y="-319"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="search" id="Y6W-OH-hqX" customClass="SearchViewController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="U4Q-KT-qBM">
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <color key="backgroundColor" red="0.74117647058823533" green="0.67450980392156867" blue="0.40392156862745099" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v5k-6W-d3F">
+                                <rect key="frame" x="30" y="149" width="507.5" height="28"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JS8-z8-CHn">
+                                        <rect key="frame" x="0.0" y="0.0" width="72.5" height="28"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="All">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="NanumSquareRoundOTFR"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" red="0.38042792679999998" green="0.47200793029999999" blue="0.3843021989" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="selectedButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="MNb-CR-Vu2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcT-Xf-prF">
+                                        <rect key="frame" x="72.5" y="0.0" width="72.5" height="28"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="#음식">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="NanumSquareRoundOTFR"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="selectedButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7eq-UU-GGV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3v2-2h-WxX">
+                                        <rect key="frame" x="145" y="0.0" width="72.5" height="28"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="#생활용품">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="NanumSquareRoundOTFR"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="selectedButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="K0o-RM-7eS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xW4-zz-Lft">
+                                        <rect key="frame" x="217.5" y="0.0" width="72.5" height="28"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="#주방">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="NanumSquareRoundOTFR"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="selectedButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QPp-WY-DvJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IeG-Jy-Kd8">
+                                        <rect key="frame" x="290" y="0.0" width="72.5" height="28"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="#욕실">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="NanumSquareRoundOTFR"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="selectedButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qhG-VJ-skP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4W-Hl-xab">
+                                        <rect key="frame" x="362.5" y="0.0" width="72.5" height="28"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="#문구">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="NanumSquareRoundOTFR"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlE-4P-Eo9">
+                                        <rect key="frame" x="435" y="0.0" width="72.5" height="28"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="#기타">
+                                                    <attributes>
+                                                        <font key="NSFont" size="11" name="NanumSquareRoundOTFR"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="U4Q-KT-qBM" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="1H8-Pi-qEr"/>
+                            <constraint firstItem="U4Q-KT-qBM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="3oZ-KD-grr"/>
+                            <constraint firstItem="v5k-6W-d3F" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="7n5-eM-QrD"/>
+                            <constraint firstItem="v5k-6W-d3F" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="61" id="Hy3-KI-qao"/>
+                            <constraint firstItem="v5k-6W-d3F" firstAttribute="top" secondItem="U4Q-KT-qBM" secondAttribute="bottom" constant="17" id="cfN-Uc-1CW"/>
+                            <constraint firstItem="U4Q-KT-qBM" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="mwX-IO-vcY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KHo-zQ-O8z"/>
+                    <connections>
+                        <outlet property="allsearch" destination="JS8-z8-CHn" id="NFZ-gI-G86"/>
+                        <outlet property="bathSearch" destination="IeG-Jy-Kd8" id="sXM-8l-mnE"/>
+                        <outlet property="etcSearch" destination="NlE-4P-Eo9" id="0D2-Vo-GiG"/>
+                        <outlet property="foodSearch" destination="mcT-Xf-prF" id="uFJ-di-YVB"/>
+                        <outlet property="householdSearch" destination="3v2-2h-WxX" id="RWA-PW-KJU"/>
+                        <outlet property="kitchenSearch" destination="xW4-zz-Lft" id="gk4-xX-lzV"/>
+                        <outlet property="stackView" destination="v5k-6W-d3F" id="ceH-mJ-SNy"/>
+                        <outlet property="stationarySearch" destination="B4W-Hl-xab" id="FD8-fz-h4t"/>
+                        <outletCollection property="buttonAttribute" destination="JS8-z8-CHn" collectionClass="NSMutableArray" id="eFL-7m-qFI"/>
+                        <outletCollection property="buttonAttribute" destination="mcT-Xf-prF" collectionClass="NSMutableArray" id="LwF-Da-2M7"/>
+                        <outletCollection property="buttonAttribute" destination="3v2-2h-WxX" collectionClass="NSMutableArray" id="pRc-LS-Hl1"/>
+                        <outletCollection property="buttonAttribute" destination="xW4-zz-Lft" collectionClass="NSMutableArray" id="Dqv-aN-mO9"/>
+                        <outletCollection property="buttonAttribute" destination="IeG-Jy-Kd8" collectionClass="NSMutableArray" id="j7G-Ul-yBc"/>
+                        <outletCollection property="buttonAttribute" destination="B4W-Hl-xab" collectionClass="NSMutableArray" id="qn9-3J-xy9"/>
+                        <outletCollection property="buttonAttribute" destination="NlE-4P-Eo9" collectionClass="NSMutableArray" id="62E-WP-X2q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="45" y="-319"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -7,12 +7,15 @@
 
 import UIKit
 
+
 class MyPageViewController: HeaderViewController {
     
-    let items = ["내가 구매한 상품", "내가 등록한 상품"]
-   
-
-    //constraint를 설정해주기 위해 false를 해야한다.
+//    let items = ["내가 구매한 상품", "내가 등록한 상품"]
+    @IBOutlet weak var firstView:UIView!
+    @IBOutlet weak var secondView:UIView!
+    
+ 
+    
    
 
     override func viewDidLoad() {
@@ -20,10 +23,19 @@ class MyPageViewController: HeaderViewController {
 
         // Do any additional setup after loading the view.
     }
-    func addTarget(){
-        
-    }
+    
 
+    @IBAction func switchView(_ sender: UISegmentedControl) {
+        //let initView = selectedSegmentIndex
+        
+        if sender.selectedSegmentIndex == 1 {
+            firstView.alpha = 1
+            secondView.alpha = 0
+        } else {
+            firstView.alpha = 0
+            secondView.alpha = 1
+        }
+    }
     /*
     // MARK: - Navigation
 

@@ -36,18 +36,9 @@ class LoginViewController: UIViewController {
         
     }
     
-    @IBAction func actLogin2(_ sender: Any) {
-        /*
-        guard let rvc = self.storyboard?.instantiateViewController(withIdentifier: "registerStoryboard") else {
-               return
-           }
-           
-           //화면 전환 애니메이션을 설정합니다. coverVertical 외에도 다양한 옵션이 있습니다.
-           rvc.modalTransitionStyle = UIModalTransitionStyle.coverVertical
-           
-           //인자값으로 다음 뷰 컨트롤러를 넣고 present 메소드를 호출합니다.
-           self.present(rvc, animated: true)
-        */
+    
+    @IBAction func appleLogin(_ sender: Any) {
+        
     }
     /*
     // MARK: - Navigation
@@ -60,3 +51,5 @@ class LoginViewController: UIViewController {
     */
 
 }
+
+/**/

@@ -6,15 +6,20 @@
 //
 
 import UIKit
+import DropDown
 
 class MyPageDetailViewController: UIViewController {
     let myColor = UIColor(hex: Theme.primary)
+    let dropDown = DropDown()
     
+    @IBOutlet weak var userInfoDeleteBtn: UIButton!
+    @IBOutlet weak var dropDownBtn: UIButton!
     @IBOutlet weak var nickTextField: UITextField!
     @IBOutlet weak var bankTextField: UITextField!
     @IBOutlet weak var bankAccountNum: UITextField!
     @IBOutlet weak var button: UIButton!
     @IBOutlet weak var imageView: UIView!
+    @IBOutlet weak var searchTown: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +38,74 @@ class MyPageDetailViewController: UIViewController {
         bankTextField.hideUnderLine()
         bankAccountNum.hideUnderLine()
         
+        userInfoDeleteBtn.titleLabel?.font = UIFont(name: "NanumSquareRoundOTFR", size: 12)
+        /*
+        dropDown.show()
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+            searchTown.UIView = item
+            searchTown.UIView = index
+            
+//            self.dropDown.
+             
+            self.dropDown.selectRow(at: 6)
+//            self.dropDown.clearSelection()
+         }
+         */
+            
+        
+        
+        
     }
     
+    @IBAction func showDropDown(_ sender: Any) {
+        DropDown.startListeningToKeyboard()
+        dropDown.dataSource = ["강서구","강남구","강동구","금천구","성동구","마포구"]
+        dropDown.show()
+        
+        dropDown.anchorView = searchTown
+        dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
+        dropDown.width = 327
+        // 선택한 값 가져오기
+        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+            print("선택한 아이템 : \(item)")
+            print("인덱스 : \(index)")
+//            self.dropDown.
+             
+            self.dropDown.selectRow(at: 6)
+//            self.dropDown.clearSelection()
+            
+        }
+    }
     
-
+    @IBAction func userInfoDelete(_ sender: Any) {
+        let alert = UIAlertController(title: "회원탙퇴", message: "정말로 회원탈퇴를 하시겠습니까?", preferredStyle: .alert)
+        
+//            alert.addAction(action1)
+//            alert.addAction(action2)
+            
+//            self.present(alert, animated: true)
+        let action = UIAlertAction(title: "확인", style: .default) { _ in
+            print("확인이 눌러졌습니다.")
+        }
+        
+        let action2 = UIAlertAction(title: "취소", style: .cancel) { _ in
+            print("cancel")
+        }
+        
+        let action3 = UIAlertAction(title: "삭제", style: .destructive) { _ in
+            print("삭제")
+        }
+        
+        alert.addAction(action)
+        alert.addAction(action2)
+        alert.addAction(action3)
+        
+        present(alert, animated: true) {
+            print("Present AlertController")
+        }
+        
+    }
+    
     /*
     // MARK: - Navigation
 
