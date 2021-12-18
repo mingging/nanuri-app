@@ -8,7 +8,18 @@
 import UIKit
 
 class MyPageCustomCell: UITableViewCell {
-
+    
+    @IBOutlet weak var cellView: UIView!
+    
+    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var currentPeopleLabel: UILabel!
+    @IBOutlet weak var totalPeopleLabel: UILabel!
+    
+    
+    @IBOutlet weak var progress: UIProgressView!
+    @IBOutlet weak var processPercentageLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

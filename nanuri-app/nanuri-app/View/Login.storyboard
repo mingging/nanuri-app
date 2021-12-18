@@ -69,7 +69,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="actLogin2:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zIP-BI-iYd"/>
+                                    <action selector="appleLogin:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9vk-6z-4Ly"/>
                                     <segue destination="hhg-o5-EKZ" kind="show" id="9jm-8z-cFn"/>
                                 </connections>
                             </button>

@@ -51,6 +51,10 @@ class HeaderViewController: UIViewController {
     
     @objc func clickToSearch(sender: UIBarButtonItem) {
         print("search")
+        let searchView = UIStoryboard(name:Stoyboard.search.name,bundle: nil)
+        guard let searchVC = searchView.instantiateViewController(withIdentifier: Stoyboard.search.id) as? SearchViewController else { return }
+        
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
     
     @objc func clickToNotice(sender: UIBarButtonItem) {
