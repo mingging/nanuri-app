@@ -98,7 +98,7 @@ class AddProductViewController: UIViewController {
         twoButton.backgroundColor = .white
         twoButton.setTitleColor(UIColor(hex: Theme.primary), for: .normal)
         twoButton.addTarget(self, action: #selector(showStepTwo), for: .touchUpInside)
-    
+
         
         stepView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(30)

@@ -42,6 +42,7 @@
 		39BE79DD274361A100452A8E /* image_sample.png in Resources */ = {isa = PBXBuildFile; fileRef = 39BE79DC274361A100452A8E /* image_sample.png */; };
 		39BE7A00274385C000452A8E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BE79FF274385C000452A8E /* Theme.swift */; };
 		39CE79F32744A9CD00F8F659 /* ProductDetailViewControllerNo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE79F22744A9CC00F8F659 /* ProductDetailViewControllerNo.swift */; };
+		39CE79F32744A9CD00F8F659 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE79F22744A9CC00F8F659 /* ProductDetailViewController.swift */; };
 		39EE3A11275A17B300D7560A /* AddProduct.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39EE3A10275A17B200D7560A /* AddProduct.storyboard */; };
 		39EE3A13275A240F00D7560A /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EE3A12275A240F00D7560A /* AddProductViewController.swift */; };
 		39F38EE82743BF96007A15B3 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F38EE72743BF96007A15B3 /* HexColor.swift */; };
@@ -101,6 +102,7 @@
 		39BE79DC274361A100452A8E /* image_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_sample.png; sourceTree = "<group>"; };
 		39BE79FF274385C000452A8E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		39CE79F22744A9CC00F8F659 /* ProductDetailViewControllerNo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewControllerNo.swift; sourceTree = "<group>"; };
+		39CE79F22744A9CC00F8F659 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		39EE3A10275A17B200D7560A /* AddProduct.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddProduct.storyboard; sourceTree = "<group>"; };
 		39EE3A12275A240F00D7560A /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		39F38EE72743BF96007A15B3 /* HexColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				39160175274E4F8A00B005E6 /* PayCompleteViewController.swift */,
 				39EE3A12275A240F00D7560A /* AddProductViewController.swift */,
 				39358F72276A272F00245299 /* ProductDetailViewController.swift */,
+
 			);
 			path = Controller;
 			sourceTree = "<group>";
