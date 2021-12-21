@@ -13,13 +13,42 @@ class ProductDetailViewController: UIViewController {
     //MARK: - Property
     let textView = UITextView()
     let scrollView = UIScrollView()
+    let commentButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetUp()
+        dataSetUp()
         // Do any additional setup after loading the view.
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true // 뷰 컨트롤러가 나타날 때 숨기기
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false // 뷰 컨트롤러가 사라질 때 나타내기
+    }
+    
+    @objc func goToComment() {
+        print("click")
+        let commentView = UIStoryboard(name: Stoyboard.comment.name, bundle: nil)
+        guard let commentVC = commentView.instantiateViewController(withIdentifier: Stoyboard.comment.id) as? CommentViewController else { return }
+        
+        navigationController?.pushViewController(commentVC, animated: true)
+    }
+    
+    @objc func nextAction() {
+        let payView = UIStoryboard(name: Stoyboard.pay.name, bundle: nil)
+        guard let payVC = payView.instantiateViewController(withIdentifier: Stoyboard.pay.id) as? PayViewController else { return }
+        
+        navigationController?.pushViewController(payVC, animated: true)
+    }
+    
+    func dataSetUp() {
+        
+    }
     
     //MARK: - View Set Up
     func viewSetUp() {
@@ -185,7 +214,6 @@ class ProductDetailViewController: UIViewController {
         processLabel.font = UIFont(name: "NanumSquareRoundOTFB", size: 12)
         
         // comment & favorite
-        let commentButton = UIButton()
         let favoriteButton = UIButton()
         
         contentView.addSubview(commentButton)
@@ -195,9 +223,10 @@ class ProductDetailViewController: UIViewController {
             make.top.equalTo(deliveryView.snp.bottom).inset(-9)
             make.trailing.equalToSuperview()
             make.leading.equalTo(favoriteButton.snp.trailing).inset(12)
-            
         }
         commentButton.setImage(UIImage(named: "chat_icon"), for: .normal)
+        commentButton.addTarget(self, action: #selector(goToComment), for: .touchUpInside)
+
         
         favoriteButton.snp.makeConstraints { make in
             make.top.equalTo(deliveryView.snp.bottom).inset(-9)
@@ -293,7 +322,7 @@ class ProductDetailViewController: UIViewController {
         footerButton.setTitle("공동 구매 참여 하기", for: .normal)
         footerButton.backgroundColor = UIColor(hex: Theme.primary)
         footerButton.titleLabel?.font = UIFont(name: "NanumSquareRoundOTFB", size: 18)
-//        footerButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
+        footerButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
         
     }
 
