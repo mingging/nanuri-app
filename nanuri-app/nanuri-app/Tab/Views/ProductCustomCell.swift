@@ -17,6 +17,7 @@ class ProductCustomCell: UITableViewCell {
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var currentPeopleLabel: UILabel!
     @IBOutlet weak var totalPeopleLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var endDateLabel: UILabel!

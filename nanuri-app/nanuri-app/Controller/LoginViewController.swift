@@ -7,6 +7,9 @@
 
 import UIKit
 
+import Alamofire
+import SnapKit
+
 class LoginViewController: UIViewController {
 
     
@@ -14,8 +17,50 @@ class LoginViewController: UIViewController {
 //    @IBOutlet weak var appleLogin: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        // Login
+        let loginButton = UIButton()
+        self.view.addSubview(loginButton)
+        loginButton.setTitle("로그인", for: .normal)
+        loginButton.backgroundColor = .black
+        loginButton.snp.makeConstraints { make in
+            make.top.equalTo(self.view.safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        loginButton.addTarget(self, action: #selector(selectLoginButton), for: .touchUpInside)
             
     }
+    
+    @objc func selectLoginButton() {
+        let url = "http://20.196.209.221:8000/users/1"
+//        let params: Parameters = ["user_id":1]
+        let root = AF.request(url, method: .get)
+        root.responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+                    let json = try JSONDecoder().decode(User.self, from: data)
+        
+                    UserSingleton.shared.userData = json.user
+                
+                    let addView = UIStoryboard(name: Stoyboard.homeView.name, bundle: nil)
+                    guard let addVC = addView.instantiateViewController(withIdentifier: Stoyboard.homeView.id) as? HomeViewController else { return }
+                
+                    self.present(addVC, animated: true, completion: nil)
+                } catch(let error) {
+                    print(error)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    
     func login(){
         
     }
