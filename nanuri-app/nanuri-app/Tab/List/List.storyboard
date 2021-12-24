@@ -13,8 +13,8 @@
         <scene sceneID="TRd-jQ-Omm">
             <objects>
                 <navigationController storyboardIdentifier="UINavigationController-6TN-Pp-m51" id="6TN-Pp-m51" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="9Aw-mq-hg6">
-                        <imageReference key="image" image="list.dash" catalog="system" symbolScale="default"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="nanuri_list" id="9Aw-mq-hg6">
+                        <imageReference key="image" image="nanuri_list_no" symbolScale="default"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oqk-2Q-xQD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -55,7 +55,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="nanuri_list" width="26" height="26"/>
+        <image name="nanuri_list_no" width="26" height="26"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
