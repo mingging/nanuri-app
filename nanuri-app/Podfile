@@ -9,4 +9,5 @@ target 'nanuri-app' do
     pod 'Alamofire', '~> 5.4'
     pod 'DropDown'
     pod 'SnapKit', '~> 5.0.0'
+    pod 'KakaoSDK'
 end

@@ -28,6 +28,7 @@ class RegisterViewController: UIViewController {
 //        townTextField.layer.borderWidth = 2.0
         
         nickNameTextField.setUnderLine()
+        townTextField.text = "서울시 금천구"
        
     }
     
