@@ -25,6 +25,7 @@ enum StoryboardID {
     static let search = "search"
     static let productDetail = "productDetail"
     static let mypageDetail = "mypageDetail"
+    static let comment = "comment"
 }
 
 enum Stoyboard: String {
@@ -34,6 +35,7 @@ enum Stoyboard: String {
     case mypageDetail = "MypageDetail"
     case pay = "Pay"
     case addProduct = "AddProduct"
+    case comment = "Comment"
     
     var name: String {
         return rawValue

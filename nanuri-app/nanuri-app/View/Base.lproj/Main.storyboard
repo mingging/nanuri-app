@@ -15,6 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.35686274509999999" green="0.47450980390000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="0XO-UF-k3a" kind="relationship" relationship="viewControllers" id="ZQ8-bg-7BZ"/>
@@ -30,7 +31,7 @@
         <scene sceneID="SoW-Pb-TfL">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="UINavigationController-6TN-Pp-m51" storyboardName="List" id="GQ5-OO-QTa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="list.dash" catalog="system" id="2gI-tJ-LmE"/>
+                    <tabBarItem key="tabBarItem" title="" image="nanuri_list" selectedImage="nanuri_list" id="2gI-tJ-LmE"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URt-IN-JAb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -40,7 +41,7 @@
         <scene sceneID="0Lp-yG-8p4">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="UINavigationController-wN3-ez-dQs" storyboardName="Home" id="0XO-UF-k3a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="house" catalog="system" selectedImage="house" id="ztz-M1-D92"/>
+                    <tabBarItem key="tabBarItem" title="" image="nanuri_home" selectedImage="nanuri_home" id="ztz-M1-D92"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SDQ-ce-xNg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -50,7 +51,7 @@
         <scene sceneID="y6g-mo-ovm">
             <objects>
                 <viewControllerPlaceholder storyboardName="MyPage" id="zKP-3M-RE8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="person" catalog="system" id="Jld-pt-Wy2"/>
+                    <tabBarItem key="tabBarItem" title="" image="nanuri_mypage" selectedImage="nanuri_mypage" id="Jld-pt-Wy2"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAe-bQ-5U0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -58,8 +59,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="house" catalog="system" width="128" height="106"/>
-        <image name="list.dash" catalog="system" width="128" height="85"/>
-        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="nanuri_home" width="25" height="25"/>
+        <image name="nanuri_list" width="26" height="26"/>
+        <image name="nanuri_mypage" width="25" height="25"/>
     </resources>
 </document>
