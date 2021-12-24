@@ -13,7 +13,6 @@ class MyPageProductDetailViewController: UIViewController {
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
-    
     @IBOutlet weak var startDayLabel: UILabel!
     @IBOutlet weak var endDayLabel: UILabel!
     
@@ -81,7 +80,7 @@ class MyPageProductDetailViewController: UIViewController {
         dDayLabel.textColor = UIColor(hex: Theme.secondary)
         deliveryLabel.textColor = UIColor(hex: Theme.primary)
     }
-
+    
     @IBAction func payAction(_ sender: UIButton) {
         let payView = UIStoryboard(name: Stoyboard.pay.name, bundle: nil)
         guard let payVC =
@@ -93,3 +92,5 @@ class MyPageProductDetailViewController: UIViewController {
     }
 
 }
+
+

@@ -141,6 +141,7 @@
 		87959722274D395F005EE16B /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		87A86E972745512500B0E16A /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		87A86E992745608700B0E16A /* logo_sample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_sample.png; sourceTree = "<group>"; };
+		87E4255B2771FF1800C58A26 /* nanuri-app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "nanuri-app.entitlements"; sourceTree = "<group>"; };
 		87F0ED122746139500506BCF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		87F0ED5B2746271E00506BCF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		87FA20292754DCB400BE8A1C /* MyPageCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCustomCell.swift; sourceTree = "<group>"; };
@@ -206,6 +207,7 @@
 		39BE79A527433E3400452A8E /* nanuri-app */ = {
 			isa = PBXGroup;
 			children = (
+				87E4255B2771FF1800C58A26 /* nanuri-app.entitlements */,
 				39F38EE12743BE04007A15B3 /* Tab */,
 				39BE79BC27433E7100452A8E /* Controller */,
 				39BE79BB27433E6D00452A8E /* View */,
@@ -541,7 +543,6 @@
 				87FA20302754EF1C00BE8A1C /* MyPageProductDetailViewController.swift in Sources */,
 				39022BB12775E61E00371C81 /* User.swift in Sources */,
 				39CE79F32744A9CD00F8F659 /* ProductDetailViewController.swift in Sources */,
-				39CE79F32744A9CD00F8F659 /* ProductDetailViewController.swift in Sources */,
 				394A65DB274522A9000CD9A8 /* Names.swift in Sources */,
 				39358F73276A272F00245299 /* ProductDetailViewController.swift in Sources */,
 				394A65D027450AC3000CD9A8 /* ListViewController.swift in Sources */,
@@ -717,9 +718,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "nanuri-app/nanuri-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P5A4NBG7AB;
+				DEVELOPMENT_TEAM = U56QVJ4XLS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "nanuri-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -727,6 +729,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -746,9 +749,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "nanuri-app/nanuri-app.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P5A4NBG7AB;
+				DEVELOPMENT_TEAM = U56QVJ4XLS;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "nanuri-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -756,6 +760,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

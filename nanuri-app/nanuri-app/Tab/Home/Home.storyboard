@@ -83,8 +83,8 @@
         <scene sceneID="tLZ-kd-WdN">
             <objects>
                 <navigationController storyboardIdentifier="UINavigationController-wN3-ez-dQs" automaticallyAdjustsScrollViewInsets="NO" id="cTd-Bn-jVb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="0RI-mB-5b2">
-                        <imageReference key="image" image="house" catalog="system" symbolScale="default"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="nanuri_home" id="0RI-mB-5b2">
+                        <imageReference key="image" image="nanuri_home_no" symbolScale="default"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7HI-7T-0Wr">
@@ -114,7 +114,8 @@
     <resources>
         <image name="banner1.png" width="1045" height="470"/>
         <image name="floating_button" width="52" height="52"/>
-        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="nanuri_home" width="25" height="25"/>
+        <image name="nanuri_home_no" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
