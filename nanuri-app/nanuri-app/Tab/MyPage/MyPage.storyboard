@@ -24,8 +24,8 @@
         <scene sceneID="arV-9o-ebB">
             <objects>
                 <navigationController id="MI9-NP-ph8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="Mv8-ZT-B6L">
-                        <imageReference key="image" image="person" catalog="system" symbolScale="default"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="nanuri_mypage" id="Mv8-ZT-B6L">
+                        <imageReference key="image" image="nanuri_profile_no" symbolScale="default"/>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZQE-BW-BdY">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -326,7 +326,8 @@
     <resources>
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>
         <image name="levelBadge.png" width="13" height="13"/>
-        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="nanuri_mypage" width="25" height="25"/>
+        <image name="nanuri_profile_no" width="25" height="25"/>
         <image name="profilBadge.png" width="57" height="57"/>
         <image name="profilEditPencil.png" width="9" height="9"/>
         <systemColor name="systemBackgroundColor">
