@@ -6,6 +6,8 @@
 //
 
 import UIKit
+
+import Alamofire
 import SnapKit
 
 class ProductDetailViewController: UIViewController {
@@ -13,13 +15,70 @@ class ProductDetailViewController: UIViewController {
     //MARK: - Property
     let textView = UITextView()
     let scrollView = UIScrollView()
+    let productLinkButton = UIButton()
+    let categoryLabel = UILabel()
+    let productNameLabel = UILabel()
+    let productPriceLabel = UILabel()
+    let periodLabel = UILabel()
+    let recruitmentLabel = UILabel()
+    let dDayLabel = UILabel()
+    let deliveryLabel = UILabel()
+    let nicNameLabel = UILabel()
     let commentButton = UIButton()
 
+    var productID: Int?
+    var product: Product?
+    let category = ["", "음식", "생활용품", "주방", "욕실", "문구", "기타"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        CategorySingleton.shared.categoryToString(categoryID: 1)
         viewSetUp()
+        setUpData()
         dataSetUp()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true // 뷰 컨트롤러가 나타날 때 숨기기
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false // 뷰 컨트롤러가 사라질 때 나타내기
+    }
+    
+    @objc func selectProductLinkButton() {
+        print("click")
+        guard let product = product,
+              let url = URL(string: product.link),
+                UIApplication.shared.canOpenURL(url)
+        else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
+    func setUpData() {
+        guard let product = product else { return }
+        
+        categoryLabel.text = "# \(category[product.categoryID])"
+        productNameLabel.text = product.productName
+        productPriceLabel.text = NumberFormatter().priceFormatter(price: product.productPrice)
+        periodLabel.text = "\(DateFormatter().formatter(date: product.startDate)) ~ \(DateFormatter().formatter(date: product.endDate))"
+        recruitmentLabel.text = "\(product.joinPPLCnt) / \(product.totalPPLCnt)명"
+        dDayLabel.text = "D - \(calculateDay(endDate: product.endDate))"
+        deliveryLabel.text = product.deliveryMethod
+        nicNameLabel.text = UserSingleton.shared.userData?.userNick
+        
+        let attributedString = NSMutableAttributedString(string: product.detailContent)
+        // *** Create instance of `NSMutableParagraphStyle`
+        let paragraphStyle = NSMutableParagraphStyle()
+
+        // *** set LineSpacing property in points ***
+        paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+        textView.attributedText = attributedString
+        
+        
+
     }
     
     
@@ -55,7 +114,7 @@ class ProductDetailViewController: UIViewController {
         
         scrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         scrollView.isScrollEnabled = true
-        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height + 100)
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height)
         self.view.addSubview(scrollView)
         
         scrollView.snp.makeConstraints { make in
@@ -75,7 +134,6 @@ class ProductDetailViewController: UIViewController {
         headerImage.contentMode = .scaleAspectFill
         
         // product link button
-        let productLinkButton = UIButton()
         scrollView.addSubview(productLinkButton)
         
         productLinkButton.snp.makeConstraints { make in
@@ -83,6 +141,7 @@ class ProductDetailViewController: UIViewController {
             make.bottom.equalTo(headerImage.snp.bottom).inset(20)
         }
         productLinkButton.setImage(UIImage(named: "product_link_button"), for: .normal)
+        productLinkButton.addTarget(self, action: #selector(selectProductLinkButton), for: .touchUpInside)
         
         // contents
         let contentView = UIView()
@@ -94,7 +153,7 @@ class ProductDetailViewController: UIViewController {
         }
         
         // category
-        let categoryLabel = UILabel()
+        
         contentView.addSubview(categoryLabel)
         
         categoryLabel.snp.makeConstraints { make in
@@ -106,7 +165,7 @@ class ProductDetailViewController: UIViewController {
         categoryLabel.textColor = UIColor(hex: Theme.secondary)
         
         // productName
-        let productNameLabel = UILabel()
+        
         contentView.addSubview(productNameLabel)
         
         productNameLabel.snp.makeConstraints { make in
@@ -116,10 +175,10 @@ class ProductDetailViewController: UIViewController {
         }
         productNameLabel.text = "마이쭈가 좋아하는 마이쮸"
         productNameLabel.font = UIFont(name: "NanumSquareRoundOTFEB", size: 20)
+        productNameLabel.numberOfLines = 2
         productNameLabel.textColor = UIColor(hex: Theme.primary)
                                     
         // productPrice
-        let productPriceLabel = UILabel()
         contentView.addSubview(productPriceLabel)
         
         productPriceLabel.snp.makeConstraints { make in
@@ -132,7 +191,6 @@ class ProductDetailViewController: UIViewController {
         productPriceLabel.textAlignment = .right
         
         // period
-        let periodLabel = UILabel()
         contentView.addSubview(periodLabel)
         
         periodLabel.snp.makeConstraints { make in
@@ -144,7 +202,7 @@ class ProductDetailViewController: UIViewController {
         periodLabel.textColor = UIColor(hex: Theme.lightGray)
         
         // recruitment
-        let recruitmentLabel = UILabel()
+      
         contentView.addSubview(recruitmentLabel)
         
         recruitmentLabel.snp.makeConstraints { make in
@@ -169,7 +227,6 @@ class ProductDetailViewController: UIViewController {
         dDayView.backgroundColor = UIColor(hex: Theme.primary)
         dDayView.layer.cornerRadius = 5
         
-        let dDayLabel = UILabel()
         dDayView.addSubview(dDayLabel)
         
         dDayLabel.snp.makeConstraints { make in
@@ -192,7 +249,6 @@ class ProductDetailViewController: UIViewController {
         deliveryView.backgroundColor = UIColor(hex: Theme.secondary)
         deliveryView.layer.cornerRadius = 5
         
-        let deliveryLabel = UILabel()
         deliveryView.addSubview(deliveryLabel)
         
         deliveryLabel.snp.makeConstraints { make in
@@ -248,7 +304,6 @@ class ProductDetailViewController: UIViewController {
         // owner
         let ownerLabel = UILabel()
         let levelImage = UIImageView()
-        let nicNameLabel = UILabel()
         
         contentView.addSubview(ownerLabel)
         contentView.addSubview(levelImage)
@@ -282,13 +337,12 @@ class ProductDetailViewController: UIViewController {
         textView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(ownerLabel.snp.bottom).inset(-15)
-            make.height.equalTo(330)
+            make.bottom.equalToSuperview()
         }
-        textView.delegate = self
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.font = UIFont(name: "NanumSquareRoundOTFR", size: 12)
-        textView.text = """
+        textView.attributedText = NSAttributedString(string: """
         로스팅 원두 배송합니다!
         코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
 
@@ -308,8 +362,8 @@ class ProductDetailViewController: UIViewController {
         코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
 
         가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!
-        """
-        textViewDidChange(textView)
+        """)
+//        textViewDidChange(textView)
         
         // footer
         let footerButton = UIButton()
@@ -340,14 +394,14 @@ class ProductDetailViewController: UIViewController {
 
 
 //MARK: - TextViewDelegate
-extension ProductDetailViewController: UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
-        let size = CGSize(width: view.frame.width, height: .infinity)
-        let estimateSize = textView.sizeThatFits(size)
-        print(estimateSize.height)
-        
-        textView.snp.updateConstraints { make in
-            make.height.equalTo(estimateSize.height)
-        }
-    }
-}
+//extension ProductDetailViewController: UITextViewDelegate {
+//    func textViewDidChange(_ textView: UITextView) {
+//        let size = CGSize(width: view.frame.width, height: .infinity)
+//        let estimateSize = textView.sizeThatFits(size)
+//        print(estimateSize.height)
+//
+//        textView.snp.updateConstraints { make in
+//            make.height.equalTo(estimateSize.height)
+//        }
+//    }
+//}

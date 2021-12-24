@@ -7,12 +7,15 @@
 
 import UIKit
 
-
+import Alamofire
 //MARK: - Home
 
 class HomeViewController: HeaderViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
+    var products: [Product]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +32,35 @@ class HomeViewController: HeaderViewController {
         // bar item
     
                 
+        getProductList()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getProductList()
+    }
+    
+    func getProductList() {
+        let url = "http://20.196.209.221:8000/products/"
+        let root = AF.request(url, method: .get)
+        root.responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+                    let json = try JSONDecoder().decode(Products.self, from: data)
+                    self.products = json.products
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                } catch (let error) {
+                    print(error)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
     }
     
     @IBAction func addProduct(_ sender: Any) {
@@ -59,28 +91,53 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        if let products = products {
+            return products.count
+        } else {
+            return 0
+        }
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let products = products else { return UITableViewCell() }
+        let product = products[indexPath.row]
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProductCustomCell
-        cellStyle(cell)
 
-        return cell
+        cellStyle(cell)
+        
+        cell.productNameLabel.text = product.productName
+        cell.priceLabel.text = NumberFormatter().priceFormatter(price: product.productPrice)
+        cell.currentPeopleLabel.text = "\(product.joinPPLCnt)"
+        cell.totalPeopleLabel.text = "\(product.totalPPLCnt)"
+        
+        cell.startDateLabel.text = DateFormatter().formatter(date: product.startDate)
+        cell.endDateLabel.text = DateFormatter().formatter(date: product.endDate)
+
+        let percentage = Float(product.joinPPLCnt) / Float(product.totalPPLCnt)
+        cell.progress.progress = percentage
+        cell.processPercentageLabel.text = "\(Int(percentage * 100))%"
+        
+        cell .dDayLabel.text = calculateDay(endDate: product.endDate)
+        
+       return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let productDetailView = UIStoryboard(name: Stoyboard.productDetail.name, bundle: nil)
         guard let productDetailVC =
                 productDetailView.instantiateViewController(withIdentifier: Stoyboard.productDetail.id)
-                as? ProductDetailViewController
+                as? ProductDetailViewController,
+              let products = products
         else { return }
 
+        let product = products[indexPath.row]
+        productDetailVC.productID = product.productId
+        productDetailVC.product = product
+        
         navigationController?.pushViewController(productDetailVC, animated: true)
     }
-    
-    
     
     //MARK: - Cell Style
     
@@ -102,8 +159,5 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.cellView.layer.shadowRadius = Style.radius
         cell.cellView.layer.cornerRadius = Style.radius
         cell.cellView.layer.shadowOffset = CGSize(width: 3, height: 3)
-
-        cell.productNameLabel.text = "캐모마일 45티백 박스"
-        cell.dDayLabel.text = "1"
     }
 }

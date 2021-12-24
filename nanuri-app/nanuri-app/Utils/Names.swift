@@ -21,6 +21,7 @@ enum ImageName {
 }
 
 enum StoryboardID {
+    static let home = "home"
     static let notice = "notice"
     static let search = "search"
     static let productDetail = "productDetail"
@@ -29,6 +30,7 @@ enum StoryboardID {
 }
 
 enum Stoyboard: String {
+    case homeView = "Home"
     case notice = "Notice"
     case search = "Search"
     case productDetail = "ProductDetail"
