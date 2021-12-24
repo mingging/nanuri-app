@@ -7,8 +7,11 @@
 
 import UIKit
 import DropDown
+//import PhotosUI
 
 class MyPageDetailViewController: UIViewController {
+    let containerName = "nanuriImages"
+    let connectionString:String = "DefaultEndpointsProtocol=https;AccountName=logvieoblobimgs;AccountKey=LmiLJOBXGakx9UodRVLenmDyg8aoRDWabfKIyO28rTOHMRptZVH2oooHj0TEOGKQwwxDWrmcaa2/N/apD3e2wg==;EndpointSuffix=core.windows.net"
     let myColor = UIColor(hex: Theme.primary)
     let dropDown = DropDown()
     
@@ -17,9 +20,11 @@ class MyPageDetailViewController: UIViewController {
     @IBOutlet weak var nickTextField: UITextField!
     @IBOutlet weak var bankTextField: UITextField!
     @IBOutlet weak var bankAccountNum: UITextField!
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var imageView: UIView!
     @IBOutlet weak var searchTown: UIView!
+    
+    @IBOutlet weak var profilePhoto: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +34,9 @@ class MyPageDetailViewController: UIViewController {
         imageView.layer.borderColor = myColor?.cgColor
         imageView.layer.borderWidth = 1.5
 //        imageView.addSubview(imageView)
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        submitButton.titleLabel?.adjustsFontSizeToFitWidth = true
 
-        button.titleLabel?.minimumScaleFactor = 10.0
+        submitButton.titleLabel?.minimumScaleFactor = 10.0
         self.tabBarController?.tabBar.isHidden = true
         
         nickTextField.hideUnderLine()
@@ -52,11 +57,21 @@ class MyPageDetailViewController: UIViewController {
          }
          */
             
-        
+        if let data = UserDefaults.standard.data(forKey: "profile_image"){
+            profilePhoto.image = UIImage(data: data)
+        } else {
+            let photo  = UIImage(named:"logo_sample")
+            profilePhoto.image = photo
+        }
         
         
     }
     
+    @IBAction func profilePhotoUpload(_ sender: Any) {
+//        picker.sourceType = .photoLibrary
+//        present(picker, animated: true)
+        
+    }
     @IBAction func showDropDown(_ sender: Any) {
         DropDown.startListeningToKeyboard()
         dropDown.dataSource = ["강서구","강남구","강동구","금천구","성동구","마포구"]
@@ -76,6 +91,64 @@ class MyPageDetailViewController: UIViewController {
             
         }
     }
+    func userSelectedPhoto(_ image: UIImage){
+        // 이미지 피커 didFinish 선택한 이미지를 이미지뷰에 업데이트, 모델 호출, 레이블 적용
+        DispatchQueue.main.async {
+            // 메인 스레드에서 이미지 업데이트
+            self.profilePhoto.image = image
+        }
+        
+    }
+    
+    
+    @IBAction func actSaveUserInfo(_ sender: Any) {
+        if let data = profilePhoto.image?.pngData(){
+            UserDefaults.standard.set(data, forKey: "profile_image")
+        }
+            
+//        UserDefaults.standard.set("logo2.png", forKey: "profile_image")
+//        dismiss(animated: true){
+//            self.diaryVC?.reloadData()
+//        }
+//
+    }
+    /*프로필 사진 업로드 관련 메소드*/
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        if let image = info[.originalImage] as? UIImage{
+            profilePhoto.image = image
+        let rotatedImage = rotateImage(image: image)
+        let data = rotatedImage?.pngData()
+        //runtime 때 경로를 가지고 오는 걸 해야함.
+        try? data?.write(to: getFileName()) }//try? : 에러가 나면 nil 을 반환
+    }
+    
+    //파일 저장 시 이름 중복되지 않게 설정해주는 것
+    func getFileName()->URL{
+        let uniqueName = ProcessInfo.processInfo.globallyUniqueString
+        let filename = getDocuments().appendingPathComponent("img_\(uniqueName).png")
+        print(filename)
+        return filename
+    }
+    
+    func getDocuments()->URL{
+        //singleton 객체, sandbox 랑 연관이 있음
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return urls[0]
+    }
+    
+    func rotateImage(image:UIImage)->UIImage?{
+        if(image.imageOrientation == UIImage.Orientation.up){
+            return image
+        }
+        UIGraphicsBeginImageContext(image.size)
+        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
+        
+        let copy = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return copy
+    }
+    
     
     @IBAction func userInfoDelete(_ sender: Any) {
         let alert = UIAlertController(title: "회원탙퇴", message: "정말로 회원탈퇴를 하시겠습니까?", preferredStyle: .alert)
@@ -133,3 +206,5 @@ extension UITextField {
 //        self.layer.masksToBounds = true
     }
 }
+
+
