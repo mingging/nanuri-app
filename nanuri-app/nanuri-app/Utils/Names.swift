@@ -47,3 +47,11 @@ enum Stoyboard: String {
         return "\(self)"
     }
 }
+
+enum APIHost: String {
+    case url = "http://20.196.209.221:8000/"
+}
+
+enum APIInfo: String {
+    case product = "product/"
+}

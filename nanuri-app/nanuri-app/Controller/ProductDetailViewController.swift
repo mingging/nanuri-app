@@ -102,16 +102,11 @@ class ProductDetailViewController: UIViewController {
     //MARK: - View Set Up
     func viewSetUp() {
         
-        scrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        scrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height - 65)
         scrollView.isScrollEnabled = true
-        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height)
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height + 210)
         self.view.addSubview(scrollView)
         
-        scrollView.snp.makeConstraints { make in
-            make.leading.trailing.top.equalTo(self.view.safeAreaLayoutGuide)
-            make.bottom.equalToSuperview()
-        }
-    
         // header
         let headerImage = UIImageView()
         scrollView.addSubview(headerImage)
@@ -367,6 +362,12 @@ class ProductDetailViewController: UIViewController {
         footerButton.backgroundColor = UIColor(hex: Theme.primary)
         footerButton.titleLabel?.font = UIFont(name: "NanumSquareRoundOTFB", size: 18)
         footerButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
+        
+        scrollView.snp.makeConstraints { make in
+            make.leading.trailing.top.equalTo(self.view.safeAreaLayoutGuide)
+            make.bottom.equalTo(footerButton.snp.top)
+        }
+    
         
     }
 

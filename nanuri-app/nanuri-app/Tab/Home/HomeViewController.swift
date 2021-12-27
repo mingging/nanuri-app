@@ -46,7 +46,7 @@ class HomeViewController: HeaderViewController {
     }
     
     func getProductList() {
-        let url = "http://20.196.209.221:8000/products/"
+        let url = "http://20.196.209.221:8000/products"
         let root = AF.request(url, method: .get)
         root.responseJSON { response in
             switch response.result {
@@ -94,6 +94,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 235
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Alamofire
+
 class ProductCustomCell: UITableViewCell {
     
     let productIamge = UIImageView()

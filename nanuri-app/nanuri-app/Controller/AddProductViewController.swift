@@ -11,19 +11,28 @@ import Alamofire
 
 class AddProductViewController: UIViewController {
     
+    var deliveryMethod = "배송"
     
     //MARK: - Step View Property
     let stepView = UIView()
     let oneButton = UIButton()
     let twoButton = UIButton()
     let footerButton = UIButton()
+    let submitButton = UIButton()
     
     //MARK: - StepOneView Property
     let stepOneView = UIView()
-    
+    let productNameTextField = UITextField()
+    let productLinkTextField = UITextField()
+    let productPriceTextField = UITextField()
     
     //MARK: - StepTwoView Property
     let stepTwoScrollView = UIScrollView()
+    let recruitmentTextField = UITextField()
+    let periodTextField = UITextField()
+    let deliverySegment = UISegmentedControl(items: ["배송", "직거래"])
+    let detailContents = UITextView()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,40 +48,113 @@ class AddProductViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false // 뷰 컨트롤러가 사라질 때 나타내기
     }
     
+    @objc func selectDeliverySegment() {
+        if deliverySegment.selectedSegmentIndex == 0 {
+            deliveryMethod = "배송"
+        } else {
+            deliveryMethod = "직거래"
+        }
+    }
+    
+    func validation() -> Bool {
+        if productNameTextField.text!.isEmpty ||
+            productLinkTextField.text!.isEmpty ||
+            productPriceTextField.text!.isEmpty ||
+            recruitmentTextField.text!.isEmpty ||
+            periodTextField.text!.isEmpty ||
+            detailContents.text.isEmpty {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    @objc func selectFooterButton() {
+        print("click")
+        guard validation() else {
+            return
+        }
+        setProduct()
+    }
+    
+    func setProduct() {
+        guard let productName = productNameTextField.text,
+              let productLink = productLinkTextField.text,
+              let productPrice = productPriceTextField.text,
+              let recruitment = recruitmentTextField.text,
+              let period = periodTextField.text,
+              let detailContents = detailContents.text
+        else { return }
+        
+        let price = Int(productPrice)
+        let total = Int(recruitment)
+        
+        let url = "http://20.196.209.221:8000/products/"
+        let header: HTTPHeaders = ["Content-Type" : "multipart/form-data"]
+        let parameters = [
+            "product_name": productName,
+            "link": productLink,
+            "product_image": "imageName",
+            "product_price": price ?? 0,
+            "total_ppl_cnt": total ?? 0,
+            "end_date": period,
+            "delivery_method": deliveryMethod,
+            "detail_content": detailContents,
+            "user_id": 1,
+            "category_id": 2,
+        ] as [String : Any]
+        
+        AF.upload(multipartFormData: { (multiFormData) in
+                for (key, value) in parameters {
+                    multiFormData.append(Data("\(value)".utf8), withName: key)
+                }
+        }, to: url, headers: header).responseJSON { response in
+                switch response.result {
+                case .success(let JSON):
+                    print("sucess reponse is :\(response)")
+                    self.navigationController?.popViewController(animated: true)
+                case .failure(_):
+                    print("fail")
+                }
+            }
+        
+    }
+    
+    
     @objc func showStepOne() {
         stepOneView.alpha = 1.0
         stepTwoScrollView.alpha = 0.0
+        footerButton.alpha = 1.0
+        submitButton.alpha = 0.0
         
         oneButton.backgroundColor = UIColor(hex: Theme.primary)
         oneButton.setTitleColor(.white, for: .normal)
         twoButton.backgroundColor = .white
         twoButton.setTitleColor(UIColor(hex: Theme.primary), for: .normal)
-        
-        footerButton.setTitle("다음", for: .normal)
     }
     
     @objc func showStepTwo() {
         stepOneView.alpha = 0.0
         stepTwoScrollView.alpha = 1.0
+        footerButton.alpha = 0.0
+        submitButton.alpha = 1.0
         
         twoButton.backgroundColor = UIColor(hex: Theme.primary)
         twoButton.setTitleColor(.white, for: .normal)
         oneButton.backgroundColor = .white
         oneButton.setTitleColor(UIColor(hex: Theme.primary), for: .normal)
-        
-        footerButton.setTitle("등록하기", for: .normal)
     }
     
     @objc func nextAction() {
         stepOneView.alpha = 0.0
         stepTwoScrollView.alpha = 1.0
+        footerButton.alpha = 0.0
+        submitButton.alpha = 1.0
         
         twoButton.backgroundColor = UIColor(hex: Theme.primary)
         twoButton.setTitleColor(.white, for: .normal)
         oneButton.backgroundColor = .white
         oneButton.setTitleColor(UIColor(hex: Theme.primary), for: .normal)
-        
-        footerButton.setTitle("등록하기", for: .normal)
     }
     
     func viewSetUp() {
@@ -111,9 +193,12 @@ class AddProductViewController: UIViewController {
         
         stepOneView.alpha = 1.0
         stepTwoScrollView.alpha = 0.0
+        footerButton.alpha = 1.0
+        submitButton.alpha = 0.0
         
        
         self.view.addSubview(footerButton)
+        self.view.addSubview(submitButton)
         
         footerButton.snp.makeConstraints { make in
             make.trailing.leading.equalToSuperview()
@@ -123,6 +208,17 @@ class AddProductViewController: UIViewController {
         footerButton.setTitle("다음", for: .normal)
         footerButton.backgroundColor = UIColor(hex: Theme.primary)
         footerButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
+        
+        submitButton.snp.makeConstraints { make in
+            make.trailing.leading.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(65)
+        }
+        submitButton.setTitle("등록하기", for: .normal)
+        submitButton.backgroundColor = UIColor(hex: Theme.primary)
+        submitButton.addTarget(self, action: #selector(selectFooterButton), for: .touchUpInside)
+        
+       
         
     }
     
@@ -138,7 +234,7 @@ class AddProductViewController: UIViewController {
         
         // productName
         let productNameLabel = UILabel()
-        let productNameTextField = UITextField()
+       
         
         stepOneView.addSubview(productNameLabel)
         stepOneView.addSubview(productNameTextField)
@@ -169,7 +265,7 @@ class AddProductViewController: UIViewController {
         
         // product link
         let productLinkLabel = UILabel()
-        let productLinkTextField = UITextField()
+       
         
         stepOneView.addSubview(productLinkLabel)
         stepOneView.addSubview(productLinkTextField)
@@ -189,7 +285,7 @@ class AddProductViewController: UIViewController {
         
         // product price
         let productPriceLabel = UILabel()
-        let productPriceTextField = UITextField()
+      
         let priceSubLabel = UILabel()
         
         stepOneView.addSubview(productPriceLabel)
@@ -242,7 +338,7 @@ class AddProductViewController: UIViewController {
         
         // recruitment
         let recruitmentLabel = UILabel()
-        let recruitmentTextField = UITextField()
+      
         let recruitmentSubLabel = UILabel()
         
         stepTwoView.addSubview(recruitmentLabel)
@@ -272,7 +368,7 @@ class AddProductViewController: UIViewController {
         
         // recruitment period
         let periodLabel = UILabel()
-        let periodTextField = UITextField()
+       
         let periodSubLabel = UILabel()
         
         stepTwoView.addSubview(periodLabel)
@@ -323,7 +419,7 @@ class AddProductViewController: UIViewController {
         
         // delivery
         let deliveryLabel = UILabel()
-        let deliverySegment = UISegmentedControl(items: ["배송", "직거래"])
+        deliverySegment.addTarget(self, action: #selector(selectDeliverySegment), for: .valueChanged)
         
         stepTwoView.addSubview(deliveryLabel)
         stepTwoView.addSubview(deliverySegment)
@@ -343,7 +439,6 @@ class AddProductViewController: UIViewController {
         
         // detail contents
         let detailContentsLabel = UILabel()
-        let detailContents = UITextView()
         
         stepTwoView.addSubview(detailContentsLabel)
         stepTwoView.addSubview(detailContents)
