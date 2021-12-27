@@ -76,18 +76,8 @@ class ProductDetailViewController: UIViewController {
         paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
         textView.attributedText = attributedString
-        
-        
+  
 
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        tabBarController?.tabBar.isHidden = true // 뷰 컨트롤러가 나타날 때 숨기기
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        tabBarController?.tabBar.isHidden = false // 뷰 컨트롤러가 사라질 때 나타내기
     }
     
     @objc func goToComment() {
