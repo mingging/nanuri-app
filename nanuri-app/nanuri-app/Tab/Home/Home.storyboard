@@ -72,6 +72,7 @@
                     <navigationItem key="navigationItem" id="kKK-dg-SUd"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="bannerImage" destination="Jl7-ZY-szt" id="QLT-df-Iyp"/>
                         <outlet property="tableView" destination="OkY-oM-aqI" id="dlt-4b-QfZ"/>
                     </connections>
                 </viewController>
