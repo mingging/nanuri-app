@@ -90,7 +90,13 @@ class ProductDetailViewController: UIViewController {
     
     @objc func nextAction() {
         let payView = UIStoryboard(name: Stoyboard.pay.name, bundle: nil)
-        guard let payVC = payView.instantiateViewController(withIdentifier: Stoyboard.pay.id) as? PayViewController else { return }
+        guard let payVC = payView.instantiateViewController(withIdentifier: Stoyboard.pay.id) as? PayViewController,
+                let product = product
+        else { return }
+        
+        payVC.productName = product.productName
+        payVC.productPrice = product.productPrice
+        payVC.method = product.deliveryMethod
         
         navigationController?.pushViewController(payVC, animated: true)
     }

@@ -25,10 +25,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Iqi-0D-5vs">
-                                <rect key="frame" x="20" y="94" width="368" height="95"/>
+                                <rect key="frame" x="20" y="94" width="374" height="95"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="WX3-Td-U8h">
-                                        <rect key="frame" x="0.0" y="0.0" width="368" height="17"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="17"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상품 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p22-zo-J0e">
                                                 <rect key="frame" x="0.0" y="0.0" width="59" height="17"/>
@@ -41,7 +41,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqS-gb-I1J">
-                                                <rect key="frame" x="114" y="0.0" width="254" height="17"/>
+                                                <rect key="frame" x="114" y="0.0" width="260" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="207" id="Mm6-3l-xYh"/>
                                                 </constraints>
@@ -52,7 +52,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="rul-Gg-d3T">
-                                        <rect key="frame" x="0.0" y="39" width="368" height="17"/>
+                                        <rect key="frame" x="0.0" y="39" width="374" height="17"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="배송 방법" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jby-RA-FZL">
                                                 <rect key="frame" x="0.0" y="0.0" width="59" height="17"/>
@@ -65,7 +65,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVO-a1-29t">
-                                                <rect key="frame" x="114" y="0.0" width="254" height="17"/>
+                                                <rect key="frame" x="114" y="0.0" width="260" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="207" id="285-d8-qdl"/>
                                                 </constraints>
@@ -76,7 +76,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="UYf-K9-eeQ">
-                                        <rect key="frame" x="0.0" y="78" width="368" height="17"/>
+                                        <rect key="frame" x="0.0" y="78" width="374" height="17"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="가격" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKr-MN-aB9">
                                                 <rect key="frame" x="0.0" y="0.0" width="59" height="17"/>
@@ -89,7 +89,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lzs-Be-kBL">
-                                                <rect key="frame" x="114" y="0.0" width="254" height="17"/>
+                                                <rect key="frame" x="114" y="0.0" width="260" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="207" id="GxB-ic-t06"/>
                                                 </constraints>
@@ -102,23 +102,23 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GFK-jl-5qs">
-                                <rect key="frame" x="20" y="265" width="368" height="1"/>
+                                <rect key="frame" x="20" y="265" width="374" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="BNs-fu-AJ4"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 결제 수단" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY6-1o-2ag">
-                                <rect key="frame" x="20" y="336" width="368" height="17"/>
+                                <rect key="frame" x="20" y="336" width="374" height="17"/>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="90" translatesAutoresizingMaskIntoConstraints="NO" id="dlf-wn-j2G">
-                                <rect key="frame" x="20" y="373" width="368" height="139"/>
+                                <rect key="frame" x="20" y="373" width="374" height="139"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7li-6L-QIo">
-                                        <rect key="frame" x="0.0" y="0.0" width="139" height="139"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="142" height="139"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="139" id="B8t-XE-fe8"/>
                                             <constraint firstAttribute="width" constant="139" id="yoF-cL-b7D"/>
@@ -133,7 +133,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrQ-E2-364">
-                                        <rect key="frame" x="229" y="0.0" width="139" height="139"/>
+                                        <rect key="frame" x="232" y="0.0" width="142" height="139"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="139" id="ket-9e-d6U"/>
                                             <constraint firstAttribute="width" constant="139" id="mK4-dm-pJ3"/>
@@ -150,7 +150,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5P4-4B-XVW">
-                                <rect key="frame" x="0.0" y="802" width="408" height="94"/>
+                                <rect key="frame" x="0.0" y="802" width="414" height="94"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.47450980390000003" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="결제하기">
@@ -188,8 +188,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="4fW-6q-fMz"/>
                     <connections>
+                        <outlet property="deliveryMethodLabel" destination="MVO-a1-29t" id="gbr-u1-wxd"/>
                         <outlet property="payToBank" destination="lrQ-E2-364" id="yeq-xf-wGm"/>
                         <outlet property="payToCard" destination="7li-6L-QIo" id="men-PK-csO"/>
+                        <outlet property="productNameLabel" destination="hqS-gb-I1J" id="6NZ-tZ-519"/>
+                        <outlet property="productPriceLabel" destination="Lzs-Be-kBL" id="CZb-f1-lJt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4lG-bg-uZu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -312,6 +315,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1Zr-4B-o5V"/>
+                    <connections>
+                        <outlet property="productNameLabel" destination="gW3-Tb-qK3" id="94d-kE-lcf"/>
+                        <outlet property="productPriceLabel" destination="qCX-az-KaG" id="QzO-VH-EuW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fU-kb-QgC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
