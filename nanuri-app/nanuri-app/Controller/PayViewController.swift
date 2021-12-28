@@ -15,6 +15,14 @@ class PayViewController: UIViewController {
     @IBOutlet weak var payToBank: UIButton!
     @IBOutlet weak var payToCard: UIButton!
     
+    @IBOutlet weak var productNameLabel: UILabel!
+    @IBOutlet weak var deliveryMethodLabel: UILabel!
+    @IBOutlet weak var productPriceLabel: UILabel!
+    
+    var productName: String?
+    var productPrice: Int?
+    var method: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +34,20 @@ class PayViewController: UIViewController {
         payToBank.layer.borderColor = UIColor(hex: Theme.lightGray)?.cgColor
         payToBank.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
+        dateSetUp()
+    }
+    
+    func dateSetUp() {
+        guard let productName = productName,
+              let productPrice = productPrice,
+              let deliveryMethod = method
+        else {
+            return
+        }
+
+        productNameLabel.text = productName
+        productPriceLabel.text = NumberFormatter().priceFormatter(price: productPrice)
+        deliveryMethodLabel.text = deliveryMethod
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,15 +58,20 @@ class PayViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false // 뷰 컨트롤러가 사라질 때 나타내기
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let complete = segue.destination as! PayCompleteViewController
+        guard let productName = productName,
+              let productPrice = productPrice
+        else { return }
+        complete.productName = productName
+        complete.productPrice = productPrice
+        
     }
-    */
+    
  
     
     //MARK: - Action

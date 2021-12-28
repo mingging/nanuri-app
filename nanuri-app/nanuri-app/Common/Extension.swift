@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension DateFormatter {
     func formatter(date: String) -> String {
@@ -40,4 +41,16 @@ func calculateDay(endDate: String) -> String {
     let day = Calendar.current.dateComponents([.day], from: nowDate, to: convertDate!)
 
     return "\(day.day!)"
+}
+
+extension UITextField {
+    func underlineTextField() {
+        self.borderStyle = .none
+        let border = CALayer()
+        border.frame = CGRect(x: 0, y: self.frame.height - 1, width: self.frame.width, height: 1)
+        border.borderWidth = 1
+        border.backgroundColor = UIColor(hex: Theme.primary)?.cgColor
+        self.layer.addSublayer(border)
+        self.layer.masksToBounds = true
+    }
 }
