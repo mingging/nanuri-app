@@ -12,22 +12,28 @@ import Alamofire
 
 class HomeViewController: HeaderViewController {
 
+    @IBOutlet weak var bannerImage: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
     var products: [Product]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         // table view settings
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = Style.productListHeight
         tableView.separatorStyle = .none
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(bannerImage.snp.bottom)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview().inset(-100)
+        }
         
         // custom cell
-        let nibName = UINib(nibName: XibName.productCustomCell, bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: "cell")
+//        let nibName = UINib(nibName: XibName.productCustomCell, bundle: nil)
+//        tableView.register(nibName, forCellReuseIdentifier: "cell")
         
         // bar item
     
@@ -40,7 +46,7 @@ class HomeViewController: HeaderViewController {
     }
     
     func getProductList() {
-        let url = "http://20.196.209.221:8000/products/"
+        let url = "http://20.196.209.221:8000/products"
         let root = AF.request(url, method: .get)
         root.responseJSON { response in
             switch response.result {
@@ -90,6 +96,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 235
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let products = products {
             return products.count
@@ -103,25 +113,34 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let products = products else { return UITableViewCell() }
         let product = products[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProductCustomCell
+        let identifier = "\(indexPath.row) \(product.productId)"
+        
+        if let reuseCell = tableView.dequeueReusableCell(withIdentifier: identifier) {
+            return reuseCell
+        } else {
+            let cell = ProductCustomCell.init(style: .default, reuseIdentifier: identifier)
+            cell.selectionStyle = .none
+            cell.setUpView()
+            
+            cell.productNameLabel.text = product.productName
+            cell.priceLabel.text = NumberFormatter().priceFormatter(price: product.productPrice)
+            cell.recruitmentLabel.text = "\(product.joinPPLCnt) / \(product.totalPPLCnt)"
+            cell.periodLabel.text = "\(DateFormatter().formatter(date: product.startDate)) ~ \(DateFormatter().formatter(date: product.endDate))"
+    
+            let percentage = Float(product.joinPPLCnt) / Float(product.totalPPLCnt)
+            cell.progress.progress = percentage
+            cell.processPercentageLabel.text = "\(Int(percentage * 100))%"
+    
+            cell .dDayLabel.text = "D - \(calculateDay(endDate: product.endDate))"
+            
+            return cell
+        }
+    
 
-        cellStyle(cell)
         
-        cell.productNameLabel.text = product.productName
-        cell.priceLabel.text = NumberFormatter().priceFormatter(price: product.productPrice)
-        cell.currentPeopleLabel.text = "\(product.joinPPLCnt)"
-        cell.totalPeopleLabel.text = "\(product.totalPPLCnt)"
         
-        cell.startDateLabel.text = DateFormatter().formatter(date: product.startDate)
-        cell.endDateLabel.text = DateFormatter().formatter(date: product.endDate)
 
-        let percentage = Float(product.joinPPLCnt) / Float(product.totalPPLCnt)
-        cell.progress.progress = percentage
-        cell.processPercentageLabel.text = "\(Int(percentage * 100))%"
-        
-        cell .dDayLabel.text = calculateDay(endDate: product.endDate)
-        
-       return cell
+    
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -139,25 +158,5 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(productDetailVC, animated: true)
     }
     
-    //MARK: - Cell Style
     
-    func cellStyle(_ cell: ProductCustomCell) {
-        // progress bar custom
-        cell.progress.progressTintColor = UIColor(hex: Theme.secondary)
-        
-        // view custom
-        cell.dDayView.layer.cornerRadius = Style.radius
-        cell.dDayLabel.textColor = UIColor(hex: Theme.secondary)
-        cell.dDayView.layer.backgroundColor = UIColor(hex: Theme.primary)?.cgColor
-        cell.productNameLabel.textColor = UIColor(hex: Theme.primary)
-        cell.selectionStyle = .none
-        
-        // cell shadow, radius
-        cell.cellView.layer.masksToBounds = false
-        cell.cellView.layer.shadowColor = UIColor.black.cgColor
-        cell.cellView.layer.shadowOpacity = Float(Style.shadowOpacity)
-        cell.cellView.layer.shadowRadius = Style.radius
-        cell.cellView.layer.cornerRadius = Style.radius
-        cell.cellView.layer.shadowOffset = CGSize(width: 3, height: 3)
-    }
 }

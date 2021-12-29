@@ -26,3 +26,26 @@ struct Category: Codable {
         case categoryName = "category_name"
     }
 }
+
+class CategorySingleton {
+    static let shared = CategorySingleton()
+    
+    func categoryToID(category: String) -> Int {
+        switch category {
+        case "음식":
+            return 1
+        case "생활용품":
+            return 2
+        case "주방":
+            return 3
+        case "욕실":
+            return 4
+        case "문구":
+            return 5
+        case "기타":
+            return 6
+        default:
+            return 6
+        }
+    }
+}

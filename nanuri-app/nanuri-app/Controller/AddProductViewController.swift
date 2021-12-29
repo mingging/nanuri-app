@@ -11,24 +11,46 @@ import Alamofire
 
 class AddProductViewController: UIViewController {
     
+    var deliveryMethod = "배송"
+    var category = ["음식","생활용품","주방", "욕실", "문구", "기타"]
+
     
     //MARK: - Step View Property
     let stepView = UIView()
     let oneButton = UIButton()
     let twoButton = UIButton()
     let footerButton = UIButton()
+    let submitButton = UIButton()
     
     //MARK: - StepOneView Property
     let stepOneView = UIView()
-    
+    let productNameTextField = UITextField()
+    let productLinkTextField = UITextField()
+    let productPriceTextField = UITextField()
     
     //MARK: - StepTwoView Property
     let stepTwoScrollView = UIScrollView()
+    let recruitmentTextField = UITextField()
+    let periodTextField = UITextField()
+    let deliverySegment = UISegmentedControl(items: ["배송", "직거래"])
+    let categoryTextField = UITextField()
+    let detailContents = UITextView()
+    let picker = UIPickerView()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetUp()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        productNameTextField.underlineTextField()
+        productLinkTextField.underlineTextField()
+        productPriceTextField.underlineTextField()
+        recruitmentTextField.underlineTextField()
+        periodTextField.underlineTextField()
+        categoryTextField.underlineTextField()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,40 +61,117 @@ class AddProductViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false // 뷰 컨트롤러가 사라질 때 나타내기
     }
     
+    
+    @objc func selectDeliverySegment() {
+        if deliverySegment.selectedSegmentIndex == 0 {
+            deliveryMethod = "배송"
+        } else {
+            deliveryMethod = "직거래"
+        }
+    }
+    
+    func validation() -> Bool {
+        if productNameTextField.text!.isEmpty ||
+            productLinkTextField.text!.isEmpty ||
+            productPriceTextField.text!.isEmpty ||
+            recruitmentTextField.text!.isEmpty ||
+            periodTextField.text!.isEmpty ||
+            detailContents.text.isEmpty ||
+            categoryTextField.text!.isEmpty {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    @objc func selectFooterButton() {
+        print("click")
+        guard validation() else {
+            return
+        }
+        setProduct()
+    }
+    
+    func setProduct() {
+        guard let productName = productNameTextField.text,
+              let productLink = productLinkTextField.text,
+              let productPrice = productPriceTextField.text,
+              let recruitment = recruitmentTextField.text,
+              let period = periodTextField.text,
+              let detailContents = detailContents.text,
+              let category = categoryTextField.text
+        else { return }
+        
+        let price = Int(productPrice)
+        let total = Int(recruitment)
+        let categoryID = CategorySingleton.shared.categoryToID(category: category)
+        
+        let url = "http://20.196.209.221:8000/products/"
+        let header: HTTPHeaders = ["Content-Type" : "multipart/form-data"]
+        let parameters = [
+            "product_name": productName,
+            "link": productLink,
+            "product_image": "imageName",
+            "product_price": price ?? 0,
+            "total_ppl_cnt": total ?? 0,
+            "end_date": period,
+            "delivery_method": deliveryMethod,
+            "detail_content": detailContents,
+            "user_id": 1,
+            "category_id": categoryID,
+        ] as [String : Any]
+        
+        AF.upload(multipartFormData: { (multiFormData) in
+                for (key, value) in parameters {
+                    multiFormData.append(Data("\(value)".utf8), withName: key)
+                }
+        }, to: url, headers: header).responseJSON { response in
+                switch response.result {
+                case .success(let JSON):
+                    print("sucess reponse is :\(response)")
+                    self.navigationController?.popViewController(animated: true)
+                case .failure(_):
+                    print("fail")
+                }
+            }
+        
+    }
+    
+    
     @objc func showStepOne() {
         stepOneView.alpha = 1.0
         stepTwoScrollView.alpha = 0.0
+        footerButton.alpha = 1.0
+        submitButton.alpha = 0.0
         
         oneButton.backgroundColor = UIColor(hex: Theme.primary)
         oneButton.setTitleColor(.white, for: .normal)
         twoButton.backgroundColor = .white
         twoButton.setTitleColor(UIColor(hex: Theme.primary), for: .normal)
-        
-        footerButton.setTitle("다음", for: .normal)
     }
     
     @objc func showStepTwo() {
         stepOneView.alpha = 0.0
         stepTwoScrollView.alpha = 1.0
+        footerButton.alpha = 0.0
+        submitButton.alpha = 1.0
         
         twoButton.backgroundColor = UIColor(hex: Theme.primary)
         twoButton.setTitleColor(.white, for: .normal)
         oneButton.backgroundColor = .white
         oneButton.setTitleColor(UIColor(hex: Theme.primary), for: .normal)
-        
-        footerButton.setTitle("등록하기", for: .normal)
     }
     
     @objc func nextAction() {
         stepOneView.alpha = 0.0
         stepTwoScrollView.alpha = 1.0
+        footerButton.alpha = 0.0
+        submitButton.alpha = 1.0
         
         twoButton.backgroundColor = UIColor(hex: Theme.primary)
         twoButton.setTitleColor(.white, for: .normal)
         oneButton.backgroundColor = .white
         oneButton.setTitleColor(UIColor(hex: Theme.primary), for: .normal)
-        
-        footerButton.setTitle("등록하기", for: .normal)
     }
     
     func viewSetUp() {
@@ -111,9 +210,12 @@ class AddProductViewController: UIViewController {
         
         stepOneView.alpha = 1.0
         stepTwoScrollView.alpha = 0.0
+        footerButton.alpha = 1.0
+        submitButton.alpha = 0.0
         
        
         self.view.addSubview(footerButton)
+        self.view.addSubview(submitButton)
         
         footerButton.snp.makeConstraints { make in
             make.trailing.leading.equalToSuperview()
@@ -123,6 +225,17 @@ class AddProductViewController: UIViewController {
         footerButton.setTitle("다음", for: .normal)
         footerButton.backgroundColor = UIColor(hex: Theme.primary)
         footerButton.addTarget(self, action: #selector(nextAction), for: .touchUpInside)
+        
+        submitButton.snp.makeConstraints { make in
+            make.trailing.leading.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(65)
+        }
+        submitButton.setTitle("등록하기", for: .normal)
+        submitButton.backgroundColor = UIColor(hex: Theme.primary)
+        submitButton.addTarget(self, action: #selector(selectFooterButton), for: .touchUpInside)
+        
+       
         
     }
     
@@ -138,7 +251,7 @@ class AddProductViewController: UIViewController {
         
         // productName
         let productNameLabel = UILabel()
-        let productNameTextField = UITextField()
+       
         
         stepOneView.addSubview(productNameLabel)
         stepOneView.addSubview(productNameTextField)
@@ -154,7 +267,9 @@ class AddProductViewController: UIViewController {
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(productNameLabel.snp.bottom).inset(-12)
         }
-        productNameTextField.borderStyle = .line
+        productNameTextField.underlineTextField()
+        productNameTextField.font = UIFont(name: "NanumSquareRoundOTFR", size: 15)
+
         
         
         // image upload
@@ -169,7 +284,7 @@ class AddProductViewController: UIViewController {
         
         // product link
         let productLinkLabel = UILabel()
-        let productLinkTextField = UITextField()
+       
         
         stepOneView.addSubview(productLinkLabel)
         stepOneView.addSubview(productLinkTextField)
@@ -180,16 +295,20 @@ class AddProductViewController: UIViewController {
         }
         productLinkLabel.text = "상품 링크"
         productLinkLabel.font = UIFont(name: "NanumSquareRoundOTFR", size: 15)
+        
 
         productLinkTextField.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(productLinkLabel.snp.bottom).inset(-12)
         }
         productLinkTextField.borderStyle = .line
+        productLinkTextField.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        productLinkTextField.font = UIFont(name: "NanumSquareRoundOTFR", size: 15)
+
         
         // product price
         let productPriceLabel = UILabel()
-        let productPriceTextField = UITextField()
+      
         let priceSubLabel = UILabel()
         
         stepOneView.addSubview(productPriceLabel)
@@ -208,6 +327,11 @@ class AddProductViewController: UIViewController {
             make.top.equalTo(productPriceLabel.snp.bottom).inset(-12)
         }
         productPriceTextField.borderStyle = .line
+        productPriceTextField.keyboardType = .numberPad
+        productPriceTextField.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        productPriceTextField.font = UIFont(name: "NanumSquareRoundOTFR", size: 15)
+
+
         
         priceSubLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
@@ -242,7 +366,7 @@ class AddProductViewController: UIViewController {
         
         // recruitment
         let recruitmentLabel = UILabel()
-        let recruitmentTextField = UITextField()
+      
         let recruitmentSubLabel = UILabel()
         
         stepTwoView.addSubview(recruitmentLabel)
@@ -261,6 +385,9 @@ class AddProductViewController: UIViewController {
             make.top.equalTo(recruitmentLabel.snp.bottom).inset(-12)
         }
         recruitmentTextField.borderStyle = .line
+        recruitmentTextField.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        recruitmentTextField.font = UIFont(name: "NanumSquareRoundOTFR", size: 15)
+
         
         recruitmentSubLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
@@ -272,7 +399,7 @@ class AddProductViewController: UIViewController {
         
         // recruitment period
         let periodLabel = UILabel()
-        let periodTextField = UITextField()
+       
         let periodSubLabel = UILabel()
         
         stepTwoView.addSubview(periodLabel)
@@ -290,7 +417,11 @@ class AddProductViewController: UIViewController {
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(periodLabel.snp.bottom).inset(-12)
         }
+        periodTextField.placeholder = "2021-12-28 형식으로 작성해주세요!"
+        periodTextField.font = UIFont(name: "NanumSquareRoundOTFR", size: 15)
         periodTextField.borderStyle = .line
+        periodTextField.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+
         
         periodSubLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
@@ -302,10 +433,9 @@ class AddProductViewController: UIViewController {
         
         // category
         let categoryLabel = UILabel()
-        let category = UIView()
         
         stepTwoView.addSubview(categoryLabel)
-        stepTwoView.addSubview(category)
+        stepTwoView.addSubview(categoryTextField)
 
         categoryLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
@@ -314,23 +444,28 @@ class AddProductViewController: UIViewController {
         categoryLabel.text = "카테고리"
         categoryLabel.font = UIFont(name: "NanumSquareRoundOTFR", size: 15)
         
-        category.snp.makeConstraints { make in
+        categoryTextField.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(categoryLabel.snp.bottom).inset(-12)
             make.height.equalTo(33)
         }
-        category.backgroundColor = .gray
+        categoryTextField.font = UIFont(name: "NanumSquareRoundOTFR", size: 15)
+        picker.delegate = self
+        picker.dataSource = self
+        categoryTextField.inputView = picker
+        
+        configToolbar()
         
         // delivery
         let deliveryLabel = UILabel()
-        let deliverySegment = UISegmentedControl(items: ["배송", "직거래"])
+        deliverySegment.addTarget(self, action: #selector(selectDeliverySegment), for: .valueChanged)
         
         stepTwoView.addSubview(deliveryLabel)
         stepTwoView.addSubview(deliverySegment)
         
         deliveryLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(category.snp.bottom).inset(-50)
+            make.top.equalTo(categoryTextField.snp.bottom).inset(-50)
         }
         deliveryLabel.text = "배송 방법"
         deliveryLabel.font = UIFont(name: "NanumSquareRoundOTFR", size: 15)
@@ -343,7 +478,6 @@ class AddProductViewController: UIViewController {
         
         // detail contents
         let detailContentsLabel = UILabel()
-        let detailContents = UITextView()
         
         stepTwoView.addSubview(detailContentsLabel)
         stepTwoView.addSubview(detailContents)
@@ -363,6 +497,7 @@ class AddProductViewController: UIViewController {
         detailContents.isEditable = true
         detailContents.layer.borderWidth = 1
         detailContents.font = UIFont(name: "NanumSquareRoundOTFR", size: 15)
+        detailContents.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
     }
     /*
     // MARK: - Navigation
@@ -375,3 +510,64 @@ class AddProductViewController: UIViewController {
     */
 
 }
+
+
+
+//MARK: - UIPickerViewDelegate
+
+extension AddProductViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func configPickerView() {
+       
+        
+    }
+    
+    func configToolbar() {
+        let toolBar = UIToolbar()
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor.white
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(donePicker))
+        doneButton.tintColor = .black
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "취소", style: .plain, target: self, action: #selector(self.cancelPicker))
+        cancelButton.tintColor = .black
+        
+        toolBar.setItems([cancelButton, flexibleSpace, doneButton], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        
+        categoryTextField.inputAccessoryView = toolBar
+    }
+    
+    @objc func donePicker() {
+        let row = self.picker.selectedRow(inComponent: 0)
+        self.picker.selectRow(row, inComponent: 0, animated: false)
+        self.categoryTextField.text = self.category[row]
+        self.categoryTextField.resignFirstResponder()
+    }
+    
+    @objc func cancelPicker() {
+        self.categoryTextField.text = nil
+        self.categoryTextField.resignFirstResponder()
+    }
+    
+
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int { return 1 }
+    
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return category.count
+        
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? { return category[row]
+        
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.categoryTextField.text = self.category[row]
+        
+    }
+
+}
+
