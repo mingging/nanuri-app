@@ -47,6 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         /*로그인 뷰 - 정보 없으면 로그인 창, 회원정보 있으면 홈 뷰로 이동*/
+        /*
         UserApi.shared.me { user, error in
             if let error = error { /*error 가 !nil*/
                 print(error.localizedDescription)
@@ -69,6 +70,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
             }
         }
+        */
         
     }
     

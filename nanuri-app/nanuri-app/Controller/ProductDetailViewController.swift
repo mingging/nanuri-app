@@ -76,7 +76,6 @@ class ProductDetailViewController: UIViewController {
         paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
         textView.attributedText = attributedString
-  
 
     }
     
