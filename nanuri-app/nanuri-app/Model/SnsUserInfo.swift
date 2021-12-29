@@ -10,7 +10,7 @@ import Foundation
 class SnsUserInfo{
     static let shared = SnsUserInfo()
     
-    
+    var id: Int?
     var kakaoUserId:String?
     
     private init(){ }

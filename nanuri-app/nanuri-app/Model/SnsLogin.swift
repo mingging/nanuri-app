@@ -7,18 +7,24 @@
 
 import Foundation
 
-struct SocialLogins:Codable{
-    
-    var data:[SnsId]
+struct SocialLogins: Codable{
+    var count: Int
+    var data: [SnsId]
   
 }
 
-struct SnsId:Codable{
-    var id:Int
-    var socialId:String
+struct SnsId: Codable {
+    var id: Int
+    var socialId: String
     
     enum CodingKeys:String, CodingKey {
         case id
         case socialId = "social_id"
     }
+}
+
+
+struct SNSPostResponse: Decodable {
+    var create: String
+    var data: SnsId
 }

@@ -48,8 +48,11 @@ class RegisterViewController: UIViewController {
     
     
     @IBAction func ActUserRegistered(_ sender: Any) {
+        let homeView = UIStoryboard(name: Stoyboard.homeView.name, bundle: nil)
+        guard let homeVC = homeView.instantiateViewController(withIdentifier: Stoyboard.homeView.id) as? HomeViewController else { return }
         
-        
+        homeVC.modalPresentationStyle = .fullScreen
+        self.present(homeVC, animated: true, completion: nil)
     }
     
     func saveUserInfo(){

@@ -92,11 +92,7 @@ class LoginViewController: UIViewController {
                 _ = oauthToken
                 self.userInfo()
                 
-                if let registerVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "registerStoryboard") as? RegisterViewController {
-                    registerVC.modalPresentationStyle = .fullScreen
-                    self.present(registerVC,animated: true)
-                    
-                }
+              
             }
         }
 
@@ -118,24 +114,55 @@ class LoginViewController: UIViewController {
 //                        let kakaoId = SnsId.init(id: Int, socialId: "\(kId)")
 //                    }
                     SnsUserInfo.shared.kakaoUserId = "\(kId)"
-                    let params:Parameters = ["social_id":"\(SnsUserInfo.shared.kakaoUserId!)"]
                     
-                    let request = AF.request(strURL,method: .post,parameters: params)
-                    request.responseDecodable(of:SnsId.self) { response in
-                        switch response.result{
-                        case .failure(let error):
-                            print(error.errorDescription)
-                        case .success(let res):
+                    // test
+                    let header: HTTPHeaders = ["Content-Type" : "multipart/form-data"]
+                    let parameters = ["social_id":"\(SnsUserInfo.shared.kakaoUserId!)"]
+                    
+                    AF.upload(multipartFormData: { multiFormData in
+                        for (key, value) in parameters {
+                            multiFormData.append(Data("\(value)".utf8), withName: key)
+                        }
+                    }, to: strURL, headers: header).responseDecodable(of: SNSPostResponse.self) { response in
+                        switch response.result {
+                        case .success(_):
+                            print("sucess reponse is :\(response)")
+                            guard let value = response.value else { return }
+                            SnsUserInfo.shared.id = value.data.id
                             
-                            print("success")
-//                            if res.socialId == 1 {
-//                                let successAlert = UIAlertController(title:"가입완료",message: "회원가입이 완료되었습니다.", preferredStyle: .alert)
-//                                let action = UIAlertAction(title: "확인", style: .default) { action in
-//                                    print("가입 성공!🙆‍♀️")
-//                                }
-//                            }
+                            print(SnsUserInfo.shared.id)
+//                            SnsUserInfo.shared.id =
+                            if let registerVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "registerStoryboard") as? RegisterViewController {
+                                registerVC.modalPresentationStyle = .fullScreen
+                                self.present(registerVC,animated: true)
+                                
+                            }
+                        case .failure(let error):
+                            print(error.localizedDescription)
                         }
                     }
+                    
+                    
+                    
+//                    let params:Parameters = ["social_id":"\(SnsUserInfo.shared.kakaoUserId!)"]
+//                    
+//                    let request = AF.request(strURL, method: .post, parameters: params)
+//
+//                    request.responseDecodable(of: SocialLogins.self) { response in
+//                        switch response.result{
+//                        case .success(let value):
+//                            print(value)
+//                            print("sucess")
+//                        case .failure(let error):
+//                            print(error.localizedDescription)
+////                            if res.socialId == 1 {
+////                                let successAlert = UIAlertController(title:"가입완료",message: "회원가입이 완료되었습니다.", preferredStyle: .alert)
+////                                let action = UIAlertAction(title: "확인", style: .default) { action in
+////                                    print("가입 성공!🙆‍♀️")
+////                                }
+////                            }
+//                        }
+//                    }
                 }
                 //                self.lblNick.text = user?.kakaoAccount?.profile?.nickname
                 
