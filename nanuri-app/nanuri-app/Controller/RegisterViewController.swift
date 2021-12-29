@@ -8,6 +8,8 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
+    var socialId:SnsId?
+    var user:UserData?
     
     
     
@@ -28,8 +30,9 @@ class RegisterViewController: UIViewController {
 //        townTextField.layer.borderWidth = 2.0
         
         nickNameTextField.setUnderLine()
-        townTextField.text = "서울시 금천구"
-       
+//        townTextField.text = "서울시 금천구"
+        
+        
     }
     
     
@@ -43,6 +46,20 @@ class RegisterViewController: UIViewController {
         sender.isSelected.toggle()
     }
     
+    
+    @IBAction func ActUserRegistered(_ sender: Any) {
+        
+        
+    }
+    
+    func saveUserInfo(){
+        let strURL = "http://20.196.209.221:8000/users/"
+        guard let userNick = nickNameTextField.text else { return }
+        var townName = townTextField.text
+        townName = "서울시 금천구"
+        
+      
+    }
     
     /*
     // MARK: - Navigation
