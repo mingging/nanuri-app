@@ -14,6 +14,7 @@
 		39022BBB277650DF00371C81 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39022BBA277650DF00371C81 /* Networking.swift */; };
 		39022BBD2776517900371C81 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39022BBC2776517900371C81 /* Category.swift */; };
 		39022BBF277A000C00371C81 /* ProductCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39022BBE277A000C00371C81 /* ProductCustomCell.swift */; };
+		39022BC3277C943400371C81 /* DateSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39022BC2277C943400371C81 /* DateSingleton.swift */; };
 		39160172274E42F800B005E6 /* Pay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39160171274E42F800B005E6 /* Pay.storyboard */; };
 		39160174274E43C800B005E6 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39160173274E43C800B005E6 /* PayViewController.swift */; };
 		39160176274E4F8A00B005E6 /* PayCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39160175274E4F8A00B005E6 /* PayCompleteViewController.swift */; };
@@ -90,6 +91,7 @@
 		39022BBA277650DF00371C81 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		39022BBC2776517900371C81 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		39022BBE277A000C00371C81 /* ProductCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCustomCell.swift; sourceTree = "<group>"; };
+		39022BC2277C943400371C81 /* DateSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSingleton.swift; sourceTree = "<group>"; };
 		39160171274E42F800B005E6 /* Pay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pay.storyboard; sourceTree = "<group>"; };
 		39160173274E43C800B005E6 /* PayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
 		39160175274E4F8A00B005E6 /* PayCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCompleteViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				39022BBC2776517900371C81 /* Category.swift */,
 				873BA41B277B28C700128335 /* SnsLogin.swift */,
 				873BA41D277C467600128335 /* SnsUserInfoSingleton.swift */,
+				39022BC2277C943400371C81 /* DateSingleton.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				394A65D927451B90000CD9A8 /* NoticeViewController.swift in Sources */,
 				39F38EE82743BF96007A15B3 /* HexColor.swift in Sources */,
 				39022BB92776437100371C81 /* Extension.swift in Sources */,
+				39022BC3277C943400371C81 /* DateSingleton.swift in Sources */,
 				394A65CC2745042E000CD9A8 /* HeaderViewController.swift in Sources */,
 				873BA41E277C467600128335 /* SnsUserInfoSingleton.swift in Sources */,
 				39BE79DB27435D6600452A8E /* HomeViewController.swift in Sources */,
