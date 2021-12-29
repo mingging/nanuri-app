@@ -48,5 +48,24 @@ extension Networking {
 
 extension Networking {
     
-   
+    func getUserInfo(userID: Int, result: @escaping (_ response: User) -> ()) {
+        let url = "http://20.196.209.221:8000/users/\(userID)"
+        
+        print("\(#file.split(separator: "/").last!)-\(#function)[\(#line)] \(url) 👉 \(userID)")
+        getUserRequest(url: url, completion: result)
+    }
+    
+    private func getUserRequest(url: String, completion: @escaping (_ response: User) -> ()) {
+        let root = AF.request(url, method: .get)
+        root.responseDecodable(of: User.self) { response in
+            switch response.result {
+            case .success(_):
+                guard let result = response.value else { return }
+                completion(result)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
 }

@@ -154,6 +154,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let product = products[indexPath.row]
         productDetailVC.productID = product.productId
         productDetailVC.product = product
+        productDetailVC.productUserID = product.userID
         
         navigationController?.pushViewController(productDetailVC, animated: true)
     }
