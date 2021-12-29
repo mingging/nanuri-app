@@ -113,11 +113,11 @@ class LoginViewController: UIViewController {
                     
 //                        let kakaoId = SnsId.init(id: Int, socialId: "\(kId)")
 //                    }
-                    SnsUserInfo.shared.kakaoUserId = "\(kId)"
+                    SnsUserInfoSingleton.shared.kakaoUserId = "\(kId)"
                     
                     // test
                     let header: HTTPHeaders = ["Content-Type" : "multipart/form-data"]
-                    let parameters = ["social_id":"\(SnsUserInfo.shared.kakaoUserId!)"]
+                    let parameters = ["social_id":"\(SnsUserInfoSingleton.shared.kakaoUserId!)"]
                     
                     AF.upload(multipartFormData: { multiFormData in
                         for (key, value) in parameters {
@@ -128,8 +128,9 @@ class LoginViewController: UIViewController {
                         case .success(_):
                             print("sucess reponse is :\(response)")
                             guard let value = response.value else { return }
-                            SnsUserInfo.shared.id = value.data.id
-                            print(SnsUserInfo.shared.id)
+                            SnsUserInfoSingleton.shared.id = value.data.id
+                            
+                            print(SnsUserInfoSingleton.shared.id)
 //                            SnsUserInfo.shared.id =
                             if let registerVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "registerStoryboard") as? RegisterViewController {
                                 registerVC.modalPresentationStyle = .fullScreen

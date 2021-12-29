@@ -7,8 +7,8 @@
 
 import Foundation
 
-class SnsUserInfo{
-    static let shared = SnsUserInfo()
+class SnsUserInfoSingleton{
+    static let shared = SnsUserInfoSingleton()
     
     var id: Int?
     var kakaoUserId:String?
