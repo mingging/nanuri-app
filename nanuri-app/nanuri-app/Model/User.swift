@@ -78,3 +78,8 @@ struct Product: Codable {
         case categoryID = "category_id"
     }
 }
+
+struct UserPostResponse: Decodable {
+    var create: String
+    var data: UserData
+}
