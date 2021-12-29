@@ -35,11 +35,13 @@ class AddProductViewController: UIViewController {
     let deliverySegment = UISegmentedControl(items: ["배송", "직거래"])
     let categoryTextField = UITextField()
     let detailContents = UITextView()
+    let datePicker = UIDatePicker()
     let picker = UIPickerView()
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        datePicker.setDate(Date(), animated: true)
         viewSetUp()
         // Do any additional setup after loading the view.
     }
@@ -172,6 +174,38 @@ class AddProductViewController: UIViewController {
         twoButton.setTitleColor(.white, for: .normal)
         oneButton.backgroundColor = .white
         oneButton.setTitleColor(UIColor(hex: Theme.primary), for: .normal)
+    }
+    
+    @objc func donePressed() {
+        let formatter = DateFormatter()
+//        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        periodTextField.text = formatter.string(from: datePicker.date)
+        self.view.endEditing(true)
+    }
+    
+    func createDatePickerView() {
+       let toolbar = UIToolbar()
+       toolbar.sizeToFit()
+       
+        let doneButton = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(donePressed))
+       toolbar.setItems([doneButton], animated: true)
+        
+        var components = DateComponents()
+        components.month = 3
+        let maxDate = Calendar.autoupdatingCurrent.date(byAdding: components, to: Date())
+
+        datePicker.minimumDate = Date()
+        datePicker.maximumDate = maxDate
+        datePicker.locale = Locale(identifier: "ko-KR")
+        datePicker.timeZone = .autoupdatingCurrent
+       datePicker.preferredDatePickerStyle = .wheels
+       datePicker.datePickerMode = .date
+       
+       periodTextField.inputAccessoryView = toolbar
+        periodTextField.inputView = datePicker
     }
     
     func viewSetUp() {
@@ -417,9 +451,9 @@ class AddProductViewController: UIViewController {
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(periodLabel.snp.bottom).inset(-12)
         }
-        periodTextField.placeholder = "2021-12-28 형식으로 작성해주세요!"
         periodTextField.font = UIFont(name: "NanumSquareRoundOTFR", size: 15)
         periodTextField.borderStyle = .line
+        createDatePickerView()
         periodTextField.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
 
         
@@ -430,6 +464,7 @@ class AddProductViewController: UIViewController {
         periodSubLabel.text = "MAX 3개월"
         periodSubLabel.font = UIFont(name: "NanumSquareRoundOTFR", size: 10)
         periodSubLabel.textColor = .gray
+    
         
         // category
         let categoryLabel = UILabel()
@@ -516,11 +551,7 @@ class AddProductViewController: UIViewController {
 //MARK: - UIPickerViewDelegate
 
 extension AddProductViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func configPickerView() {
-       
-        
-    }
-    
+
     func configToolbar() {
         let toolBar = UIToolbar()
         toolBar.barStyle = .default
@@ -551,7 +582,6 @@ extension AddProductViewController: UIPickerViewDelegate, UIPickerViewDataSource
         self.categoryTextField.text = nil
         self.categoryTextField.resignFirstResponder()
     }
-    
 
     public func numberOfComponents(in pickerView: UIPickerView) -> Int { return 1 }
     

@@ -129,7 +129,6 @@ class LoginViewController: UIViewController {
                             print("sucess reponse is :\(response)")
                             guard let value = response.value else { return }
                             SnsUserInfo.shared.id = value.data.id
-                            
                             print(SnsUserInfo.shared.id)
 //                            SnsUserInfo.shared.id =
                             if let registerVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "registerStoryboard") as? RegisterViewController {
