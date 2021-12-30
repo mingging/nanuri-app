@@ -110,6 +110,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var imageName = ""
+        
         guard let products = products else { return UITableViewCell() }
 
         let product = products.reversed()[indexPath.row]
@@ -122,6 +124,33 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = ProductCustomCell.init(style: .default, reuseIdentifier: identifier)
             cell.selectionStyle = .none
             cell.setUpView()
+
+//                if product.productImage == "banner1"{
+//                    cell.productImage.image = UIImage(named: "banner1")
+//                } else {
+//                    let blobName = product.productImage
+//                    let blobImage = AZBlobImage(containerName: "nanuriproductimgs")
+//                    DispatchQueue.main.async {
+//                        blobImage.downloadImage(blobName: blobName, imageView: productImage) { _ in
+//
+//
+//                        }
+//                    }
+//                }
+            if product.productImage == "banner1"{
+                cell.productIamge.image = UIImage(named: "banner1")
+            } else {
+                let blobName = product.productImage
+                let blobImage = AZBlobImage(containerName: "nanuriproductimgs")
+                DispatchQueue.main.async {
+                    blobImage.downloadImage(blobName: blobName, imageView: cell.productIamge) { _ in
+
+
+                    }
+                }
+            }
+                
+            
             
             cell.productNameLabel.text = product.productName
             cell.priceLabel.text = NumberFormatter().priceFormatter(price: product.productPrice)
@@ -133,6 +162,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.processPercentageLabel.text = "\(Int(percentage * 100))%"
     
             cell .dDayLabel.text = "D - \(calculateDay(endDate: product.endDate))"
+            
             
             return cell
         }

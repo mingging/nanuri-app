@@ -42,7 +42,7 @@ class ProductCustomCell: UITableViewCell {
             make.bottom.top.equalToSuperview().inset(10)
         }
         
-        productIamge.image = UIImage(named: "image_sample")
+        productIamge.image = UIImage(named: "banner1")
         productIamge.sizeToFit()
         productView.addSubview(productIamge)
         productIamge.snp.makeConstraints { make in

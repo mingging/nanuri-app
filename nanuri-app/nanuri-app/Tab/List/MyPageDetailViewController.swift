@@ -6,14 +6,14 @@
 //
 
 import UIKit
-import DropDown
+
 //import PhotosUI
 
 class MyPageDetailViewController: UIViewController {
     let containerName = "nanuriImages"
     let connectionString:String = "DefaultEndpointsProtocol=https;AccountName=logvieoblobimgs;AccountKey=LmiLJOBXGakx9UodRVLenmDyg8aoRDWabfKIyO28rTOHMRptZVH2oooHj0TEOGKQwwxDWrmcaa2/N/apD3e2wg==;EndpointSuffix=core.windows.net"
     let myColor = UIColor(hex: Theme.primary)
-    let dropDown = DropDown()
+    
     
     @IBOutlet weak var userInfoDeleteBtn: UIButton!
     @IBOutlet weak var dropDownBtn: UIButton!
@@ -72,25 +72,25 @@ class MyPageDetailViewController: UIViewController {
 //        present(picker, animated: true)
         
     }
-    @IBAction func showDropDown(_ sender: Any) {
-        DropDown.startListeningToKeyboard()
-        dropDown.dataSource = ["강서구","강남구","강동구","금천구","성동구","마포구"]
-        dropDown.show()
-        
-        dropDown.anchorView = searchTown
-        dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
-        dropDown.width = 327
-        // 선택한 값 가져오기
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-            print("선택한 아이템 : \(item)")
-            print("인덱스 : \(index)")
-//            self.dropDown.
-             
-            self.dropDown.selectRow(at: 6)
-//            self.dropDown.clearSelection()
-            
-        }
-    }
+//    @IBAction func showDropDown(_ sender: Any) {
+//        DropDown.startListeningToKeyboard()
+//        dropDown.dataSource = ["강서구","강남구","강동구","금천구","성동구","마포구"]
+//        dropDown.show()
+//        
+//        dropDown.anchorView = searchTown
+//        dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
+//        dropDown.width = 327
+//        // 선택한 값 가져오기
+//        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+//            print("선택한 아이템 : \(item)")
+//            print("인덱스 : \(index)")
+////            self.dropDown.
+//             
+//            self.dropDown.selectRow(at: 6)
+////            self.dropDown.clearSelection()
+//            
+//        }
+//    }
     func userSelectedPhoto(_ image: UIImage){
         // 이미지 피커 didFinish 선택한 이미지를 이미지뷰에 업데이트, 모델 호출, 레이블 적용
         DispatchQueue.main.async {

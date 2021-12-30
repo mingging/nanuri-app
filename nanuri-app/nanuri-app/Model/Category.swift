@@ -17,7 +17,7 @@ struct CategoryInfo: Decodable {
     
 }
 
-struct Category: Codable {
+struct Category: Decodable {
 
     var categoryID: Int
     var categoryName: String
