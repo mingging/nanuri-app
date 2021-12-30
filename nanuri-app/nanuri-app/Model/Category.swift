@@ -14,16 +14,19 @@ struct Categorys: Decodable {
 
 struct CategoryInfo: Decodable {
     var category: Category
-    var products: [Product]
+    
 }
 
-struct Category: Decodable {
+struct Category: Codable {
+
     var categoryID: Int
     var categoryName: String
+    var products: [Product]
     
     enum CodingKeys: String, CodingKey {
         case categoryID = "category_id"
         case categoryName = "category_name"
+        case products
     }
 }
 
@@ -45,7 +48,7 @@ class CategorySingleton {
         case "기타":
             return 6
         default:
-            return 6
+            return 7
         }
     }
 }

@@ -49,24 +49,17 @@ class RegisterViewController: UIViewController {
     
     
     @IBAction func ActUserRegistered(_ sender: Any) {
-//        let homeView = UIStoryboard(name: Stoyboard.homeView.name, bundle: nil)
-//        guard let homeVC = homeView.instantiateViewController(withIdentifier: Stoyboard.homeView.id) as? HomeViewController else { return }
-//
-//        homeVC.modalPresentationStyle = .fullScreen
-//        self.present(homeVC, animated: true, completion: nil)
-        
         saveUserInfo()
     }
     
     func saveUserInfo(){
         let strURL = "http://20.196.209.221:8000/users/"
         guard let userNick = nickNameTextField.text,
-              let socialIdx = SnsUserInfoSingleton.shared.id,
-              var townName = townTextField.text
+              let townName = townTextField.text,
+              let socialIdx = SnsUserInfoSingleton.shared.id
         else { return }
       
         townName = "서울시 금천구"
-        
 
         let header: HTTPHeaders = ["Content-Type" : "multipart/form-data"]
         let params:Parameters = ["social_id":socialIdx,"user_nick":userNick,"user_area":townName]
