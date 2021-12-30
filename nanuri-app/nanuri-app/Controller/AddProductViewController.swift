@@ -8,12 +8,16 @@
 import UIKit
 import SnapKit
 import Alamofire
+import PhotosUI
 
 class AddProductViewController: UIViewController {
+    let containerName = "nanuriproductimgs"
+    let connectionString:String = "DefaultEndpointsProtocol=https;AccountName=logvieoblobimgs;AccountKey=LmiLJOBXGakx9UodRVLenmDyg8aoRDWabfKIyO28rTOHMRptZVH2oooHj0TEOGKQwwxDWrmcaa2/N/apD3e2wg==;EndpointSuffix=core.windows.net"
     
+    let imageUploadView = UIImageView()
     var deliveryMethod = "배송"
     var category = ["음식","생활용품","주방", "욕실", "문구", "기타"]
-
+    
     
     //MARK: - Step View Property
     let stepView = UIView()
@@ -95,6 +99,7 @@ class AddProductViewController: UIViewController {
     }
     
     func setProduct() {
+        var imageName = ""
         guard let productName = productNameTextField.text,
               let productLink = productLinkTextField.text,
               let productPrice = productPriceTextField.text,
@@ -105,6 +110,21 @@ class AddProductViewController: UIViewController {
               let userData = UserSingleton.shared.userData
         else { return }
         
+        /*Azure Blob Image Upload*/
+        if imageUploadView.image == nil{
+            imageName = "banner1"
+            imageUploadView.image = UIImage(named:imageName)
+
+        } else {
+            imageName = ProcessInfo.processInfo.globallyUniqueString
+            let blobImage =  AZBlobImage(containerName: containerName)
+            if let image = imageUploadView.image{
+                if let data = image.jpegData(compressionQuality: 0.3){
+                    blobImage.uploadData(data: data, blobName: imageName)
+                }
+            }
+        }
+        
         let price = Int(productPrice)
         let total = Int(recruitment)
         let categoryID = CategorySingleton.shared.categoryToID(category: category)
@@ -114,7 +134,7 @@ class AddProductViewController: UIViewController {
         let parameters = [
             "product_name": productName,
             "link": productLink,
-            "product_image": "imageName",
+            "product_image": imageName,
             "product_price": price ?? 0,
             "total_ppl_cnt": total ?? 0,
             "end_date": period,
@@ -192,6 +212,19 @@ class AddProductViewController: UIViewController {
         
         periodTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
+    }
+    
+    @objc func actGetImage(_ sender: Any) {
+        present(photoPicker, animated: true)
+    }
+    
+    func userSelectedPhoto(_ image: UIImage){
+        // 이미지 피커 didFinish 선택한 이미지를 이미지뷰에 업데이트, 모델 호출, 레이블 적용
+        DispatchQueue.main.async {
+            // 메인 스레드에서 이미지 업데이트
+            self.imageUploadView.image = image
+        }
+        
     }
     
     func createDatePickerView() {
@@ -314,8 +347,8 @@ class AddProductViewController: UIViewController {
 
         
         
-        // image upload
-        let imageUploadView = UIView()
+        // upload imageView
+        
         stepOneView.addSubview(imageUploadView)
         imageUploadView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
@@ -323,6 +356,17 @@ class AddProductViewController: UIViewController {
             make.height.equalTo(131)
         }
         imageUploadView.backgroundColor = .gray
+        //image upload Button
+        let uploadBtn = UIButton()
+        stepOneView.addSubview(uploadBtn)
+        uploadBtn.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(productNameTextField.snp.bottom).inset(-50)
+            make.height.equalTo(131)
+        }
+        uploadBtn.addTarget(self, action: #selector(actGetImage), for: .touchUpInside)
+        uploadBtn.setTitle("이미지 업로드", for: .normal)
+        uploadBtn.backgroundColor = .gray.withAlphaComponent(0.3)
         
         // product link
         let productLinkLabel = UILabel()
@@ -609,3 +653,28 @@ extension AddProductViewController: UIPickerViewDelegate, UIPickerViewDataSource
 
 }
 
+extension AddProductViewController: PHPickerViewControllerDelegate {
+    var photoPicker: PHPickerViewController {
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 1
+        config.filter = PHPickerFilter.images
+        
+        let photoPicker = PHPickerViewController(configuration: config)
+        photoPicker.delegate = self
+        
+        return photoPicker
+    }
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: false)
+        
+        guard let result = results.first else {
+            return
+        }
+        result.itemProvider.loadObject(ofClass: UIImage.self) { object, Error in
+            if let photo = object as? UIImage {
+                self.userSelectedPhoto(photo)
+            }
+        }
+    }
+}

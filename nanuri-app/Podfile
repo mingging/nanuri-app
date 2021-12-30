@@ -8,5 +8,6 @@ target 'nanuri-app' do
   # Pods for nanuri-app
     pod 'Alamofire', '~> 5.4'
     pod 'SnapKit', '~> 5.0.0'
+    pod 'AZSClient'
     pod 'KakaoSDK'
 end
