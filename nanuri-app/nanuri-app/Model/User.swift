@@ -84,5 +84,33 @@ struct Product: Decodable {
 
 struct UserPostResponse: Decodable {
     var create: String
-    var data: UserData
+    var data: RegisterUserData
+}
+
+
+struct RegisterUserData: Decodable {
+    var userID: Int
+    var userArea: String
+    var userNick: String
+    var score: Int
+    var userBank: String?
+    var bankNum: Int?
+    var userNumber: Int?
+    var createdAt: String?
+    var updateAt: String?
+    var socialID: Int
+   
+    
+    enum CodingKeys: String, CodingKey {
+        case userID = "user_id"
+        case userArea = "user_area"
+        case userNick = "user_nick"
+        case score = "score"
+        case userBank = "user_bank"
+        case bankNum = "banknum"
+        case userNumber = "user_number"
+        case createdAt = "created_at"
+        case updateAt = "update_at"
+        case socialID = "social_id"
+    }
 }

@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Alamofire
+
 class PayViewController: UIViewController {
 
     
@@ -21,7 +23,11 @@ class PayViewController: UIViewController {
     
     var productName: String?
     var productPrice: Int?
-    var method: String?
+    var deliveryMethod: String?
+    var productID: Int?
+    var creditMethod: String?
+    var isSelectCard = false
+    var isSelectBank = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +46,7 @@ class PayViewController: UIViewController {
     func dateSetUp() {
         guard let productName = productName,
               let productPrice = productPrice,
-              let deliveryMethod = method
+              let deliveryMethod = deliveryMethod
         else {
             return
         }
@@ -58,18 +64,59 @@ class PayViewController: UIViewController {
         tabBarController?.tabBar.isHidden = false // 뷰 컨트롤러가 사라질 때 나타내기
     }
 
+    func postOrder() {
+       
+    }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let complete = segue.destination as! PayCompleteViewController
-        guard let productName = productName,
-              let productPrice = productPrice
-        else { return }
-        complete.productName = productName
-        complete.productPrice = productPrice
-        
+        if isSelectCard || isSelectBank {
+            
+            if isSelectCard {
+                creditMethod = "카드"
+            } else {
+                creditMethod = "계좌"
+            }
+            
+            guard let method = creditMethod,
+                  let productID = productID,
+                  let user = UserSingleton.shared.userData,
+                  let productName = productName,
+                  let productPrice = productPrice
+            else { return }
+           
+                    
+            let url = "http://20.196.209.221:8000/order/"
+            let header: HTTPHeaders = ["Content-Type" : "multipart/form-data"]
+            let parameter = [
+                "user_id": user.user.userID,
+                "product_id": productID,
+                "credit_method": method
+            ] as [String : Any]
+            
+            AF.upload(multipartFormData: { multiFormData in
+                for (key, value) in parameter {
+                    multiFormData.append(Data("\(value)".utf8), withName: key)
+                }
+            }, to: url, headers: header).responseDecodable(of: OrderPostResponse.self) { response in
+                switch response.result {
+                case .success(_):
+                    print("결제 성공")
+                    let complete = segue.destination as! PayCompleteViewController
+                    complete.productName = productName
+                    complete.productPrice = productPrice
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        } else {
+            let alert = UIAlertController(title: "나누리", message: "결제 수단을 선택해주세요!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .default, handler: nil )
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
  
@@ -77,12 +124,14 @@ class PayViewController: UIViewController {
     //MARK: - Action
     
     @IBAction func clickToBank(_ sender: UIButton) {
+        isSelectCard = true
         sender.layer.borderWidth = 2
         sender.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
         payToCard.layer.borderColor = UIColor(hex: Theme.lightGray)?.cgColor
     }
     
     @IBAction func clickToCard(_ sender: UIButton) {
+        isSelectBank = true
         sender.layer.borderWidth = 2
         sender.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
         payToBank.layer.borderColor = UIColor(hex: Theme.lightGray)?.cgColor

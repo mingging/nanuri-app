@@ -42,8 +42,7 @@ class LoginViewController: UIViewController {
     @objc func selectLoginButton() {
 //        let params: Parameters = ["user_id":1]
         Networking.sharedObject.getUserInfo(userID: 1) { result in
-            UserSingleton.shared.userData = result.user
-            UserSingleton.shared.orderProductData = result.orders
+            UserSingleton.shared.userData = result
             let addView = UIStoryboard(name: "Main" , bundle: nil)
             guard let addVC = addView.instantiateViewController(withIdentifier: "tabBarView") as? TabBarController else { return }
         addVC.modalPresentationStyle = .fullScreen

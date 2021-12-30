@@ -42,6 +42,7 @@ class HomeViewController: HeaderViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("product")
         getProductList()
     }
     
@@ -55,7 +56,6 @@ class HomeViewController: HeaderViewController {
                     let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
                     let json = try JSONDecoder().decode(Products.self, from: data)
                     self.products = json.products
-                    
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
@@ -111,7 +111,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let products = products else { return UITableViewCell() }
-        let product = products[indexPath.row]
+
+        let product = products.reversed()[indexPath.row]
         
         let identifier = "\(indexPath.row) \(product.productId)"
         
@@ -151,7 +152,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
               let products = products
         else { return }
 
-        let product = products[indexPath.row]
+        let product = products.reversed()[indexPath.row]
         productDetailVC.productID = product.productId
         productDetailVC.product = product
         productDetailVC.productUserID = product.userID

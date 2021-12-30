@@ -7,6 +7,8 @@
 
 import UIKit
 
+import Alamofire
+
 class PayCompleteViewController: UIViewController {
 
     @IBOutlet weak var productPriceLabel: UILabel!
@@ -18,14 +20,15 @@ class PayCompleteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(productName)
         guard let productName = productName,
               let productPrice = productPrice
         else { return }
+        
         productPriceLabel.text = NumberFormatter().priceFormatter(price: productPrice)
         productNameLabel.text = productName
         // Do any additional setup after loading the view.
     }
-    
 
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true // 뷰 컨트롤러가 나타날 때 숨기기
