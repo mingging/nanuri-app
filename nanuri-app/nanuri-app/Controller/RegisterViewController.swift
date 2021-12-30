@@ -61,9 +61,10 @@ class RegisterViewController: UIViewController {
     func saveUserInfo(){
         let strURL = "http://20.196.209.221:8000/users/"
         guard let userNick = nickNameTextField.text,
-              let socialIdx = SnsUserInfoSingleton.shared.id
+              let socialIdx = SnsUserInfoSingleton.shared.id,
+              var townName = townTextField.text
         else { return }
-        var townName = townTextField.text
+      
         townName = "서울시 금천구"
         
 
@@ -76,21 +77,18 @@ class RegisterViewController: UIViewController {
             }
         }, to: strURL, headers: header).responseDecodable(of: UserPostResponse.self) { response in
             switch response.result {
-            case .success(let value):
+            case .success(_):
                
                 print("sucess reponse is :\(response)")
                 guard let value = response.value else { return }
-               
-            
+                print(value)
+                Networking.sharedObject.getUserInfo(userID: value.data.userID) { result in
+                    UserSingleton.shared.userData = result
                     let addView = UIStoryboard(name: "Main" , bundle: nil)
                     guard let addVC = addView.instantiateViewController(withIdentifier: "tabBarView") as? TabBarController else { return }
                 addVC.modalPresentationStyle = .fullScreen
                     self.present(addVC, animated: true, completion: nil)
-                
-                
-                
-                 
-                
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }

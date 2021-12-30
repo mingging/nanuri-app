@@ -36,12 +36,24 @@ class ProductDetailViewController: UIViewController {
         super.viewDidLoad()
 //        CategorySingleton.shared.categoryToString(categoryID: 1)
         viewSetUp()
-        setUpData()
+        
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true // 뷰 컨트롤러가 나타날 때 숨기기
+        
+        Singleton.shared.startLoading(self.view)
+        
+        guard let data = UserSingleton.shared.userData else { return }
+        Networking.sharedObject.getUserInfo(userID: data.user.userID) { response in
+            UserSingleton.shared.userData = response
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                self.setUpData()
+                Singleton.shared.stopLoading()
+            }
+        }
+        
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -82,12 +94,18 @@ class ProductDetailViewController: UIViewController {
         textView.attributedText = attributedString
         
         guard let userData = UserSingleton.shared.userData,
-              let productUserID = productUserID
+              let productUserID = productUserID,
+              let productID = productID
         else { return }
-        if userData.userID == productUserID {
-            footerButton.setAttributedTitle(NSAttributedString(string: "이미 참여중입니다."), for: .normal)
-            footerButton.isEnabled = false
-            footerButton.backgroundColor = .lightGray
+        
+        print(userData.user.userID)
+        print(productUserID)
+        for i in 0..<userData.orders.count {
+            if userData.orders[i].productId == productID || userData.user.userID == productUserID {
+                footerButton.setAttributedTitle(NSAttributedString(string: "이미 참여중입니다."), for: .normal)
+                footerButton.isEnabled = false
+                footerButton.backgroundColor = .lightGray
+            }
         }
 
     }
@@ -107,8 +125,11 @@ class ProductDetailViewController: UIViewController {
         else { return }
         
         payVC.productName = product.productName
+        payVC.productName = product.productName
         payVC.productPrice = product.productPrice
-        payVC.method = product.deliveryMethod
+        payVC.deliveryMethod = product.deliveryMethod
+        payVC.creditMethod = product.deliveryMethod
+        payVC.productID = product.productId
         
         navigationController?.pushViewController(payVC, animated: true)
     }
@@ -159,7 +180,7 @@ class ProductDetailViewController: UIViewController {
             make.leading.trailing.equalToSuperview()
             make.top.equalToSuperview()
         }
-        categoryLabel.text = "# 생활 용품"
+        categoryLabel.text = ""
         categoryLabel.font = UIFont(name: "NanumSquareRoundOTFEB", size: 13)
         categoryLabel.textColor = UIColor(hex: Theme.secondary)
         
@@ -172,7 +193,7 @@ class ProductDetailViewController: UIViewController {
             make.top.equalTo(categoryLabel.snp.bottom).inset(-6)
             make.width.lessThanOrEqualTo(211)
         }
-        productNameLabel.text = "마이쭈가 좋아하는 마이쮸"
+        productNameLabel.text = ""
         productNameLabel.font = UIFont(name: "NanumSquareRoundOTFEB", size: 20)
         productNameLabel.numberOfLines = 2
         productNameLabel.textColor = UIColor(hex: Theme.primary)
@@ -185,7 +206,7 @@ class ProductDetailViewController: UIViewController {
             make.top.equalTo(categoryLabel.snp.bottom).inset(-6)
             make.leading.equalTo(productNameLabel.snp.trailing)
         }
-        productPriceLabel.text = "12,500원"
+        productPriceLabel.text = ""
         productPriceLabel.font = UIFont(name: "NanumSquareRoundOTFEB", size: 20)
         productPriceLabel.textAlignment = .right
         
@@ -196,7 +217,7 @@ class ProductDetailViewController: UIViewController {
             make.leading.equalToSuperview()
             make.top.equalTo(productNameLabel.snp.bottom).inset(-6)
         }
-        periodLabel.text = "2021.11.09 ~ 2021.11.15"
+        periodLabel.text = ""
         periodLabel.font = UIFont(name: "NanumSquareRoundOTFB", size: 12)
         periodLabel.textColor = UIColor(hex: Theme.lightGray)
         
@@ -209,7 +230,7 @@ class ProductDetailViewController: UIViewController {
             make.top.equalTo(productPriceLabel.snp.bottom).inset(-6)
             make.leading.equalTo(periodLabel.snp.trailing)
         }
-        recruitmentLabel.text = "2 / 5명"
+        recruitmentLabel.text = ""
         recruitmentLabel.font = UIFont(name: "NanumSquareRoundOTFB", size: 15)
         recruitmentLabel.textColor = UIColor(hex: Theme.lightGray)
         
@@ -231,7 +252,7 @@ class ProductDetailViewController: UIViewController {
         dDayLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
-        dDayLabel.text = "D - 6"
+        dDayLabel.text = ""
         dDayLabel.font = UIFont(name: "NanumSquareRoundOTFEB", size: 13)
         dDayLabel.textColor = UIColor(hex: Theme.secondary)
         
@@ -253,7 +274,7 @@ class ProductDetailViewController: UIViewController {
         deliveryLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()
         }
-        deliveryLabel.text = "배송"
+        deliveryLabel.text = ""
         deliveryLabel.font = UIFont(name: "NanumSquareRoundOTFEB", size: 13)
         deliveryLabel.textColor = UIColor(hex: Theme.primary)
         
@@ -312,7 +333,7 @@ class ProductDetailViewController: UIViewController {
             make.trailing.equalToSuperview()
             make.top.equalTo(separateView.snp.bottom).inset(-7)
         }
-        nicNameLabel.text = "프로자취러"
+        nicNameLabel.text = ""
         nicNameLabel.font = UIFont(name: "NanumSquareRoundOTFB", size: 12)
         
         levelImage.snp.makeConstraints { make in
@@ -342,25 +363,7 @@ class ProductDetailViewController: UIViewController {
         textView.isScrollEnabled = false
         textView.font = UIFont(name: "NanumSquareRoundOTFR", size: 12)
         textView.attributedText = NSAttributedString(string: """
-        로스팅 원두 배송합니다!
-        코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
-
-        가격은 배송비 포함해서 + 1000원이구요
-        주문주실 때 주소 적어주세요!
-
-        로스팅 원두 배송합니다!
-        코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
-
-        가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!
-        로스팅 원두 배송합니다!
-        코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
-
-        가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!
-
-        로스팅 원두 배송합니다!
-        코스트코에서 사올 예정이고 1인당 1개씩만 주문 가능합니다!
-
-        가격은 배송비 포함해서 + 1000원이구요 주문주실 때 주소 적어주세요!
+        
         """)
 //        textViewDidChange(textView)
         

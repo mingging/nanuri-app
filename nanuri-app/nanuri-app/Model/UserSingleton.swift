@@ -10,8 +10,7 @@ import Foundation
 class UserSingleton {
     static let shared = UserSingleton()
     
-    var userData: UserData?
-    var orderProductData: [Product]?
+    var userData: User?
     
     private init() {}
 

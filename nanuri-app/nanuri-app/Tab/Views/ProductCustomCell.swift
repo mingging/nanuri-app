@@ -39,7 +39,7 @@ class ProductCustomCell: UITableViewCell {
         productView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview().inset(30)
             make.height.equalTo(210)
-            make.bottom.equalToSuperview()
+            make.bottom.top.equalToSuperview().inset(10)
         }
         
         productIamge.image = UIImage(named: "image_sample")

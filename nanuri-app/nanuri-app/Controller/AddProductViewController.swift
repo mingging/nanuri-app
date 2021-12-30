@@ -101,7 +101,8 @@ class AddProductViewController: UIViewController {
               let recruitment = recruitmentTextField.text,
               let period = periodTextField.text,
               let detailContents = detailContents.text,
-              let category = categoryTextField.text
+              let category = categoryTextField.text,
+              let userData = UserSingleton.shared.userData
         else { return }
         
         let price = Int(productPrice)
@@ -119,7 +120,7 @@ class AddProductViewController: UIViewController {
             "end_date": period,
             "delivery_method": deliveryMethod,
             "detail_content": detailContents,
-            "user_id": 1,
+            "user_id": userData.user.userID,
             "category_id": categoryID,
         ] as [String : Any]
         
@@ -131,7 +132,14 @@ class AddProductViewController: UIViewController {
                 switch response.result {
                 case .success(let JSON):
                     print("sucess reponse is :\(response)")
-                    self.navigationController?.popViewController(animated: true)
+                    
+                    let alert = UIAlertController(title: "나누리", message: "상품 등록이 완료되었습니다!", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "확인", style: .default) { action in
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    alert.addAction(action)
+                    self.present(alert, animated: true, completion: nil)
+                    
                 case .failure(_):
                     print("fail")
                 }

@@ -24,6 +24,23 @@ class MyPageViewController: HeaderViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+
+        guard let data = UserSingleton.shared.userData else { return }
+        Networking.sharedObject.getUserInfo(userID: data.user.userID) { response in
+            UserSingleton.shared.userData = response
+            self.productList = response.orders
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        payProductListButton.backgroundColor = UIColor(hex: Theme.primary)
+        payProductListButton.setTitleColor(.white, for: .normal)
+        addProductListButton.backgroundColor = .white
+        addProductListButton.setTitleColor(.black, for: .normal)
+        
+    }
+    
     @objc func selectAddProductListButton() {
         guard let data = UserSingleton.shared.userData else { return }
         addProductListButton.backgroundColor = UIColor(hex: Theme.primary)
@@ -31,32 +48,30 @@ class MyPageViewController: HeaderViewController {
         payProductListButton.backgroundColor = .white
         payProductListButton.setTitleColor(.black, for: .normal)
         
-        productList = data.products
+        productList = data.user.products
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
     @objc func selectPayProductListButton() {
-        guard let order = UserSingleton.shared.orderProductData else { return }
+        guard let order = UserSingleton.shared.userData else { return }
         payProductListButton.backgroundColor = UIColor(hex: Theme.primary)
         payProductListButton.setTitleColor(.white, for: .normal)
         addProductListButton.backgroundColor = .white
         addProductListButton.setTitleColor(.black, for: .normal)
         
-        productList = order
+        productList = order.orders
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
     
     func setUpData() {
-        guard let data = UserSingleton.shared.userData,
-              let order = UserSingleton.shared.orderProductData
-        else { return }
-        nameLabel.attributedText = NSAttributedString(string: data.userNick)
+        guard let data = UserSingleton.shared.userData else { return }
+        nameLabel.attributedText = NSAttributedString(string: data.user.userNick)
         
-        productList = order
+        productList = data.orders
     }
     
     func setUpView() {
