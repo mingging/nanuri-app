@@ -25,8 +25,10 @@ class ProductDetailViewController: UIViewController {
     let deliveryLabel = UILabel()
     let nicNameLabel = UILabel()
     let commentButton = UIButton()
+    let footerButton = UIButton()
 
     var productID: Int?
+    var productUserID: Int?
     var product: Product?
     let category = ["", "음식", "생활용품", "주방", "욕실", "문구", "기타"]
     
@@ -35,7 +37,6 @@ class ProductDetailViewController: UIViewController {
 //        CategorySingleton.shared.categoryToString(categoryID: 1)
         viewSetUp()
         setUpData()
-        dataSetUp()
         // Do any additional setup after loading the view.
     }
     
@@ -66,7 +67,10 @@ class ProductDetailViewController: UIViewController {
         recruitmentLabel.text = "\(product.joinPPLCnt) / \(product.totalPPLCnt)명"
         dDayLabel.text = "D - \(calculateDay(endDate: product.endDate))"
         deliveryLabel.text = product.deliveryMethod
-        nicNameLabel.text = UserSingleton.shared.userData?.userNick
+        
+        Networking.sharedObject.getUserInfo(userID: product.userID) { response in
+            self.nicNameLabel.text = response.user.userNick
+        }
         
         let attributedString = NSMutableAttributedString(string: product.detailContent)
         // *** Create instance of `NSMutableParagraphStyle`
@@ -76,6 +80,15 @@ class ProductDetailViewController: UIViewController {
         paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
         textView.attributedText = attributedString
+        
+        guard let userData = UserSingleton.shared.userData,
+              let productUserID = productUserID
+        else { return }
+        if userData.userID == productUserID {
+            footerButton.setAttributedTitle(NSAttributedString(string: "이미 참여중입니다."), for: .normal)
+            footerButton.isEnabled = false
+            footerButton.backgroundColor = .lightGray
+        }
 
     }
     
@@ -98,10 +111,6 @@ class ProductDetailViewController: UIViewController {
         payVC.method = product.deliveryMethod
         
         navigationController?.pushViewController(payVC, animated: true)
-    }
-    
-    func dataSetUp() {
-        
     }
     
     //MARK: - View Set Up
@@ -356,7 +365,7 @@ class ProductDetailViewController: UIViewController {
 //        textViewDidChange(textView)
         
         // footer
-        let footerButton = UIButton()
+      
         self.view.addSubview(footerButton)
         footerButton.snp.makeConstraints { make in
             make.trailing.leading.equalToSuperview()

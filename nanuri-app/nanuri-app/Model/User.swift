@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct User: Codable {
+struct User: Decodable {
     var user: UserData
-    var products: [Product]
+    var orders: [Product]
 }
 
-struct UserInfo: Codable {
+struct UserInfo: Decodable {
     var user: [UserData]
     var products: [Product]
 }
 
-struct UserData: Codable {
+struct UserData: Decodable {
     var userID: Int
     var userArea: String
     var userNick: String
@@ -28,6 +28,8 @@ struct UserData: Codable {
     var createdAt: String?
     var updateAt: String?
     var socialID: Int
+    var products: [Product]
+   
     
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"
@@ -40,10 +42,11 @@ struct UserData: Codable {
         case createdAt = "created_at"
         case updateAt = "update_at"
         case socialID = "social_id"
+        case products = "products"
     }
 }
 
-struct Product: Codable {
+struct Product: Decodable {
     var productId: Int
     var productName: String
     var link: String

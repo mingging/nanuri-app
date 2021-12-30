@@ -11,6 +11,7 @@ class UserSingleton {
     static let shared = UserSingleton()
     
     var userData: UserData?
+    var orderProductData: [Product]?
     
     private init() {}
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MI9-NP-ph8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MI9-NP-ph8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -32,27 +32,17 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="zyG-PW-rQ4" kind="relationship" relationship="rootViewController" id="Phy-zJ-7ll"/>
+                        <segue destination="Y8C-HO-eRO" kind="relationship" relationship="rootViewController" id="yv0-G6-Gby"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6sX-kl-sFW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="630" y="771"/>
         </scene>
-        <!--mypageDetail-->
-        <scene sceneID="cQP-JO-aZJ">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="mypageDetail" storyboardName="MypageDetail" referencedIdentifier="mypageDetail" id="8NF-v5-KbI" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="3ov-zr-vFh"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YDd-v8-PH4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1528" y="1473"/>
-        </scene>
-        <!--My Page View Controller-->
+        <!--View Controller-->
         <scene sceneID="jrW-99-POc">
             <objects>
-                <viewController id="zyG-PW-rQ4" customClass="MyPageViewController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zyG-PW-rQ4" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4bX-XK-7VL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,16 +91,6 @@
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7dp-HE-Yjy">
                                 <rect key="frame" x="4" y="296" width="414" height="600"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="uIf-2A-uJL" kind="embed" id="x8v-d8-O1Y"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OIk-VV-XCA">
-                                <rect key="frame" x="0.0" y="296" width="418" height="600"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="PGT-YY-Mab" kind="embed" id="fKT-ro-plN"/>
-                                </connections>
                             </containerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="kDc-Er-fqg">
                                 <rect key="frame" x="0.0" y="208" width="414" height="32"/>
@@ -132,7 +112,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="OfO-Rd-QEC"/>
                     <connections>
-                        <outlet property="firstView" destination="OIk-VV-XCA" id="wEU-ct-sjI"/>
                         <outlet property="secondView" destination="7dp-HE-Yjy" id="ydl-3Y-5Fn"/>
                     </connections>
                 </viewController>
@@ -140,12 +119,28 @@
             </objects>
             <point key="canvasLocation" x="1382.608695652174" y="771.42857142857144"/>
         </scene>
+        <!--My Page View Controller-->
+        <scene sceneID="hdO-3N-knk">
+            <objects>
+                <viewController id="Y8C-HO-eRO" customClass="MyPageViewController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IEC-IF-vFQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="oqn-O8-tk2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="6Wj-6S-5Kh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bw4-1a-adY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1035" y="1416"/>
+        </scene>
         <!--My Page Detail View Controller-->
         <scene sceneID="ZL7-NS-Zcc">
             <objects>
                 <viewController id="s48-h2-gJV" customClass="MyPageDetailViewController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dWX-0C-xcW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wlj-cw-zb3">
@@ -279,60 +274,6 @@
             </objects>
             <point key="canvasLocation" x="2175.36231884058" y="771.42857142857144"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="tyc-FP-eiV">
-            <objects>
-                <viewController id="PGT-YY-Mab" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PwX-NN-xT1">
-                        <rect key="frame" x="0.0" y="0.0" width="418" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="h01-bT-oht"/>
-                        <color key="backgroundColor" systemColor="systemGray4Color"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y17-37-bid" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1975" y="1476"/>
-        </scene>
-        <!--My Page Products List View Controller-->
-        <scene sceneID="PQN-ij-o3z">
-            <objects>
-                <viewController id="uIf-2A-uJL" customClass="MyPageProductsListViewController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="IbY-Gm-Go0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eXf-4Z-96h">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="637"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="sectionIndexBackgroundColor" systemColor="systemGray4Color"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="mypageProduct" rowHeight="102" id="qwK-a8-w3A">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="102"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qwK-a8-w3A" id="Duu-o2-uTx">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="8NF-v5-KbI" kind="show" id="08I-Ti-2tM"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="kXX-gG-q2r"/>
-                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="eXf-4Z-96h" id="WLA-pZ-RLl"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3lC-vj-adg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="885.50724637681162" y="1473.5491071428571"/>
-        </scene>
     </scenes>
     <resources>
         <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>
@@ -344,14 +285,8 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
