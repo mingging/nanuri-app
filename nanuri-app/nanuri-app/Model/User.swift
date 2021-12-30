@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct User: Codable {
+struct User: Decodable {
     var user: UserData
-    var products: [Product]
+    var orders: [Product]
 }
 
-struct UserInfo: Codable {
+struct UserInfo: Decodable {
     var user: [UserData]
     var products: [Product]
 }
 
-struct UserData: Codable {
+struct UserData: Decodable {
     var userID: Int
     var userArea: String
     var userNick: String
@@ -28,6 +28,8 @@ struct UserData: Codable {
     var createdAt: String?
     var updateAt: String?
     var socialID: Int
+    var products: [Product]
+   
     
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"
@@ -40,10 +42,11 @@ struct UserData: Codable {
         case createdAt = "created_at"
         case updateAt = "update_at"
         case socialID = "social_id"
+        case products = "products"
     }
 }
 
-struct Product: Codable {
+struct Product: Decodable {
     var productId: Int
     var productName: String
     var link: String
@@ -81,5 +84,33 @@ struct Product: Codable {
 
 struct UserPostResponse: Decodable {
     var create: String
-    var data: UserData
+    var data: RegisterUserData
+}
+
+
+struct RegisterUserData: Decodable {
+    var userID: Int
+    var userArea: String
+    var userNick: String
+    var score: Int
+    var userBank: String?
+    var bankNum: Int?
+    var userNumber: Int?
+    var createdAt: String?
+    var updateAt: String?
+    var socialID: Int
+   
+    
+    enum CodingKeys: String, CodingKey {
+        case userID = "user_id"
+        case userArea = "user_area"
+        case userNick = "user_nick"
+        case score = "score"
+        case userBank = "user_bank"
+        case bankNum = "banknum"
+        case userNumber = "user_number"
+        case createdAt = "created_at"
+        case updateAt = "update_at"
+        case socialID = "social_id"
+    }
 }

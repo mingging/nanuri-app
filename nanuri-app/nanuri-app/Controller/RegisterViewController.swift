@@ -58,6 +58,8 @@ class RegisterViewController: UIViewController {
               let townName = townTextField.text,
               let socialIdx = SnsUserInfoSingleton.shared.id
         else { return }
+      
+        townName = "서울시 금천구"
 
         let header: HTTPHeaders = ["Content-Type" : "multipart/form-data"]
         let params:Parameters = ["social_id":socialIdx,"user_nick":userNick,"user_area":townName]
@@ -68,21 +70,18 @@ class RegisterViewController: UIViewController {
             }
         }, to: strURL, headers: header).responseDecodable(of: UserPostResponse.self) { response in
             switch response.result {
-            case .success(let value):
+            case .success(_):
                
                 print("sucess reponse is :\(response)")
                 guard let value = response.value else { return }
-               
-            
+                print(value)
+                Networking.sharedObject.getUserInfo(userID: value.data.userID) { result in
+                    UserSingleton.shared.userData = result
                     let addView = UIStoryboard(name: "Main" , bundle: nil)
                     guard let addVC = addView.instantiateViewController(withIdentifier: "tabBarView") as? TabBarController else { return }
                 addVC.modalPresentationStyle = .fullScreen
                     self.present(addVC, animated: true, completion: nil)
-                
-                
-                
-                 
-                
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }

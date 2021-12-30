@@ -7,18 +7,18 @@
 
 import Foundation
 
-struct Categorys: Codable {
+struct Categorys: Decodable {
     var count: Int
     var categorys: [Category]
 }
 
-struct CategoryInfo: Codable {
+struct CategoryInfo: Decodable {
     var category: Category
     
 }
 
 struct Category: Codable {
-    
+
     var categoryID: Int
     var categoryName: String
     var products: [Product]

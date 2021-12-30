@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct SocialLogins: Codable{
+struct SocialLogins: Decodable {
     var count: Int
     var data: [SnsId]
   
 }
 
-struct SnsId: Codable {
+struct SnsId: Decodable {
     var id: Int
     var socialId: String
     

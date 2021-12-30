@@ -34,34 +34,19 @@ class LoginViewController: UIViewController {
             make.leading.trailing.equalToSuperview()
         }
         
-//        loginButton.addTarget(self, action: #selector(selectLoginButton), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(selectLoginButton), for: .touchUpInside)
             
     }
    /*민경님-userInfo Test*/
     
     @objc func selectLoginButton() {
-        let url = "http://20.196.209.221:8000/users/1"
 //        let params: Parameters = ["user_id":1]
-        let root = AF.request(url, method: .get)
-        root.responseJSON { response in
-            switch response.result {
-            case .success(let value):
-                do {
-                    let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
-                    let json = try JSONDecoder().decode(User.self, from: data)
-
-                    UserSingleton.shared.userData = json.user
-
-                    let addView = UIStoryboard(name: Stoyboard.homeView.name, bundle: nil)
-                    guard let addVC = addView.instantiateViewController(withIdentifier: Stoyboard.homeView.id) as? HomeViewController else { return }
-
-                    self.present(addVC, animated: true, completion: nil)
-                } catch(let error) {
-                    print(error)
-                }
-            case .failure(let error):
-                print(error)
-            }
+        Networking.sharedObject.getUserInfo(userID: 1) { result in
+            UserSingleton.shared.userData = result
+            let addView = UIStoryboard(name: "Main" , bundle: nil)
+            guard let addVC = addView.instantiateViewController(withIdentifier: "tabBarView") as? TabBarController else { return }
+        addVC.modalPresentationStyle = .fullScreen
+            self.present(addVC, animated: true, completion: nil)
         }
     }
     
