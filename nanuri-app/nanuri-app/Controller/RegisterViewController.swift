@@ -59,7 +59,7 @@ class RegisterViewController: UIViewController {
               let socialIdx = SnsUserInfoSingleton.shared.id
         else { return }
       
-        townName = "서울시 금천구"
+        
 
         let header: HTTPHeaders = ["Content-Type" : "multipart/form-data"]
         let params:Parameters = ["social_id":socialIdx,"user_nick":userNick,"user_area":townName]

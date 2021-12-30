@@ -67,6 +67,12 @@ class MyPageViewController: HeaderViewController {
         }
     }
     
+    @objc func showEditProfile(){
+        let editView = UIStoryboard(name: "MyPage", bundle: nil)
+        let editVC = editView.instantiateViewController(withIdentifier: "mypapeDetailView") as! MyPageDetailViewController
+        navigationController?.pushViewController(editVC, animated: true)
+    }
+    
     func setUpData() {
         guard let data = UserSingleton.shared.userData else { return }
         nameLabel.attributedText = NSAttributedString(string: data.user.userNick)
@@ -121,6 +127,7 @@ class MyPageViewController: HeaderViewController {
         
         let editLabel = UIButton()
         editLabel.setAttributedTitle(NSAttributedString(string: "프로필 수정하기"), for: .normal)
+        editLabel.addTarget(self, action: #selector(showEditProfile), for: .touchUpInside)
         editLabel.titleLabel?.font = UIFont(name: "NanumSquareRoundOTFB", size: 9)
         editLabel.setTitleColor(UIColor(hex: Theme.primary), for: .normal)
         profileView.addSubview(editLabel)

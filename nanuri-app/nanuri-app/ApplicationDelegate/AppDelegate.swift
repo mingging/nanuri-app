@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import DropDown
+
 import KakaoSDKAuth
 import KakaoSDKCommon
 
@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        DropDown.startListeningToKeyboard()
+        
         KakaoSDK.initSDK(appKey: "ca58fb6fe4a03e54e743b7b25bf5ae4b")
         return true
     }

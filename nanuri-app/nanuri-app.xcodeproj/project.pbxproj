@@ -66,6 +66,7 @@
 		873BA41C277B28C700128335 /* SnsLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BA41B277B28C700128335 /* SnsLogin.swift */; };
 		873BA41E277C467600128335 /* SnsUserInfoSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BA41D277C467600128335 /* SnsUserInfoSingleton.swift */; };
 		873BA420277CA59E00128335 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873BA41F277CA59E00128335 /* TabBarController.swift */; };
+		876838B2277E22240080D5D4 /* AzureBlobImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876838B1277E22230080D5D4 /* AzureBlobImage.swift */; };
 		877897822752AC7200A19A96 /* MyPageProductsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877897812752AC7200A19A96 /* MyPageProductsListViewController.swift */; };
 		87907FCC2747CB10003CF255 /* profilBadge.png in Resources */ = {isa = PBXBuildFile; fileRef = 87907FCB2747CB10003CF255 /* profilBadge.png */; };
 		87907FCE2747CCEE003CF255 /* MyPageViewControllerNo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87907FCD2747CCEE003CF255 /* MyPageViewControllerNo.swift */; };
@@ -146,6 +147,8 @@
 		873BA41B277B28C700128335 /* SnsLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnsLogin.swift; sourceTree = "<group>"; };
 		873BA41D277C467600128335 /* SnsUserInfoSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnsUserInfoSingleton.swift; sourceTree = "<group>"; };
 		873BA41F277CA59E00128335 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		876838B0277E21D10080D5D4 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		876838B1277E22230080D5D4 /* AzureBlobImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AzureBlobImage.swift; sourceTree = "<group>"; };
 		877897812752AC7200A19A96 /* MyPageProductsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageProductsListViewController.swift; sourceTree = "<group>"; };
 		87907FCB2747CB10003CF255 /* profilBadge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profilBadge.png; sourceTree = "<group>"; };
 		87907FCD2747CCEE003CF255 /* MyPageViewControllerNo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewControllerNo.swift; sourceTree = "<group>"; };
@@ -221,6 +224,7 @@
 		39BE79A527433E3400452A8E /* nanuri-app */ = {
 			isa = PBXGroup;
 			children = (
+				876838AF277E216C0080D5D4 /* AzureBlobStorage */,
 				87E4255B2771FF1800C58A26 /* nanuri-app.entitlements */,
 				39F38EE12743BE04007A15B3 /* Tab */,
 				39BE79BC27433E7100452A8E /* Controller */,
@@ -405,6 +409,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		876838AF277E216C0080D5D4 /* AzureBlobStorage */ = {
+			isa = PBXGroup;
+			children = (
+				876838B0277E21D10080D5D4 /* Bridging-Header.h */,
+				876838B1277E22230080D5D4 /* AzureBlobImage.swift */,
+			);
+			path = AzureBlobStorage;
+			sourceTree = "<group>";
+		};
 		94EA023BE25D428CE0FF4E6E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -585,6 +598,7 @@
 				394A65D627451A5E000CD9A8 /* NoticeCustomCell.swift in Sources */,
 				39022BBD2776517900371C81 /* Category.swift in Sources */,
 				39160176274E4F8A00B005E6 /* PayCompleteViewController.swift in Sources */,
+				876838B2277E22240080D5D4 /* AzureBlobImage.swift in Sources */,
 				39160174274E43C800B005E6 /* PayViewController.swift in Sources */,
 				873BA420277CA59E00128335 /* TabBarController.swift in Sources */,
 				39EE3A13275A240F00D7560A /* AddProductViewController.swift in Sources */,

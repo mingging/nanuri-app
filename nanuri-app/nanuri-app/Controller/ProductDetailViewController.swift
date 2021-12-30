@@ -26,7 +26,8 @@ class ProductDetailViewController: UIViewController {
     let nicNameLabel = UILabel()
     let commentButton = UIButton()
     let footerButton = UIButton()
-
+    let headerImage = UIImageView()
+    
     var productID: Int?
     var productUserID: Int?
     var product: Product?
@@ -71,6 +72,19 @@ class ProductDetailViewController: UIViewController {
     
     func setUpData() {
         guard let product = product else { return }
+        
+        if product.productImage == "banner1"{
+            headerImage.image = UIImage(named: "banner1")
+        } else {
+            let blobName = product.productImage
+            let blobImage = AZBlobImage(containerName: "nanuriproductimgs")
+            DispatchQueue.main.async {
+                blobImage.downloadImage(blobName: blobName, imageView: self.headerImage) { _ in
+
+
+                }
+            }
+        }
         
         categoryLabel.text = "# \(category[product.categoryID])"
         productNameLabel.text = product.productName
@@ -143,7 +157,7 @@ class ProductDetailViewController: UIViewController {
         self.view.addSubview(scrollView)
         
         // header
-        let headerImage = UIImageView()
+        
         scrollView.addSubview(headerImage)
         
         headerImage.snp.makeConstraints { make in
