@@ -38,10 +38,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v5k-6W-d3F">
-                                <rect key="frame" x="30" y="149" width="507.5" height="28"/>
+                                <rect key="frame" x="30" y="149" width="525" height="27.5"/>
                                 <subviews>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JS8-z8-CHn">
-                                        <rect key="frame" x="0.0" y="0.0" width="72.5" height="28"/>
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="247" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JS8-z8-CHn">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="27.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <attributedString key="attributedTitle">
@@ -57,8 +57,8 @@
                                             <action selector="selectedButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="MNb-CR-Vu2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcT-Xf-prF">
-                                        <rect key="frame" x="72.5" y="0.0" width="72.5" height="28"/>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcT-Xf-prF">
+                                        <rect key="frame" x="75" y="0.0" width="75" height="27.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <attributedString key="attributedTitle">
@@ -73,10 +73,11 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="selectedButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7eq-UU-GGV"/>
+                                            <action selector="selectedFood:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9AA-2o-urh"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3v2-2h-WxX">
-                                        <rect key="frame" x="145" y="0.0" width="72.5" height="28"/>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3v2-2h-WxX">
+                                        <rect key="frame" x="150" y="0.0" width="75" height="27.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <attributedString key="attributedTitle">
@@ -91,10 +92,11 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="selectedButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="K0o-RM-7eS"/>
+                                            <action selector="selectedHousehold:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="BQw-JG-ahm"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xW4-zz-Lft">
-                                        <rect key="frame" x="217.5" y="0.0" width="72.5" height="28"/>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xW4-zz-Lft">
+                                        <rect key="frame" x="225" y="0.0" width="75" height="27.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <attributedString key="attributedTitle">
@@ -111,8 +113,8 @@
                                             <action selector="selectedButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QPp-WY-DvJ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IeG-Jy-Kd8">
-                                        <rect key="frame" x="290" y="0.0" width="72.5" height="28"/>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IeG-Jy-Kd8">
+                                        <rect key="frame" x="300" y="0.0" width="75" height="27.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <attributedString key="attributedTitle">
@@ -129,8 +131,8 @@
                                             <action selector="selectedButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qhG-VJ-skP"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4W-Hl-xab">
-                                        <rect key="frame" x="362.5" y="0.0" width="72.5" height="28"/>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4W-Hl-xab">
+                                        <rect key="frame" x="375" y="0.0" width="75" height="27.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <attributedString key="attributedTitle">
@@ -144,8 +146,8 @@
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlE-4P-Eo9">
-                                        <rect key="frame" x="435" y="0.0" width="72.5" height="28"/>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="247" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlE-4P-Eo9">
+                                        <rect key="frame" x="450" y="0.0" width="75" height="27.5"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
                                             <attributedString key="attributedTitle">
@@ -161,6 +163,21 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NlV-zv-2vG">
+                                <rect key="frame" x="0.0" y="219" width="414" height="666"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" rowHeight="237" id="GDc-JA-61k">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="237"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GDc-JA-61k" id="818-Ok-KVv">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="237"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -183,6 +200,7 @@
                         <outlet property="kitchenSearch" destination="xW4-zz-Lft" id="gk4-xX-lzV"/>
                         <outlet property="stackView" destination="v5k-6W-d3F" id="ceH-mJ-SNy"/>
                         <outlet property="stationarySearch" destination="B4W-Hl-xab" id="FD8-fz-h4t"/>
+                        <outlet property="tableView" destination="NlV-zv-2vG" id="v5C-iK-4Ax"/>
                         <outletCollection property="buttonAttribute" destination="JS8-z8-CHn" collectionClass="NSMutableArray" id="eFL-7m-qFI"/>
                         <outletCollection property="buttonAttribute" destination="mcT-Xf-prF" collectionClass="NSMutableArray" id="LwF-Da-2M7"/>
                         <outletCollection property="buttonAttribute" destination="3v2-2h-WxX" collectionClass="NSMutableArray" id="pRc-LS-Hl1"/>
@@ -194,7 +212,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="45" y="-319"/>
+            <point key="canvasLocation" x="44.927536231884062" y="-319.41964285714283"/>
+        </scene>
+        <!--ProductDetail-->
+        <scene sceneID="tXD-Qz-DvU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProductDetail" id="Bt1-wu-Af6" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lsP-3p-kp3"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gPk-9t-ewc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="775" y="-265"/>
         </scene>
     </scenes>
     <resources>

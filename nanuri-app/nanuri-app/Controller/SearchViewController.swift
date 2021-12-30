@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Alamofire
 
 class SearchViewController: UIViewController {
-    
-    
+    var categories:CategoryInfo?
+    var products: [Product]?
     /*검색*/
     @IBOutlet var buttonAttribute: [UIButton]!
     /*검색 - 개별 아울렛*/
@@ -42,10 +43,53 @@ class SearchViewController: UIViewController {
         setBorder(border: 2)
         // Do any additional setup after loading the view.
 //        tableView.rowHeight = Style.searchListHeight
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 237
         
-//
+    }
+    func categoryBtnClicked(_sender:UIButton){
+        let category = [1,2,3,4,5,6,7]
+        for eachCate in category{
+            _sender.viewWithTag(eachCate)
+        }
+        
+//        _sender.viewWithTag(1)
     }
     
+    @IBAction func selectedFood(_ sender: UIButton) {
+        getCategoryList(id:1)
+        
+    }
+    
+    @IBAction func selectedHousehold(_ sender: UIButton) {
+        getCategoryList(id:2)
+    }
+    /* get */
+    func getCategoryList(id:Int){
+        var categoryId:Int
+        let strURL = "http://20.196.209.221:8000/category/\(id)"
+        //let strURL = "http://20.196.209.221:8000/category/categoryId"
+        let request = AF.request(strURL,method:.get)
+        request.responseJSON{ response in
+            switch response.result {
+            case .success(let value):
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+                    let json = try JSONDecoder().decode(CategoryInfo.self, from: data)
+                    self.products = json.category.products
+                    print(json.category.products)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                } catch (let error) {
+                    print(error)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
     
     func setRadius(radius:Int){
         let _ : Int = radius
@@ -86,21 +130,64 @@ class SearchViewController: UIViewController {
 
 }
 
-//extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-//
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 10
-//    }
-//    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! SearchCustomCell
-//
-//        return cell
-//    }
-//
-//
-//}
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        if let products = products {
+            return products.count
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let products = products else { return UITableViewCell() }
+        let product = products[indexPath.row]
+        
+        let identifier = "\(indexPath.row) \(product.productId)"
+
+        if let reuseCell = tableView.dequeueReusableCell(withIdentifier: identifier) {
+            return reuseCell
+        } else {
+            let cell = ProductCustomCell.init(style: .default, reuseIdentifier: identifier)
+            cell.selectionStyle = .none
+            cell.setUpView()
+            
+            cell.productNameLabel.text = product.productName
+            cell.priceLabel.text = NumberFormatter().priceFormatter(price: product.productPrice)
+            cell.recruitmentLabel.text = "\(product.joinPPLCnt) / \(product.totalPPLCnt)"
+            cell.periodLabel.text = "\(DateFormatter().formatter(date: product.startDate)) ~ \(DateFormatter().formatter(date: product.endDate))"
+    
+            let percentage = Float(product.joinPPLCnt) / Float(product.totalPPLCnt)
+            cell.progress.progress = percentage
+            cell.processPercentageLabel.text = "\(Int(percentage * 100))%"
+    
+            cell .dDayLabel.text = "D - \(calculateDay(endDate: product.endDate))"
+            
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let productDetailView = UIStoryboard(name: Stoyboard.productDetail.name, bundle: nil)
+        guard let productDetailVC =
+                productDetailView.instantiateViewController(withIdentifier: Stoyboard.productDetail.id)
+                as? ProductDetailViewController,
+              let products = products
+        else { return }
+
+        let product = products[indexPath.row]
+        productDetailVC.productID = product.productId
+        productDetailVC.product = product
+        
+        navigationController?.pushViewController(productDetailVC, animated: true)
+    }
+    
+
+
+}
