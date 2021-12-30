@@ -58,8 +58,6 @@ class RegisterViewController: UIViewController {
               let townName = townTextField.text,
               let socialIdx = SnsUserInfoSingleton.shared.id
         else { return }
-      
-        
 
         let header: HTTPHeaders = ["Content-Type" : "multipart/form-data"]
         let params:Parameters = ["social_id":socialIdx,"user_nick":userNick,"user_area":townName]
@@ -77,6 +75,9 @@ class RegisterViewController: UIViewController {
                 print(value)
                 Networking.sharedObject.getUserInfo(userID: value.data.userID) { result in
                     UserSingleton.shared.userData = result
+                    
+                    UserDefaults.standard.set(result.user.userID, forKey: "userID")
+
                     let addView = UIStoryboard(name: "Main" , bundle: nil)
                     guard let addVC = addView.instantiateViewController(withIdentifier: "tabBarView") as? TabBarController else { return }
                 addVC.modalPresentationStyle = .fullScreen

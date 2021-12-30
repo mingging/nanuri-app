@@ -45,7 +45,8 @@ class LoginViewController: UIViewController {
             UserSingleton.shared.userData = result
             let addView = UIStoryboard(name: "Main" , bundle: nil)
             guard let addVC = addView.instantiateViewController(withIdentifier: "tabBarView") as? TabBarController else { return }
-        addVC.modalPresentationStyle = .fullScreen
+            addVC.modalPresentationStyle = .fullScreen
+            
             self.present(addVC, animated: true, completion: nil)
         }
     }
@@ -92,12 +93,7 @@ class LoginViewController: UIViewController {
             } else {
                 //내부적으로 쓰는 구분..?
                 if let kId =  user?.id {
-//                    print("@@@\(id)")
-//                    let snsUserInfo = SnsUserInfo.shared
                     
-                    
-//                        let kakaoId = SnsId.init(id: Int, socialId: "\(kId)")
-//                    }
                     SnsUserInfoSingleton.shared.kakaoUserId = "\(kId)"
                     
                     // test
@@ -114,7 +110,6 @@ class LoginViewController: UIViewController {
                             print("sucess reponse is :\(response)")
                             guard let value = response.value else { return }
                             SnsUserInfoSingleton.shared.id = value.data.id
-                            
                             print(SnsUserInfoSingleton.shared.id)
 //                            SnsUserInfo.shared.id =
                             if let registerVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "registerStoryboard") as? RegisterViewController {
@@ -123,6 +118,7 @@ class LoginViewController: UIViewController {
                                 
                             }
                         case .failure(let error):
+                            
                             print(error.localizedDescription)
                         }
                     }

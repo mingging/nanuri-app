@@ -15,62 +15,31 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        
         if let url = URLContexts.first?.url {
             if (AuthApi.isKakaoTalkLoginUrl(url)) {
                 _ = AuthController.handleOpenUrl(url: url)
             }
         }
+        
+      
     }
-//    func userInfo(){
-//        //shared 라는 건 singleton 객체라는 것
-//        UserApi.shared.me { user, error in
-//            if let error = error { /*error 가 !nil*/
-//                print(error.localizedDescription)
-//                return
-//            } else {
-//                //내부적으로 쓰는 구분..?
-//                if let id =  user?.id {
-////                    self.lblId.text = "\(id)"
-//                    print("@@@\(id)")
-//                }
-////                self.lblNick.text = user?.kakaoAccount?.profile?.nickname
-//
-//
-//
-//            }
-//        }
-//    }
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
-        
-        /*로그인 뷰 - 정보 없으면 로그인 창, 회원정보 있으면 홈 뷰로 이동*/
-        /*
-        UserApi.shared.me { user, error in
-            if let error = error { /*error 가 !nil*/
-                print(error.localizedDescription)
-                return
-            } else {
-                //내부적으로 쓰는 구분..?
-                if let id =  user?.id {
-                    //                    self.lblId.text = "\(id)"
-                    print("@@@\(id)")
-                    if let homeVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(withIdentifier: "homeView") as? HomeViewController {
-                        self.window?.rootViewController = homeVC
-                    }
-                    
-                }
-                let loginVC = UIStoryboard(name: "Login", bundle: nil) as? LoginViewController
-                self.window?.rootViewController = loginVC
-                //                self.lblNick.text = user?.kakaoAccount?.profile?.nickname
-                
-                
-                
-            }
+        print("aaaaaaa \(UserDefaults.standard.integer(forKey: "userID"))")
+        if UserDefaults.standard.integer(forKey: "userID") == 0 {
+            let loginView = UIStoryboard(name: "Login", bundle: nil)
+            guard let loginVC = loginView.instantiateViewController(withIdentifier: "Login") as? LoginViewController else { return }
+            window?.rootViewController = loginVC
+        } else {
+            let homeView = UIStoryboard(name: "Main" , bundle: nil)
+            guard let homeVC = homeView.instantiateViewController(withIdentifier: "tabBarView") as? TabBarController else { return }
+            window?.rootViewController = homeVC
         }
-        */
         
     }
     

@@ -67,10 +67,30 @@ class MyPageViewController: HeaderViewController {
         }
     }
     
+
+    @objc func logoutAction() {
+        let alert = UIAlertController(title: "로그아웃", message: "정말 로그아웃 하시겠습니까?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default) { action in
+//             UserDefaults.standard.removeObject(forKey: "userID")
+//             let loginView = UIStoryboard(name: "Login", bundle: nil)
+//             guard let loginVC = loginView.instantiateViewController(withIdentifier: "Login") as? LoginViewController else { return }
+//             loginVC.modalPresentationStyle = .fullScreen
+//             loginVC.modalTransitionStyle = .crossDissolve
+//             self.present(loginVC, animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+  
     @objc func showEditProfile(){
         let editView = UIStoryboard(name: "MyPage", bundle: nil)
         let editVC = editView.instantiateViewController(withIdentifier: "mypapeDetailView") as! MyPageDetailViewController
         navigationController?.pushViewController(editVC, animated: true)
+
     }
     
     func setUpData() {
@@ -154,6 +174,7 @@ class MyPageViewController: HeaderViewController {
             make.top.equalToSuperview().inset(7)
             make.trailing.equalToSuperview().inset(10)
         }
+        logoutButton.addTarget(self, action: #selector(logoutAction), for: .touchUpInside)
         
         let buttonView = UIView()
         self.view.addSubview(buttonView)
