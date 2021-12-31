@@ -111,7 +111,7 @@ class SearchViewController: UIViewController {
         let defaultColor = UIColor(hex: Theme.primary)
         sender.layer.borderColor  = sender.layer.borderColor == selectedColor.cgColor ? defaultColor?.cgColor : selectedColor.cgColor
     }
- override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         tabBarController?.tabBar.isHidden = true // 뷰 컨트롤러가 나타날 때 숨기기
     }
 

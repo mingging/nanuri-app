@@ -31,6 +31,7 @@ enum StoryboardID {
 
 enum Stoyboard: String {
     case homeView = "Home"
+    case listView = "List"
     case notice = "Notice"
     case search = "Search"
     case productDetail = "ProductDetail"

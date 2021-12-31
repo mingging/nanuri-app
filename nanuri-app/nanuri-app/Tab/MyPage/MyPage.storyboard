@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="630" y="771"/>
         </scene>
-        <!--View Controller-->
+        <!--My Page View Controller-->
         <scene sceneID="jrW-99-POc">
             <objects>
-                <viewController id="zyG-PW-rQ4" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myPageView" id="zyG-PW-rQ4" customClass="MyPageViewController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4bX-XK-7VL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -194,7 +194,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="동네변경" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuz-sQ-hxY">
-                                <rect key="frame" x="31" y="659" width="55" height="17"/>
+                                <rect key="frame" x="31" y="625" width="55" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="NanumSquareRoundOTFR" family="NanumSquareRoundOTF" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -225,11 +225,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WPl-8t-ANg">
-                                <rect key="frame" x="31" y="694" width="327" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6f-KJ-egq">
                                 <rect key="frame" x="149" y="787" width="118" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -240,16 +235,12 @@
                                     <action selector="userInfoDelete:" destination="s48-h2-gJV" eventType="touchUpInside" id="e29-hL-VsK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1o-ou-c43">
-                                <rect key="frame" x="296" y="697" width="41" height="31"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WWw-AE-c9N">
+                                <rect key="frame" x="31" y="663" width="329" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.35686274509999999" green="0.47450980390000003" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrowtriangle.down.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="showDropDown:" destination="s48-h2-gJV" eventType="touchUpInside" id="rVq-5i-WJ9"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2BQ-ud-dvm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -258,11 +249,10 @@
                     <connections>
                         <outlet property="bankAccountNum" destination="CkQ-rF-t5O" id="PW1-GI-467"/>
                         <outlet property="bankTextField" destination="v7y-Ig-ZzE" id="c3B-xU-ptF"/>
-                        <outlet property="dropDownBtn" destination="g1o-ou-c43" id="qPk-Y5-ZQk"/>
                         <outlet property="imageView" destination="Wlj-cw-zb3" id="9Pw-SY-iXK"/>
                         <outlet property="nickTextField" destination="QlU-5h-STP" id="F9N-r5-oiy"/>
                         <outlet property="profilePhoto" destination="62X-pQ-xWG" id="gnr-zD-q7G"/>
-                        <outlet property="searchTown" destination="WPl-8t-ANg" id="yS8-53-5Cu"/>
+                        <outlet property="selectedTown" destination="WWw-AE-c9N" id="VqL-Rc-DZg"/>
                         <outlet property="submitButton" destination="c60-Nx-cKR" id="9g8-2a-gn7"/>
                         <outlet property="userInfoDeleteBtn" destination="c6f-KJ-egq" id="TFb-7t-HlZ"/>
                     </connections>
@@ -273,7 +263,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>
         <image name="levelBadge.png" width="13" height="13"/>
         <image name="nanuri_mypage" width="25" height="25"/>
         <image name="nanuri_profile_no" width="25" height="25"/>

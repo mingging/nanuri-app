@@ -9,22 +9,26 @@ import UIKit
 
 //import PhotosUI
 
-class MyPageDetailViewController: UIViewController {
-    let containerName = "nanuriImages"
-    let connectionString:String = "DefaultEndpointsProtocol=https;AccountName=logvieoblobimgs;AccountKey=LmiLJOBXGakx9UodRVLenmDyg8aoRDWabfKIyO28rTOHMRptZVH2oooHj0TEOGKQwwxDWrmcaa2/N/apD3e2wg==;EndpointSuffix=core.windows.net"
-    let myColor = UIColor(hex: Theme.primary)
+class MyPageDetailViewController: UIViewController,UITextFieldDelegate {
     
+    let myColor = UIColor(hex: Theme.primary)
+    let pickerView = UIPickerView()
+    let townName = ["서울시 강서구","서울시 강남구","서울시 마포구", "서울시 중구", "서울시 강동구", "서울시 성동구"]
     
     @IBOutlet weak var userInfoDeleteBtn: UIButton!
-    @IBOutlet weak var dropDownBtn: UIButton!
+    
     @IBOutlet weak var nickTextField: UITextField!
     @IBOutlet weak var bankTextField: UITextField!
     @IBOutlet weak var bankAccountNum: UITextField!
+    
+//    @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var imageView: UIView!
-    @IBOutlet weak var searchTown: UIView!
+    @IBOutlet weak var selectedTown: UITextField!
+    
     
     @IBOutlet weak var profilePhoto: UIImageView!
+    let picker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,26 +41,14 @@ class MyPageDetailViewController: UIViewController {
         submitButton.titleLabel?.adjustsFontSizeToFitWidth = true
 
         submitButton.titleLabel?.minimumScaleFactor = 10.0
-        self.tabBarController?.tabBar.isHidden = true
+        //self.tabBarController?.tabBar.isHidden = true
         
         nickTextField.hideUnderLine()
         bankTextField.hideUnderLine()
         bankAccountNum.hideUnderLine()
         
         userInfoDeleteBtn.titleLabel?.font = UIFont(name: "NanumSquareRoundOTFR", size: 12)
-        /*
-        dropDown.show()
-        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-            searchTown.UIView = item
-            searchTown.UIView = index
-            
-//            self.dropDown.
-             
-            self.dropDown.selectRow(at: 6)
-//            self.dropDown.clearSelection()
-         }
-         */
-            
+        
         if let data = UserDefaults.standard.data(forKey: "profile_image"){
             profilePhoto.image = UIImage(data: data)
         } else {
@@ -64,33 +56,20 @@ class MyPageDetailViewController: UIViewController {
             profilePhoto.image = photo
         }
         
-        
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        selectedTown.tintColor = .clear
+        createPickerView()
+        dismissPickerView()
+//        selectedTown.inputView = picker
     }
-    
+    /*프로필 업로드 버튼*/
     @IBAction func profilePhotoUpload(_ sender: Any) {
-//        picker.sourceType = .photoLibrary
-//        present(picker, animated: true)
+        picker.sourceType = .photoLibrary
+        present(picker, animated: true)
         
     }
-//    @IBAction func showDropDown(_ sender: Any) {
-//        DropDown.startListeningToKeyboard()
-//        dropDown.dataSource = ["강서구","강남구","강동구","금천구","성동구","마포구"]
-//        dropDown.show()
-//        
-//        dropDown.anchorView = searchTown
-//        dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)!)
-//        dropDown.width = 327
-//        // 선택한 값 가져오기
-//        dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-//            print("선택한 아이템 : \(item)")
-//            print("인덱스 : \(index)")
-////            self.dropDown.
-//             
-//            self.dropDown.selectRow(at: 6)
-////            self.dropDown.clearSelection()
-//            
-//        }
-//    }
+
     func userSelectedPhoto(_ image: UIImage){
         // 이미지 피커 didFinish 선택한 이미지를 이미지뷰에 업데이트, 모델 호출, 레이블 적용
         DispatchQueue.main.async {
@@ -100,17 +79,111 @@ class MyPageDetailViewController: UIViewController {
         
     }
     
+    /*픽커뷰 - 아래서 올라오게*/
+    func createPickerView() {
+        
+        pickerView.delegate = self
+        selectedTown.inputView = pickerView
+    }
+    
+    func dismissPickerView() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let button = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(self.donePicker))
+        toolBar.setItems([button], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        selectedTown.inputAccessoryView = toolBar
+    }
+    
+//    @objc func action() {
+//
+//       }
+    
+    @objc func donePicker() {
+        let row = self.pickerView.selectedRow(inComponent: 0)
+        self.pickerView.selectRow(row, inComponent: 0, animated: false)
+        self.selectedTown.text = self.townName[row]
+        self.selectedTown.resignFirstResponder()
+    }
     
     @IBAction func actSaveUserInfo(_ sender: Any) {
         if let data = profilePhoto.image?.pngData(){
             UserDefaults.standard.set(data, forKey: "profile_image")
         }
             
-//        UserDefaults.standard.set("logo2.png", forKey: "profile_image")
-//        dismiss(animated: true){
+        UserDefaults.standard.set("logo_sample.png", forKey: "profile_image")
+        dismiss(animated: true){
 //            self.diaryVC?.reloadData()
-//        }
-//
+        }
+        let myPageView = UIStoryboard(name: "MyPage", bundle: nil)
+        guard let mypageVC =
+                myPageView.instantiateViewController(withIdentifier:"myPageView")
+                as? MyPageViewController
+        else { return }
+        
+        self.navigationController?.pushViewController(mypageVC, animated: true)
+    }
+    /*put - alamo*/
+    /*
+     @IBAction func actPut(_ sender: Any) {
+         let strUrl = "http://localhost:8000/users/1"
+         let params = ["user_id":"aaa","name":"홍길동","password":"1234","address":"대한민국 서울시"]
+         let alamo = AF.request(strUrl,method: .put,parameters: params)
+         
+         alamo.responseJSON { reponse in
+             switch reponse.result{
+             case .success(let value):
+                 let json = JSON(value)
+                 let result = json["success"].boolValue
+                 if result {
+                     self.showResult(title: "사용자수정", message: "수정성공")
+                 } else {
+                     self.showResult(title: "사용자수정", message: "수정실패")
+                 }
+             case .failure(let error):
+                 print(error.errorDescription)
+             }
+         }
+         
+     }
+     */
+    func saveUserInfo(){
+        let strURL = "http://20.196.209.221:8000/users/"
+        guard let userNick = nickTextField.text,
+//              let townName = changeTownName,
+              let socialIdx = SnsUserInfoSingleton.shared.id
+        else { return }
+        /*
+         let header: HTTPHeaders = ["Content-Type" : "multipart/form-data"]
+         let params:Parameters = ["social_id":socialIdx,"user_nick":userNick,"user_area":townName]
+         
+         AF.upload(multipartFormData: { multiFormData in
+         for (key, value) in params {
+         multiFormData.append(Data("\(value)".utf8), withName: key)
+         }
+         }, to: strURL, headers: header).responseDecodable(of: UserPostResponse.self) { response in
+         switch response.result {
+         case .success(_):
+         
+         print("sucess reponse is :\(response)")
+         guard let value = response.value else { return }
+         print(value)
+         Networking.sharedObject.getUserInfo(userID: value.data.userID) { result in
+         UserSingleton.shared.userData = result
+         
+         UserDefaults.standard.set(result.user.userID, forKey: "userID")
+         
+         let addView = UIStoryboard(name: "Main" , bundle: nil)
+         guard let addVC = addView.instantiateViewController(withIdentifier: "tabBarView") as? TabBarController else { return }
+         addVC.modalPresentationStyle = .fullScreen
+         self.present(addVC, animated: true, completion: nil)
+         }
+         case .failure(let error):
+         print(error.localizedDescription)
+         }
+         }
+         */
+      
     }
     /*프로필 사진 업로드 관련 메소드*/
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -206,5 +279,26 @@ extension UITextField {
 //        self.layer.masksToBounds = true
     }
 }
+extension MyPageDetailViewController:UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return townName.count
+    }
+    
+}
 
+extension MyPageDetailViewController:UIPickerViewDelegate{
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedTown.text = self.townName[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+            return townName[row]
+       
+    }
+}
 

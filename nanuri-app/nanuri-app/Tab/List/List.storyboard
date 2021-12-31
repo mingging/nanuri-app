@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6TN-Pp-m51">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6TN-Pp-m51">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -31,27 +31,219 @@
         <!--List View Controller-->
         <scene sceneID="nS7-p8-Gy2">
             <objects>
-                <viewController id="uWo-Yr-cRm" customClass="ListViewController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="listView" id="uWo-Yr-cRm" customClass="ListViewController" customModule="nanuri_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s6a-Ux-tHk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aad-6x-yyS">
-                                <rect key="frame" x="186" y="324" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6FG-DT-ih7">
+                                <rect key="frame" x="0.0" y="197" width="414" height="698.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" rowHeight="237" id="YSQ-uQ-bxf">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="237"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YSQ-uQ-bxf" id="Ogv-yO-U4j">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="237"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="nez-zw-n1C">
+                                <rect key="frame" x="10" y="98" width="394" height="27.5"/>
+                                <subviews>
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" horizontalHuggingPriority="247" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="071-yW-JLU">
+                                        <rect key="frame" x="0.0" y="0.0" width="76.5" height="27.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="All">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="NanumSquareRoundOTFR"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" red="0.38042792679999998" green="0.47200793029999999" blue="0.3843021989" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="selectedAll:" destination="uWo-Yr-cRm" eventType="touchUpInside" id="czm-1h-DBh"/>
+                                            <action selector="selectedButton:" destination="uWo-Yr-cRm" eventType="touchUpInside" id="HK1-p4-jl9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNc-Q3-yLN">
+                                        <rect key="frame" x="79.5" y="0.0" width="76.5" height="27.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="#음식">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="NanumSquareRoundOTFR"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="selectedButton:" destination="uWo-Yr-cRm" eventType="touchUpInside" id="znj-UZ-fR5"/>
+                                            <action selector="selectedFood:" destination="uWo-Yr-cRm" eventType="touchUpInside" id="WR0-Ud-xO7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pde-tC-4u1">
+                                        <rect key="frame" x="159" y="0.0" width="76" height="27.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="#욕실">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="NanumSquareRoundOTFR"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="selectedBath:" destination="uWo-Yr-cRm" eventType="touchUpInside" id="cv4-Y1-8EM"/>
+                                            <action selector="selectedButton:" destination="uWo-Yr-cRm" eventType="touchUpInside" id="yy8-iP-gwT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YE4-dM-8Ym">
+                                        <rect key="frame" x="238" y="0.0" width="76.5" height="27.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="#생활용품">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="NanumSquareRoundOTFR"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="selectedButton:" destination="uWo-Yr-cRm" eventType="touchUpInside" id="KVe-qJ-fNs"/>
+                                            <action selector="selectedHousehold:" destination="uWo-Yr-cRm" eventType="touchUpInside" id="1VP-Fd-BUX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUG-N0-vEa">
+                                        <rect key="frame" x="317.5" y="0.0" width="76.5" height="27.5"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="#주방">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="NanumSquareRoundOTFR"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="selectedButton:" destination="uWo-Yr-cRm" eventType="touchUpInside" id="zOG-1l-vu6"/>
+                                            <action selector="selectedKitchen:" destination="uWo-Yr-cRm" eventType="touchUpInside" id="0rv-63-L1c"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="WnS-jg-Keb">
+                                <rect key="frame" x="10" y="133" width="156" height="27.5"/>
+                                <subviews>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tIw-wO-Ipf">
+                                        <rect key="frame" x="0.0" y="0.0" width="76.5" height="27.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="76.5" id="jr3-UK-rVZ"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="#문구">
+                                                    <attributes>
+                                                        <font key="NSFont" size="12" name="NanumSquareRoundOTFR"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="selectedButton:" destination="uWo-Yr-cRm" eventType="touchUpInside" id="bLH-WC-K6X"/>
+                                            <action selector="selectedStationery:" destination="uWo-Yr-cRm" eventType="touchUpInside" id="J09-rI-RBe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="247" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnG-jO-Bet">
+                                        <rect key="frame" x="79.5" y="0.0" width="76.5" height="27.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="76.5" id="JfS-Qz-8da"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="#기타">
+                                                    <attributes>
+                                                        <font key="NSFont" size="11" name="NanumSquareRoundOTFR"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="selectedButton:" destination="uWo-Yr-cRm" eventType="touchUpInside" id="nqh-MO-lWu"/>
+                                            <action selector="selectedEtc:" destination="uWo-Yr-cRm" eventType="touchUpInside" id="hVS-4e-QJ7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aif-GU-Bl7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="6FG-DT-ih7" secondAttribute="bottom" constant="-33.5" id="7Ba-Fn-ObS"/>
+                            <constraint firstItem="6FG-DT-ih7" firstAttribute="leading" secondItem="aif-GU-Bl7" secondAttribute="leading" id="Hin-ET-Mux"/>
+                            <constraint firstItem="aif-GU-Bl7" firstAttribute="trailing" secondItem="nez-zw-n1C" secondAttribute="trailing" constant="10" id="Rhn-tO-UXh"/>
+                            <constraint firstItem="nez-zw-n1C" firstAttribute="leading" secondItem="aif-GU-Bl7" secondAttribute="leading" constant="10" id="kvP-fH-61L"/>
+                            <constraint firstItem="WnS-jg-Keb" firstAttribute="top" secondItem="nez-zw-n1C" secondAttribute="bottom" constant="7.5" id="lS3-UZ-JTY"/>
+                            <constraint firstItem="nez-zw-n1C" firstAttribute="top" secondItem="s6a-Ux-tHk" secondAttribute="topMargin" constant="10" id="n9F-u5-1Rp"/>
+                            <constraint firstItem="6FG-DT-ih7" firstAttribute="centerX" secondItem="nez-zw-n1C" secondAttribute="centerX" id="vfg-L0-bEf"/>
+                            <constraint firstItem="WnS-jg-Keb" firstAttribute="leading" secondItem="aif-GU-Bl7" secondAttribute="leading" constant="10" id="wyJ-tb-Ar6"/>
+                            <constraint firstItem="6FG-DT-ih7" firstAttribute="top" secondItem="WnS-jg-Keb" secondAttribute="bottom" constant="36.5" id="xNW-Ml-Q4s"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MmP-Y6-u2A"/>
+                    <connections>
+                        <outlet property="allsearch" destination="071-yW-JLU" id="joq-nD-oHj"/>
+                        <outlet property="bathSearch" destination="Pde-tC-4u1" id="zjP-PG-c6X"/>
+                        <outlet property="etcSearch" destination="jnG-jO-Bet" id="FJJ-xm-IEq"/>
+                        <outlet property="foodSearch" destination="QNc-Q3-yLN" id="MrH-Hq-WT7"/>
+                        <outlet property="householdSearch" destination="YE4-dM-8Ym" id="3k4-73-sJL"/>
+                        <outlet property="kitchenSearch" destination="dUG-N0-vEa" id="wSE-2K-krA"/>
+                        <outlet property="stationarySearch" destination="tIw-wO-Ipf" id="eZW-Yo-i29"/>
+                        <outlet property="tableView" destination="6FG-DT-ih7" id="exh-wk-Plm"/>
+                        <outletCollection property="buttonAttribute" destination="071-yW-JLU" collectionClass="NSMutableArray" id="1A4-0A-Hm4"/>
+                        <outletCollection property="buttonAttribute" destination="QNc-Q3-yLN" collectionClass="NSMutableArray" id="riC-Xv-Mju"/>
+                        <outletCollection property="buttonAttribute" destination="Pde-tC-4u1" collectionClass="NSMutableArray" id="lL2-Jg-1Ix"/>
+                        <outletCollection property="buttonAttribute" destination="YE4-dM-8Ym" collectionClass="NSMutableArray" id="EKq-ho-rFW"/>
+                        <outletCollection property="buttonAttribute" destination="dUG-N0-vEa" collectionClass="NSMutableArray" id="nzU-oq-66M"/>
+                        <outletCollection property="buttonAttribute" destination="tIw-wO-Ipf" collectionClass="NSMutableArray" id="8hc-Ex-hrA"/>
+                        <outletCollection property="buttonAttribute" destination="jnG-jO-Bet" collectionClass="NSMutableArray" id="J2s-xM-Mlq"/>
+                        <outletCollection property="buttonAttribute" destination="jnG-jO-Bet" collectionClass="NSMutableArray" id="6CZ-Bt-Auc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jms-2m-rf5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1892" y="566"/>
+            <point key="canvasLocation" x="1891.304347826087" y="565.17857142857144"/>
+        </scene>
+        <!--ProductDetail-->
+        <scene sceneID="6lK-RW-aKb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProductDetail" id="7PK-38-d08" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YNf-OX-rlh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2496" y="587"/>
         </scene>
     </scenes>
     <resources>
