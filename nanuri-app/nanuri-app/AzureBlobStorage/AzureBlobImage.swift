@@ -66,6 +66,7 @@ class AZBlobImage{
             if let data = data{
                 let image = UIImage(data: data)
                 DispatchQueue.main.async {
+                    imageView.contentMode = .scaleAspectFill
                     imageView.image = UIImage(data: data)
                 }
                 

@@ -114,3 +114,4 @@ struct RegisterUserData: Decodable {
         case socialID = "social_id"
     }
 }
+

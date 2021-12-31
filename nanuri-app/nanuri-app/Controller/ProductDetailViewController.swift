@@ -1,3 +1,4 @@
+
 //
 //  ProductDetailViewController.swift
 //  nanuri-app
@@ -27,11 +28,13 @@ class ProductDetailViewController: UIViewController {
     let commentButton = UIButton()
     let footerButton = UIButton()
     let headerImage = UIImageView()
+    let subProductName = UILabel()
     
     var productID: Int?
     var productUserID: Int?
     var product: Product?
     let category = ["", "음식", "생활용품", "주방", "욕실", "문구", "기타"]
+    let paragraphStyle = NSMutableParagraphStyle()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +55,10 @@ class ProductDetailViewController: UIViewController {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
                 self.setUpData()
                 Singleton.shared.stopLoading()
+            }
+            self.headerImage.snp.makeConstraints { make in
+                make.leading.trailing.equalTo(self.view)
+                make.height.equalTo(250)
             }
         }
         
@@ -80,19 +87,24 @@ class ProductDetailViewController: UIViewController {
             let blobImage = AZBlobImage(containerName: "nanuriproductimgs")
             DispatchQueue.main.async {
                 blobImage.downloadImage(blobName: blobName, imageView: self.headerImage) { _ in
-
-
                 }
+                
             }
         }
         
         categoryLabel.text = "# \(category[product.categoryID])"
-        productNameLabel.text = product.productName
+        
+        let nameAttribute = NSMutableAttributedString(string: product.productName)
+        paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
+        nameAttribute.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, nameAttribute.length))
+        
+        productNameLabel.attributedText = nameAttribute
         productPriceLabel.text = NumberFormatter().priceFormatter(price: product.productPrice)
         periodLabel.text = "\(DateFormatter().formatter(date: product.startDate)) ~ \(DateFormatter().formatter(date: product.endDate))"
         recruitmentLabel.text = "\(product.joinPPLCnt) / \(product.totalPPLCnt)명"
         dDayLabel.text = "D - \(calculateDay(endDate: product.endDate))"
         deliveryLabel.text = product.deliveryMethod
+        subProductName.attributedText = nameAttribute
         
         Networking.sharedObject.getUserInfo(userID: product.userID) { response in
             self.nicNameLabel.text = response.user.userNick
@@ -100,22 +112,24 @@ class ProductDetailViewController: UIViewController {
         
         let attributedString = NSMutableAttributedString(string: product.detailContent)
         // *** Create instance of `NSMutableParagraphStyle`
-        let paragraphStyle = NSMutableParagraphStyle()
+       
 
         // *** set LineSpacing property in points ***
         paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
         textView.attributedText = attributedString
         
+        print( UserSingleton.shared.userData)
+        
         guard let userData = UserSingleton.shared.userData,
               let productUserID = productUserID,
               let productID = productID
         else { return }
         
-        print(userData.user.userID)
-        print(productUserID)
         for i in 0..<userData.orders.count {
+            print("@@@@ \(userData.orders[i].productId == productID) @@@ \(userData.user.userID == productUserID)")
             if userData.orders[i].productId == productID || userData.user.userID == productUserID {
+                print("들어옴")
                 footerButton.setAttributedTitle(NSAttributedString(string: "이미 참여중입니다."), for: .normal)
                 footerButton.isEnabled = false
                 footerButton.backgroundColor = .lightGray
@@ -144,6 +158,9 @@ class ProductDetailViewController: UIViewController {
         payVC.deliveryMethod = product.deliveryMethod
         payVC.creditMethod = product.deliveryMethod
         payVC.productID = product.productId
+        payVC.josinPPL = product.joinPPLCnt + 1
+        payVC.productUserID = product.userID
+        payVC.categoryID = product.categoryID
         
         navigationController?.pushViewController(payVC, animated: true)
     }
@@ -165,6 +182,7 @@ class ProductDetailViewController: UIViewController {
             make.height.equalTo(250)
         }
         headerImage.image = UIImage(named: "image_sample")
+        headerImage.clipsToBounds = true
         headerImage.contentMode = .scaleAspectFill
         
         // product link button
@@ -364,13 +382,22 @@ class ProductDetailViewController: UIViewController {
         ownerLabel.font = UIFont(name: "NanumSquareRoundOTFB", size: 12)
         ownerLabel.textColor = UIColor(hex: Theme.lightGray)
         
+     
+        subProductName.font = UIFont(name: "NanumSquareRoundOTFEB", size: 15)
+        subProductName.numberOfLines = 2
+        contentView.addSubview(subProductName)
+        subProductName.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(ownerLabel.snp.bottom).inset(-12)
+        }
+        
         // textView
       
         contentView.addSubview(textView)
 
         textView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(ownerLabel.snp.bottom).inset(-15)
+            make.top.equalTo(subProductName.snp.bottom).inset(-15)
             make.bottom.equalToSuperview()
         }
         textView.isEditable = false

@@ -148,7 +148,7 @@ class MyPageViewController: HeaderViewController {
         let editLabel = UIButton()
         editLabel.setAttributedTitle(NSAttributedString(string: "프로필 수정하기"), for: .normal)
         editLabel.addTarget(self, action: #selector(showEditProfile), for: .touchUpInside)
-        editLabel.titleLabel?.font = UIFont(name: "NanumSquareRoundOTFB", size: 9)
+        editLabel.titleLabel?.font = UIFont(name: "NanumSquareRoundOTFB", size: 13)
         editLabel.setTitleColor(UIColor(hex: Theme.primary), for: .normal)
         profileView.addSubview(editLabel)
         editLabel.snp.makeConstraints { make in
@@ -167,7 +167,7 @@ class MyPageViewController: HeaderViewController {
         
         let logoutButton = UIButton()
         logoutButton.setAttributedTitle(NSAttributedString(string: "로그아웃"), for: .normal)
-        logoutButton.titleLabel?.font = UIFont(name: "NanumSquareRoundOTFB", size: 9)
+        logoutButton.titleLabel?.font = UIFont(name: "NanumSquareRoundOTFB", size: 13)
         logoutButton.setTitleColor(UIColor(hex: Theme.primary), for: .normal)
         profileView.addSubview(logoutButton)
         logoutButton.snp.makeConstraints { make in
@@ -261,6 +261,18 @@ extension MyPageViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = ProductCustomCell.init(style: .default, reuseIdentifier: identifier)
             cell.selectionStyle = .none
             cell.setUpView()
+            
+            if product.productImage == "banner1" {
+                cell.productIamge.image = UIImage(named: "banner1")
+            } else {
+                let blobName = product.productImage
+                let blobImage = AZBlobImage(containerName: "nanuriproductimgs")
+                DispatchQueue.main.async {
+                    blobImage.downloadImage(blobName: blobName, imageView: cell.productIamge) { _ in
+                    }
+                }
+            }
+            
             cell.productNameLabel.text = product.productName
             cell.priceLabel.text = NumberFormatter().priceFormatter(price: product.productPrice)
             cell.recruitmentLabel.text = "\(product.joinPPLCnt) / \(product.totalPPLCnt)"

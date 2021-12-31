@@ -25,6 +25,10 @@ class PayViewController: UIViewController {
     var productPrice: Int?
     var deliveryMethod: String?
     var productID: Int?
+    var categoryID: Int?
+    var productUserID: Int?
+    var josinPPL: Int?
+    
     var creditMethod: String?
     var isSelectCard = false
     var isSelectBank = false
@@ -72,51 +76,7 @@ class PayViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if isSelectCard || isSelectBank {
-            
-            if isSelectCard {
-                creditMethod = "카드"
-            } else {
-                creditMethod = "계좌"
-            }
-            
-            guard let method = creditMethod,
-                  let productID = productID,
-                  let user = UserSingleton.shared.userData,
-                  let productName = productName,
-                  let productPrice = productPrice
-            else { return }
-           
-                    
-            let url = "http://20.196.209.221:8000/order/"
-            let header: HTTPHeaders = ["Content-Type" : "multipart/form-data"]
-            let parameter = [
-                "user_id": user.user.userID,
-                "product_id": productID,
-                "credit_method": method
-            ] as [String : Any]
-            
-            AF.upload(multipartFormData: { multiFormData in
-                for (key, value) in parameter {
-                    multiFormData.append(Data("\(value)".utf8), withName: key)
-                }
-            }, to: url, headers: header).responseDecodable(of: OrderPostResponse.self) { response in
-                switch response.result {
-                case .success(_):
-                    print("결제 성공")
-                    let complete = segue.destination as! PayCompleteViewController
-                    complete.productName = productName
-                    complete.productPrice = productPrice
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
-        } else {
-            let alert = UIAlertController(title: "나누리", message: "결제 수단을 선택해주세요!", preferredStyle: .alert)
-            let action = UIAlertAction(title: "확인", style: .default, handler: nil )
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
-        }
+
     }
     
  
@@ -135,5 +95,80 @@ class PayViewController: UIViewController {
         sender.layer.borderWidth = 2
         sender.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
         payToBank.layer.borderColor = UIColor(hex: Theme.lightGray)?.cgColor
+    }
+
+    @IBAction func payAction(_ sender: UIButton) {
+        if isSelectCard || isSelectBank {
+            
+            if isSelectCard {
+                creditMethod = "카드"
+            } else {
+                creditMethod = "계좌"
+            }
+            
+            guard let method = creditMethod,
+                  let productID = productID,
+                  let user = UserSingleton.shared.userData,
+                  let productName = productName,
+                  let productPrice = productPrice,
+                  let productUserID = productUserID,
+                  let categoryID = categoryID,
+                  let joinPPL = josinPPL
+            else { return }
+           
+                    
+            let url = "http://20.196.209.221:8000/order/"
+            let productUrl = "http://20.196.209.221:8000/products/\(productID)"
+            
+            let header: HTTPHeaders = ["Content-Type" : "multipart/form-data"]
+            let parameter = [
+                "user_id": user.user.userID,
+                "product_id": productID,
+                "credit_method": method
+            ] as [String : Any]
+            
+            let productParameter = [
+                "product_id": productID,
+                "join_ppl_cnt": joinPPL,
+                "user_id": productUserID,
+                "category_id": categoryID
+            ]
+            
+            AF.upload(multipartFormData: { multiFormData in
+                for (key, value) in parameter {
+                    multiFormData.append(Data("\(value)".utf8), withName: key)
+                }
+            }, to: url, headers: header).responseDecodable(of: OrderPostResponse.self) { response in
+                switch response.result {
+                case .success(_):
+                    print("결제 성공")
+                
+                    
+                    AF.upload(multipartFormData: { multiFormData in
+                        for (key, value) in productParameter {
+                            multiFormData.append(Data("\(value)".utf8), withName: key)
+                        }
+                    }, to: productUrl, method: .put , headers: header).responseDecodable(of: ProductPutResponse.self) { response in
+                        switch response.result {
+                        case .success(_):
+                            let completeView = UIStoryboard(name: "Pay", bundle: nil)
+                            let completeVC = completeView.instantiateViewController(withIdentifier: "completeView") as! PayCompleteViewController
+                            completeVC.productName = productName
+                            completeVC.productPrice = productPrice
+                            self.navigationController?.pushViewController(completeVC, animated: true)
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                        }
+                    }
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        } else {
+            let alert = UIAlertController(title: "나누리", message: "결제 수단을 선택해주세요!", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: .default, handler: nil )
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }

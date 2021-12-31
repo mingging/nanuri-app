@@ -28,7 +28,13 @@ class HomeViewController: HeaderViewController {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(bannerImage.snp.bottom)
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().inset(-100)
+            make.bottom.equalToSuperview()
+        }
+        
+        if UserDefaults.standard.integer(forKey: "userID") != 0 {
+            Networking.sharedObject.getUserInfo(userID: UserDefaults.standard.integer(forKey: "userID")) { response in
+                UserSingleton.shared.userData = response
+            }
         }
         
         // custom cell
@@ -36,37 +42,24 @@ class HomeViewController: HeaderViewController {
 //        tableView.register(nibName, forCellReuseIdentifier: "cell")
         
         // bar item
-    
-                
-        getProductList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         print("product")
-        getProductList()
-    }
-    
-    func getProductList() {
-        let url = "http://20.196.209.221:8000/products"
-        let root = AF.request(url, method: .get)
-        root.responseJSON { response in
+        
+        let url = "http://20.196.209.221:8000/products/"
+        AF.request(url, method: .get).responseDecodable(of: Products.self) { response in
             switch response.result {
-            case .success(let value):
-                do {
-                    let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
-                    let json = try JSONDecoder().decode(Products.self, from: data)
-                    self.products = json.products
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                } catch (let error) {
-                    print(error)
+            case .success(_):
+                guard let response = response.value else { return }
+                self.products = response.products
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
-        
     }
     
     @IBAction func addProduct(_ sender: Any) {
@@ -110,13 +103,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var imageName = ""
         
         guard let products = products else { return UITableViewCell() }
 
         let product = products.reversed()[indexPath.row]
         
-        let identifier = "\(indexPath.row) \(product.productId)"
+        let identifier = "\(indexPath.row) \(product.productId) \(product.joinPPLCnt)"
         
         if let reuseCell = tableView.dequeueReusableCell(withIdentifier: identifier) {
             return reuseCell
@@ -124,33 +116,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = ProductCustomCell.init(style: .default, reuseIdentifier: identifier)
             cell.selectionStyle = .none
             cell.setUpView()
-
-//                if product.productImage == "banner1"{
-//                    cell.productImage.image = UIImage(named: "banner1")
-//                } else {
-//                    let blobName = product.productImage
-//                    let blobImage = AZBlobImage(containerName: "nanuriproductimgs")
-//                    DispatchQueue.main.async {
-//                        blobImage.downloadImage(blobName: blobName, imageView: productImage) { _ in
-//
-//
-//                        }
-//                    }
-//                }
-            if product.productImage == "banner1"{
+            if product.productImage == "banner1" {
                 cell.productIamge.image = UIImage(named: "banner1")
             } else {
                 let blobName = product.productImage
                 let blobImage = AZBlobImage(containerName: "nanuriproductimgs")
                 DispatchQueue.main.async {
                     blobImage.downloadImage(blobName: blobName, imageView: cell.productIamge) { _ in
-
-
                     }
+                    cell.productIamge.snp.makeConstraints { make in
+                        make.top.equalToSuperview()
+                        make.leading.trailing.equalToSuperview()
+                        make.height.equalTo(122)
+                    }
+                    cell.productIamge.contentMode = .scaleAspectFill
                 }
+    
             }
-                
-            
             
             cell.productNameLabel.text = product.productName
             cell.priceLabel.text = NumberFormatter().priceFormatter(price: product.productPrice)

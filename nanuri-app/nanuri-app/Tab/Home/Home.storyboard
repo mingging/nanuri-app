@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cTd-Bn-jVb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cTd-Bn-jVb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OkY-oM-aqI">
-                                <rect key="frame" x="0.0" y="230" width="414" height="666"/>
+                                <rect key="frame" x="0.0" y="256" width="414" height="640"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="237" id="ALk-ve-Uuh" customClass="ProductCustomCell" customModule="nanuri_app" customModuleProvider="target">
@@ -42,7 +42,7 @@
                                     <action selector="addProduct:" destination="9Yp-Ks-may" eventType="touchUpInside" id="XV9-Rs-qhN"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jl7-ZY-szt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jl7-ZY-szt">
                                 <rect key="frame" x="0.0" y="88" width="414" height="142"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="142" id="E04-7f-bFU"/>
@@ -62,7 +62,7 @@
                             <constraint firstItem="Jl7-ZY-szt" firstAttribute="trailing" secondItem="WWZ-ZY-KJa" secondAttribute="trailing" id="aEb-tN-Qp4"/>
                             <constraint firstItem="WWZ-ZY-KJa" firstAttribute="bottom" secondItem="GBC-VY-lsc" secondAttribute="bottom" constant="21" id="jD8-XE-SrA"/>
                             <constraint firstItem="OkY-oM-aqI" firstAttribute="trailing" secondItem="WWZ-ZY-KJa" secondAttribute="trailing" id="nza-aL-Zll"/>
-                            <constraint firstItem="OkY-oM-aqI" firstAttribute="top" secondItem="Jl7-ZY-szt" secondAttribute="bottom" id="qno-at-Lxy"/>
+                            <constraint firstItem="OkY-oM-aqI" firstAttribute="top" secondItem="Jl7-ZY-szt" secondAttribute="bottom" constant="26" id="qno-at-Lxy"/>
                             <constraint firstItem="Jl7-ZY-szt" firstAttribute="top" secondItem="WWZ-ZY-KJa" secondAttribute="top" id="wxg-TW-hea"/>
                         </constraints>
                     </view>
@@ -113,7 +113,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="banner1.png" width="1045" height="470"/>
+        <image name="banner2.png" width="1045" height="470"/>
         <image name="floating_button" width="52" height="52"/>
         <image name="nanuri_home" width="25" height="25"/>
         <image name="nanuri_home_no" width="25" height="25"/>

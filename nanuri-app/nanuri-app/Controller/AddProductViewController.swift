@@ -31,6 +31,8 @@ class AddProductViewController: UIViewController {
     let productNameTextField = UITextField()
     let productLinkTextField = UITextField()
     let productPriceTextField = UITextField()
+    let uploadBtn = UIButton()
+
     
     //MARK: - StepTwoView Property
     let stepTwoScrollView = UIScrollView()
@@ -148,9 +150,9 @@ class AddProductViewController: UIViewController {
                 for (key, value) in parameters {
                     multiFormData.append(Data("\(value)".utf8), withName: key)
                 }
-        }, to: url, headers: header).responseJSON { response in
+        }, to: url, headers: header).responseString { response in
                 switch response.result {
-                case .success(let JSON):
+                case .success(_):
                     print("sucess reponse is :\(response)")
                     
                     let alert = UIAlertController(title: "나누리", message: "상품 등록이 완료되었습니다!", preferredStyle: .alert)
@@ -223,6 +225,7 @@ class AddProductViewController: UIViewController {
         DispatchQueue.main.async {
             // 메인 스레드에서 이미지 업데이트
             self.imageUploadView.image = image
+            self.uploadBtn.setTitle("", for: .normal)
         }
         
     }
@@ -355,18 +358,27 @@ class AddProductViewController: UIViewController {
             make.top.equalTo(productNameTextField.snp.bottom).inset(-50)
             make.height.equalTo(131)
         }
-        imageUploadView.backgroundColor = .gray
+        imageUploadView.contentMode = .scaleAspectFill
+        imageUploadView.clipsToBounds = true
+        imageUploadView.layer.cornerRadius = 5
+        imageUploadView.backgroundColor = .white
+        imageUploadView.layer.borderWidth = 2
+        imageUploadView.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        
         //image upload Button
-        let uploadBtn = UIButton()
         stepOneView.addSubview(uploadBtn)
+        uploadBtn.layer.cornerRadius = 5
         uploadBtn.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalTo(productNameTextField.snp.bottom).inset(-50)
             make.height.equalTo(131)
         }
+        
         uploadBtn.addTarget(self, action: #selector(actGetImage), for: .touchUpInside)
-        uploadBtn.setTitle("이미지 업로드", for: .normal)
-        uploadBtn.backgroundColor = .gray.withAlphaComponent(0.3)
+        uploadBtn.setTitle("이미지를 등록하세요", for: .normal)
+        uploadBtn.titleLabel?.font = UIFont(name: "NanumSquareRoundOTFR", size: 15)
+        uploadBtn.setTitleColor(UIColor(hex: "#827F7Fff"), for: .normal)
+        uploadBtn.backgroundColor = .clear
         
         // product link
         let productLinkLabel = UILabel()
@@ -581,6 +593,7 @@ class AddProductViewController: UIViewController {
             make.top.equalTo(detailContentsLabel.snp.bottom).inset(-12)
             make.height.greaterThanOrEqualTo(300)
         }
+        
         detailContents.isEditable = true
         detailContents.layer.borderWidth = 1
         detailContents.font = UIFont(name: "NanumSquareRoundOTFR", size: 15)
