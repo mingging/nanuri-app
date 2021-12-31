@@ -20,7 +20,6 @@ class PayCompleteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(productName)
         guard let productName = productName,
               let productPrice = productPrice
         else { return }

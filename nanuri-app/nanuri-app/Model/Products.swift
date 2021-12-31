@@ -11,3 +11,8 @@ struct Products: Decodable {
     var count: Int
     var products: [Product]
 }
+
+struct ProductPutResponse: Decodable {
+    var update: String
+    var data: Product
+}

@@ -42,14 +42,17 @@ class ProductCustomCell: UITableViewCell {
             make.bottom.top.equalToSuperview().inset(10)
         }
         
-        productIamge.image = UIImage(named: "banner1")
-        productIamge.sizeToFit()
+        productIamge.frame = CGRect(x: 0, y: 0, width: productView.frame.width, height: 122)
+        productIamge.image = UIImage(named: "")
+        productIamge.clipsToBounds = true
+        productIamge.contentMode = .scaleAspectFill
         productView.addSubview(productIamge)
         productIamge.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.leading.trailing.equalToSuperview()
             make.height.equalTo(122)
         }
+        productView.sendSubviewToBack(productIamge)
         
         productNameLabel.attributedText = NSAttributedString(string: "로스팅 원두")
         productNameLabel.font = UIFont(name: "NanumSquareRoundOTFEB", size: 15)
