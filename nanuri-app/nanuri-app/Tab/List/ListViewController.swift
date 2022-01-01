@@ -72,45 +72,80 @@ class ListViewController: HeaderViewController {
     }
     
     @IBAction func selectedHousehold(_ sender: UIButton) {
+        allsearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        foodSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        kitchenSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        bathSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        stationarySearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        etcSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        
         getCategoryList(id:2)
     }
     
     
     @IBAction func selectedKitchen(_ sender: UIButton) {
+        allsearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        foodSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        householdSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        bathSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        stationarySearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        etcSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        
         getCategoryList(id:3)
     }
     
     @IBAction func selectedBath(_ sender: UIButton) {
+        allsearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        foodSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        householdSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        kitchenSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        stationarySearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        etcSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        
         getCategoryList(id:4)
     }
     
     @IBAction func selectedStationery(_ sender: UIButton) {
+        allsearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        foodSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        householdSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        kitchenSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        bathSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        etcSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        
         getCategoryList(id:5)
     }
     
     @IBAction func selectedEtc(_ sender: UIButton) {
+        allsearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        foodSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        householdSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        kitchenSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        bathSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        stationarySearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        
         getCategoryList(id: 6)
     }
     @IBAction func selectedAll(_ sender: UIButton) {
+        etcSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        foodSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        householdSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        kitchenSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        bathSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        stationarySearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        
         getProductList()
     }
+    /** Category Button Selected **/
     @IBAction func selectedButton(_ sender:UIButton){
-//        for button in buttons{
-//            button.backgroundColor = .clear
-//        }
-//        categoryBtn = sender.tag
+
+        
         let selectedColor = UIColor(displayP3Red: 189.0/255.0, green: 172.0/255.0, blue: 103.0/255.0, alpha: 1.0)
         let defaultColor = UIColor(hex: Theme.primary)
-
         sender.layer.borderColor  = sender.layer.borderColor == selectedColor.cgColor ? defaultColor?.cgColor : selectedColor.cgColor
     }
     
-//    func tappedBtn(_ sender:UIButton){
-//        switch UIButton.isSelected == true{
-//        case allsearch.isSelected: break
-//            allsearch.setTitleColor(.white, for: .selected)
-//        }
-//    }
+
     /* get */
     func getCategoryList(id:Int){
         var categoryId:Int
@@ -191,7 +226,7 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let products = products else { return UITableViewCell() }
-        let product = products[indexPath.row]
+        let product = products.reversed()[indexPath.row]
         
         let identifier = "\(indexPath.row) \(product.productId)"
 
@@ -245,3 +280,6 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 }
+
+
+
