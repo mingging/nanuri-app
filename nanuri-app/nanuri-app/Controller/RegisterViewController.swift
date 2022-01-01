@@ -74,8 +74,8 @@ class RegisterViewController: UIViewController {
                 guard let value = response.value else { return }
                 print(value)
                 Networking.sharedObject.getUserInfo(userID: value.data.userID) { result in
-                    UserSingleton.shared.userData = result
                     
+                    UserSingleton.shared.userData = result
                     UserDefaults.standard.set(result.user.userID, forKey: "userID")
 
                     let addView = UIStoryboard(name: "Main" , bundle: nil)
