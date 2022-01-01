@@ -111,24 +111,26 @@ class ProductDetailViewController: UIViewController {
         }
         
         let attributedString = NSMutableAttributedString(string: product.detailContent)
-        // *** Create instance of `NSMutableParagraphStyle`
-       
-
-        // *** set LineSpacing property in points ***
         paragraphStyle.lineSpacing = 5 // Whatever line spacing you want in points
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
         textView.attributedText = attributedString
         
-        print( UserSingleton.shared.userData)
         
         guard let userData = UserSingleton.shared.userData,
-              let productUserID = productUserID,
-              let productID = productID
+              let productUserID = productUserID
         else { return }
         
+        for i in 0..<userData.user.products.count {
+            if userData.user.products[i].userID == productUserID {
+                print("들어옴")
+                footerButton.setAttributedTitle(NSAttributedString(string: "이미 참여중입니다."), for: .normal)
+                footerButton.isEnabled = false
+                footerButton.backgroundColor = .lightGray
+            }
+        }
+        
         for i in 0..<userData.orders.count {
-            print("@@@@ \(userData.orders[i].productId == productID) @@@ \(userData.user.userID == productUserID)")
-            if userData.orders[i].productId == productID || userData.user.userID == productUserID {
+            if userData.orders[i].userID == productUserID {
                 print("들어옴")
                 footerButton.setAttributedTitle(NSAttributedString(string: "이미 참여중입니다."), for: .normal)
                 footerButton.isEnabled = false
