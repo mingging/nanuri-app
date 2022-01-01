@@ -202,6 +202,16 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             cell.setUpView()
             
+            if product.productImage == "banner1" {
+                cell.productIamge.image = UIImage(named: "banner1")
+            } else {
+                let blobName = product.productImage
+                let blobImage = AZBlobImage(containerName: "nanuriproductimgs")
+                DispatchQueue.main.async {
+                    blobImage.downloadImage(blobName: blobName, imageView: cell.productIamge) { _ in
+                    }
+                }
+            }
             cell.productNameLabel.text = product.productName
             cell.priceLabel.text = NumberFormatter().priceFormatter(price: product.productPrice)
             cell.recruitmentLabel.text = "\(product.joinPPLCnt) / \(product.totalPPLCnt)"
