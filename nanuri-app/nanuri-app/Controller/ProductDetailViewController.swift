@@ -49,10 +49,11 @@ class ProductDetailViewController: UIViewController {
         
         Singleton.shared.startLoading(self.view)
         
-        guard let data = UserSingleton.shared.userData else { return }
-        Networking.sharedObject.getUserInfo(userID: data.user.userID) { response in
-            UserSingleton.shared.userData = response
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+        guard let productID = productID
+        else { return }
+        
+        Networking.sharedObject.getProductInfo(productID: productID) { response in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
                 self.setUpData()
                 Singleton.shared.stopLoading()
             }
@@ -69,7 +70,6 @@ class ProductDetailViewController: UIViewController {
     }
     
     @objc func selectProductLinkButton() {
-        print("click")
         guard let product = product,
               let url = URL(string: product.link),
                 UIApplication.shared.canOpenURL(url)
@@ -78,14 +78,15 @@ class ProductDetailViewController: UIViewController {
     }
     
     func setUpData() {
-        guard let product = product else { return }
+        guard let product = product
+        else { return }
         
         if product.productImage == "banner1"{
             headerImage.image = UIImage(named: "banner1")
         } else {
             let blobName = product.productImage
             let blobImage = AZBlobImage(containerName: "nanuriproductimgs")
-            DispatchQueue.main.async {
+            DispatchQueue.global(qos: .userInteractive).async {
                 blobImage.downloadImage(blobName: blobName, imageView: self.headerImage) { _ in
                 }
                 
@@ -117,21 +118,28 @@ class ProductDetailViewController: UIViewController {
         
         
         guard let userData = UserSingleton.shared.userData,
-              let productUserID = productUserID
+              let productUserID = productUserID,
+              let productID = productID
         else { return }
+        
+        print(productUserID)
+        print(userData.user.userID)
         
         for i in 0..<userData.user.products.count {
             if userData.user.products[i].userID == productUserID {
-                print("들어옴")
                 footerButton.setAttributedTitle(NSAttributedString(string: "이미 참여중입니다."), for: .normal)
                 footerButton.isEnabled = false
                 footerButton.backgroundColor = .lightGray
+            } else {
+                footerButton.setAttributedTitle(NSAttributedString(string: "공동 구매 참여하기"), for: .normal)
             }
         }
         
+        
         for i in 0..<userData.orders.count {
-            if userData.orders[i].userID == productUserID {
-                print("들어옴")
+            print(userData.orders[i].productId)
+            print(productID)
+            if userData.orders[i].productId == productID {
                 footerButton.setAttributedTitle(NSAttributedString(string: "이미 참여중입니다."), for: .normal)
                 footerButton.isEnabled = false
                 footerButton.backgroundColor = .lightGray
@@ -141,7 +149,6 @@ class ProductDetailViewController: UIViewController {
     }
     
     @objc func goToComment() {
-        print("click")
         let commentView = UIStoryboard(name: Stoyboard.comment.name, bundle: nil)
         guard let commentVC = commentView.instantiateViewController(withIdentifier: Stoyboard.comment.id) as? CommentViewController else { return }
         
@@ -183,7 +190,7 @@ class ProductDetailViewController: UIViewController {
             make.leading.trailing.equalTo(self.view)
             make.height.equalTo(250)
         }
-        headerImage.image = UIImage(named: "image_sample")
+        headerImage.image = UIImage(named: "")
         headerImage.clipsToBounds = true
         headerImage.contentMode = .scaleAspectFill
         
@@ -408,7 +415,6 @@ class ProductDetailViewController: UIViewController {
         textView.attributedText = NSAttributedString(string: """
         
         """)
-//        textViewDidChange(textView)
         
         // footer
       

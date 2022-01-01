@@ -78,7 +78,6 @@ class SearchViewController: UIViewController {
                     let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
                     let json = try JSONDecoder().decode(CategoryInfo.self, from: data)
                     self.products = json.category.products
-                    print(json.category.products)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }

@@ -69,3 +69,24 @@ extension Networking {
     }
     
 }
+
+
+extension Networking {
+    func getProductInfo(productID: Int, response: @escaping (_ response: Product) -> ()) {
+        let url = "http://20.196.209.221:8000/products/\(productID)"
+        print("\(#file.split(separator: "/").last!)-\(#function)[\(#line)] \(url) 👉 \(productID)")
+        getProductRequest(url: url, completion: response)
+    }
+    
+    func getProductRequest(url: String, completion: @escaping (_ response: Product) -> ()) {
+        AF.request(url, method: .get).responseDecodable(of: ProductGetResponse.self) { response in
+            switch response.result {
+            case .success(_):
+                guard let response = response.value else { return }
+                completion(response.products)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+}

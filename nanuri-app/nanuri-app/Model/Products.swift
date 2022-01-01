@@ -12,6 +12,10 @@ struct Products: Decodable {
     var products: [Product]
 }
 
+struct ProductGetResponse: Decodable {
+    var products: Product
+}
+
 struct ProductPutResponse: Decodable {
     var update: String
     var data: Product

@@ -110,8 +110,6 @@ class LoginViewController: UIViewController {
                             print("sucess reponse is :\(response)")
                             guard let value = response.value else { return }
                             SnsUserInfoSingleton.shared.id = value.data.id
-                            print(SnsUserInfoSingleton.shared.id)
-//                            SnsUserInfo.shared.id =
                             if let registerVC = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(withIdentifier: "registerStoryboard") as? RegisterViewController {
                                 registerVC.modalPresentationStyle = .fullScreen
                                 self.present(registerVC,animated: true)

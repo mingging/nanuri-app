@@ -31,10 +31,8 @@ class HomeViewController: HeaderViewController {
             make.bottom.equalToSuperview()
         }
         
-        print("@@@@@@ \(UserDefaults.standard.integer(forKey: "userID"))")
         if UserDefaults.standard.integer(forKey: "userID") != 0 {
             Networking.sharedObject.getUserInfo(userID: UserDefaults.standard.integer(forKey: "userID")) { response in
-                print(response)
                 UserSingleton.shared.userData = response
             }
         }
@@ -47,8 +45,6 @@ class HomeViewController: HeaderViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("product")
-        
         let url = "http://20.196.209.221:8000/products/"
         AF.request(url, method: .get).responseDecodable(of: Products.self) { response in
             switch response.result {

@@ -45,7 +45,7 @@ class ListViewController: HeaderViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 237
-        
+        tableView.separatorStyle = .none
         getProductList()
     }
     
@@ -67,8 +67,13 @@ class ListViewController: HeaderViewController {
    
     
     @IBAction func selectedFood(_ sender: UIButton) {
+        householdSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        kitchenSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        bathSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        stationarySearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        etcSearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
+        allsearch.layer.borderColor = UIColor(hex: Theme.primary)?.cgColor
         getCategoryList(id:1)
-        
     }
     
     @IBAction func selectedHousehold(_ sender: UIButton) {
@@ -159,7 +164,6 @@ class ListViewController: HeaderViewController {
                     let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
                     let json = try JSONDecoder().decode(CategoryInfo.self, from: data)
                     self.products = json.category.products
-//                    print(json.category.products)
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }

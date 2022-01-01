@@ -72,7 +72,6 @@ class RegisterViewController: UIViewController {
                
                 print("sucess reponse is :\(response)")
                 guard let value = response.value else { return }
-                print(value)
                 Networking.sharedObject.getUserInfo(userID: value.data.userID) { result in
                     
                     UserSingleton.shared.userData = result
