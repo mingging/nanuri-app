@@ -93,7 +93,6 @@ class AddProductViewController: UIViewController {
     }
     
     @objc func selectFooterButton() {
-        print("click")
         guard validation() else {
             return
         }

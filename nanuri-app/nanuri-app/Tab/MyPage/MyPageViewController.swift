@@ -27,7 +27,7 @@ class MyPageViewController: HeaderViewController {
     override func viewWillAppear(_ animated: Bool) {
 
         guard let data = UserSingleton.shared.userData else { return }
-        Networking.sharedObject.getUserInfo(userID: data.user.userID) { response in
+        Networking.sharedObject.getUserInfo(userID: UserDefaults.standard.integer(forKey: "userID")) { response in
             UserSingleton.shared.userData = response
             self.productList = response.orders
             DispatchQueue.main.async {

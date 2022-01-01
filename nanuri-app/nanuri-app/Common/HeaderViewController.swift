@@ -50,7 +50,6 @@ class HeaderViewController: UIViewController {
     //MARK: - Bar Action
     
     @objc func clickToSearch(sender: UIBarButtonItem) {
-        print("search")
         let searchView = UIStoryboard(name:Stoyboard.search.name,bundle: nil)
         guard let searchVC = searchView.instantiateViewController(withIdentifier: Stoyboard.search.id) as? SearchViewController else { return }
         
